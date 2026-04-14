@@ -1,0 +1,27 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.21.0
+pandas>=1.3.0
+
+# Computer Vision
+opencv-python>=4.5.0
+mediapipe>=0.10.0
+albumentations>=1.3.0
+
+# Mamba (State Space Model)
+mamba-ssm>=1.0.0
+causal-conv1d>=1.0.0
+
+# Training utilities
+tqdm>=4.65.0
+matplotlib>=3.5.0
+seaborn>=0.12.0
+
+# Optional but recommended
+tensorboard>=2.10.0
+wandb>=0.13.0  # For experiment tracking
+
+# Development
+jupyter>=1.0.0
+ipywidgets>=8.0.0
