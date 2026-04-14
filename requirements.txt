@@ -1,6 +1,7 @@
-# Core dependencies
-torch>=2.0.0
-torchvision>=0.15.0
+# Core dependencies (Pinned to match your current WSL/CUDA 12.4 setup)
+--index-url https://download.pytorch.org/whl/cu124
+torch==2.5.1
+torchvision==0.20.1
 numpy>=1.21.0
 pandas>=1.3.0
 
@@ -10,17 +11,18 @@ mediapipe>=0.10.0
 albumentations>=1.3.0
 
 # Mamba (State Space Model)
-mamba-ssm>=1.0.0
-causal-conv1d>=1.0.0
+# Note: These usually require --no-build-isolation during pip install
+mamba-ssm==2.2.2
+causal-conv1d==1.4.0
 
 # Training utilities
 tqdm>=4.65.0
 matplotlib>=3.5.0
 seaborn>=0.12.0
 
-# Optional but recommended
+# Optional/Experiment Tracking
 tensorboard>=2.10.0
-wandb>=0.13.0  # For experiment tracking
+wandb>=0.13.0
 
 # Development
 jupyter>=1.0.0
