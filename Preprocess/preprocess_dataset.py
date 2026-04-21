@@ -2,7 +2,9 @@
 LUMINA Dataset Preprocessing Script
 =====================================
 Extracts lip ROI from each video using MediaPipe Face Mesh,
-normalizes with ImageNet stats, and saves as float16 .pt tensors.
+normalizes with grayscale lip reading stats, and saves as float16 .pt tensors.
+
+Output tensor shape per sample: [T=84, C=1, H=88, W=88] float16  (grayscale)
 
 Output structure:
     LUMINA_preprocessed/
@@ -41,9 +43,9 @@ warnings.filterwarnings("ignore")
 # ──────────────────────────────────────────────────────────────────────────────
 CONFIG = {
     # Paths
-    "dataset_root"  : "/home/flamz/Pre-thesis/LUMINA_Dataset", # Modify Path
+    "dataset_root"  : "/home/flamz/Pre-thesis/LUMINA_Dataset",
     "output_root"   : "LUMINA_preprocessed",
-    "label_file"    : "/home/flamz/Pre-thesis/LUMINA_Dataset/list_of_sentence.xlsx", # Modify Path
+    "label_file"    : "/home/flamz/Pre-thesis/LUMINA_Dataset/list_of_sentence.xlsx",
     "log_file"      : "preprocessing.log",
 
     # Video settings
@@ -55,10 +57,6 @@ CONFIG = {
     "min_detection_confidence": 0.5,
     "min_tracking_confidence" : 0.5,
 }
-
-# ImageNet normalization (pretrained ResNet-18 frontend expects these)
-_MEAN = torch.tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1)
-_STD  = torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)
 
 # MediaPipe Face Mesh — outer lip contour landmark indices
 # Covers the full outer boundary of both upper and lower lip
@@ -156,7 +154,7 @@ def extract_lip_roi(
 ) -> np.ndarray | None:
     """
     Runs MediaPipe on one RGB frame.
-    Returns (roi_size, roi_size, 3) uint8 array, or None if no face found.
+    Returns (roi_size, roi_size) uint8 array (grayscale), or None if no face found.
     """
     h, w = frame_rgb.shape[:2]
     result = face_mesh.process(frame_rgb)
@@ -180,7 +178,8 @@ def extract_lip_roi(
     if crop.size == 0:
         return None
 
-    return cv2.resize(crop, (roi_size, roi_size), interpolation=cv2.INTER_LINEAR)
+    resized = cv2.resize(crop, (roi_size, roi_size), interpolation=cv2.INTER_LINEAR)
+    return cv2.cvtColor(resized, cv2.COLOR_RGB2GRAY)
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -190,7 +189,7 @@ def process_video(video_path: Path, face_mesh, cfg: dict) -> torch.Tensor | None
     """
     Reads all frames from a video, extracts lip ROI per frame,
     pads / truncates to cfg['num_frames'], normalizes, and returns
-    a float16 tensor of shape [T, C, H, W] = [84, 3, 88, 88].
+    a float16 tensor of shape [T, C, H, W] = [84, 1, 88, 88].
 
     Returns None if the video cannot be opened or yields zero frames.
     """
@@ -230,6 +229,7 @@ def process_video(video_path: Path, face_mesh, cfg: dict) -> torch.Tensor | None
             x1 = max(0, cx - half)
             x2 = min(fw, cx + half)
             crop = cv2.resize(rgb[y1:y2, x1:x2], (roi_size, roi_size))
+            crop = cv2.cvtColor(crop, cv2.COLOR_RGB2GRAY)
 
         frames.append(crop)
 
@@ -238,17 +238,17 @@ def process_video(video_path: Path, face_mesh, cfg: dict) -> torch.Tensor | None
     if len(frames) == 0:
         return None
 
-    # Stack → [actual_T, H, W, C]  then permute → [actual_T, C, H, W]
-    tensor = torch.from_numpy(np.stack(frames, axis=0)).float()
-    tensor = tensor.permute(0, 3, 1, 2) / 255.0            # [T, C, H, W] in [0,1]
+    # Stack → [actual_T, H, W] then add channel dim → [actual_T, 1, H, W]
+    tensor = torch.from_numpy(np.stack(frames, axis=0)).float() / 255.0  # [T, H, W]
+    tensor = tensor.unsqueeze(1)                                           # [T, 1, H, W]
 
-    # ImageNet normalisation (for pretrained ResNet-18 frontend)
-    tensor = (tensor - _MEAN) / _STD
+    # Grayscale lip reading normalization (mean/std from lip reading literature)
+    tensor = (tensor - 0.421) / 0.165
 
     # Temporal padding / truncation to exactly T frames
     actual_T = tensor.shape[0]
     if actual_T < T:
-        pad    = torch.zeros(T - actual_T, 3, roi_size, roi_size)
+        pad    = torch.zeros(T - actual_T, 1, roi_size, roi_size)
         tensor = torch.cat([tensor, pad], dim=0)
     else:
         tensor = tensor[:T]
