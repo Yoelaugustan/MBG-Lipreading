@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 import torch
 import torch.nn as nn
-from torch.cuda.amp import autocast, GradScaler
+from torch.amp import autocast, GradScaler
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import LambdaLR
 from tqdm import tqdm
@@ -79,7 +79,7 @@ def train_one_epoch(model, loader, optimizer, scheduler, scaler, ctc_loss, devic
 
         optimizer.zero_grad(set_to_none=True)
 
-        with autocast(enabled=cfg.use_amp):
+        with autocast('cuda', enabled=cfg.use_amp):
             log_probs = model(videos)                         # [T, B, V]
             # CTC expects FP32 log-probs — cast back if AMP is on
             loss = ctc_loss(log_probs.float(), labels, input_lengths, label_lengths)
@@ -120,7 +120,7 @@ def validate(model, loader, ctc_loss, device, vocab, cfg, tag="val"):
         input_lengths = batch["input_lengths"].to(device)
         label_lengths = batch["label_lengths"].to(device)
 
-        with autocast(enabled=cfg.use_amp):
+        with autocast('cuda', enabled=cfg.use_amp):
             log_probs = model(videos)
 
         loss = ctc_loss(log_probs.float(), labels, input_lengths, label_lengths)
@@ -172,13 +172,13 @@ def main():
     optimizer = AdamW(model.parameters(), lr=cfg.lr, weight_decay=cfg.weight_decay)
     total_steps = len(train_loader) * cfg.epochs
     scheduler   = build_scheduler(optimizer, total_steps, cfg.warmup_ratio)
-    scaler      = GradScaler(enabled=cfg.use_amp)
+    scaler      = GradScaler('cuda', enabled=cfg.use_amp)
 
     # ── Resume (optional) ────────────────────────────────────────────────────
     start_epoch, best_cer = 1, float("inf")
     epochs_without_improvement = 0
     if args.resume and Path(args.resume).is_file():
-        ckpt = torch.load(args.resume, map_location=device)
+        ckpt = torch.load(args.resume, map_location=device, weights_only=False)
         model.load_state_dict(ckpt["model"])
         optimizer.load_state_dict(ckpt["optimizer"])
         scheduler.load_state_dict(ckpt["scheduler"])
@@ -249,7 +249,7 @@ def main():
 
     # ── Final test evaluation with the best checkpoint ───────────────────────
     print("\nLoading best checkpoint for final test evaluation...")
-    best_ckpt = torch.load(output_dir / "best.pt", map_location=device)
+    best_ckpt = torch.load(output_dir / "best.pt", map_location=device, weights_only=False)
     model.load_state_dict(best_ckpt["model"])
     test_loss, test_cer, test_wer, _, _ = validate(
         model, test_loader, ctc_loss, device, vocab, cfg, tag="test"
