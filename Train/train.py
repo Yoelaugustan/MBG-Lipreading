@@ -66,9 +66,12 @@ def parse_overrides():
 # ──────────────────────────────────────────────────────────────────────────────
 # TRAIN / VALIDATE
 # ──────────────────────────────────────────────────────────────────────────────
-def train_one_epoch(model, loader, optimizer, scheduler, scaler, ctc_loss, device, cfg, epoch):
+def train_one_epoch(model, loader, optimizer, scheduler, scaler, ctc_loss, device, cfg, epoch, vocab):
     model.train()
+    idx_to_char = {v: k for k, v in vocab.items()}
+
     running_loss, running_n = 0.0, 0
+    all_refs, all_hyps = [], []
     pbar = tqdm(loader, desc=f"Epoch {epoch} [train]", ncols=100)
 
     for step, batch in enumerate(pbar):
@@ -99,11 +102,21 @@ def train_one_epoch(model, loader, optimizer, scheduler, scaler, ctc_loss, devic
         running_loss += loss.item() * videos.size(0)
         running_n    += videos.size(0)
 
+        # Sample train CER every 10 batches (full decode is too slow)
+        if step % 10 == 0:
+            with torch.no_grad():
+                hyps = greedy_ctc_decode(log_probs.detach(), idx_to_char, blank=cfg.ctc_blank)
+                all_hyps.extend(hyps)
+                all_refs.extend(batch["texts"])
+
         if (step + 1) % cfg.log_every == 0:
             pbar.set_postfix(loss=f"{running_loss/running_n:.4f}",
                              lr=f"{scheduler.get_last_lr()[0]:.2e}")
 
-    return running_loss / max(running_n, 1)
+    train_cer = compute_cer(all_refs, all_hyps) if all_refs else float('nan')
+    train_wer = compute_wer(all_refs, all_hyps) if all_refs else float('nan')
+    mean_loss = running_loss / max(running_n, 1)
+    return mean_loss, train_cer, train_wer
 
 
 @torch.no_grad()
@@ -192,8 +205,8 @@ def main():
     history = []
     for epoch in range(start_epoch, cfg.epochs + 1):
         t0 = time.time()
-        train_loss = train_one_epoch(
-            model, train_loader, optimizer, scheduler, scaler, ctc_loss, device, cfg, epoch
+        train_loss, train_cer, train_wer = train_one_epoch(
+            model, train_loader, optimizer, scheduler, scaler, ctc_loss, device, cfg, epoch, vocab
         )
         val_loss, val_cer, val_wer, refs, hyps = validate(
             model, val_loader, ctc_loss, device, vocab, cfg, tag="val"
@@ -201,10 +214,8 @@ def main():
         dt = time.time() - t0
 
         log_line = (f"Epoch {epoch:3d} | "
-                    f"train_loss {train_loss:.4f} | "
-                    f"val_loss {val_loss:.4f} | "
-                    f"val_CER {val_cer:.4f} | "
-                    f"val_WER {val_wer:.4f} | "
+                    f"train_loss {train_loss:.4f} | train_CER {train_cer:.4f} | "
+                    f"val_loss {val_loss:.4f} | val_CER {val_cer:.4f} | val_WER {val_wer:.4f} | "
                     f"time {dt:.1f}s")
         print(log_line)
         # Show 3 decoded samples for sanity check
@@ -213,8 +224,10 @@ def main():
             print(f"   hyp: {h}")
 
         history.append({
-            "epoch": epoch, "train_loss": train_loss, "val_loss": val_loss,
-            "val_cer": val_cer, "val_wer": val_wer, "time_s": dt,
+            "epoch": epoch,
+            "train_loss": train_loss, "train_cer": train_cer, "train_wer": train_wer,
+            "val_loss": val_loss, "val_cer": val_cer, "val_wer": val_wer,
+            "time_s": dt,
         })
         with open(output_dir / "history.json", "w") as f:
             json.dump(history, f, indent=2)
