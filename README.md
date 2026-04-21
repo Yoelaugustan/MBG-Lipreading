@@ -1,366 +1,134 @@
-# LUMINA Lip Reading - Training Pipeline
+# Sentence-Level Lip Reading for Bahasa Indonesia
+---
 
-Complete PyTorch implementation for Indonesian sentence-level lip reading using **3D CNN + Mamba + Bi-GRU + CTC**.
-
-## Architecture
+## Repository Structure
 
 ```
-Input Video (84 frames, 250×150)
-    ↓
-MediaPipe Face Mesh (Lip ROI Extraction → 112×112)
-    ↓
-Data Augmentation (rotation, brightness, crop, noise)
-    ↓
-3D ResNet (Spatiotemporal Feature Extraction)
-    ↓
-Mamba Encoder (6 layers, d=512)
-    ↓
-Bi-GRU (2 layers, hidden=512)
-    ↓
-CTC Decoder
-    ↓
-Output Text
+.
+├── EDA/                          # Exploratory data analysis notebooks
+├── LUMINA_Dataset/               # Raw video files (gitignored — user must provide)
+├── LUMINA_preprocessed/          # Preprocessed .pt tensors (gitignored — generated locally)
+│   ├── female/
+│   ├── male/
+│   ├── manifest.csv
+│   └── vocab.json
+├── Preprocess/
+│   └── preprocess_dataset.py     # MediaPipe lip extraction pipeline
+├── Train/
+│   ├── config.py                 # Centralized hyperparameter configuration
+│   ├── dataset.py                # PyTorch Dataset and DataLoader builders
+│   ├── model.py                  # LUMINAModel and LipFrontend definitions
+│   ├── train.py                  # Training entry point
+│   ├── utils.py                  # CTC decoding and CER/WER metrics
+│   ├── plot_history.py           # Training curve visualization
+│   └── runs/                     # Checkpoints and training logs (gitignored)
+│       └── lumina_exp1/
+│           ├── best.pt           # Best validation CER checkpoint
+│           ├── latest.pt         # Most recent epoch checkpoint
+│           ├── ckpt_epoch{N}.pt  # Periodic backups
+│           └── history.json      # Per-epoch metrics
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
+
+The `LUMINA_Dataset/`, `LUMINA_preprocessed/`, and `Train/runs/` directories are excluded from version control via `.gitignore`. They must be created locally — the dataset by download from the official source, the preprocessed tensors by running the preprocessing script, and the run directory by training the model.
 
 ---
 
-## Setup
+## Installation
 
-### 1. Install Dependencies
+This project was developed and trained on **Windows Subsystem for Linux 2 (WSL2)** with Ubuntu and an NVIDIA GPU. Native Linux is also fully supported. Native Windows is **not recommended** because the `mamba-ssm` package requires CUDA-specific compilation that is significantly easier to set up under Linux/WSL.
+
+### 1. WSL setup (Windows users only)
+
+If you are on Windows, install WSL2 with Ubuntu and verify that your NVIDIA GPU is accessible from within WSL.
+
+```powershell
+# In PowerShell (as Administrator)
+wsl --install -d Ubuntu-22.04
+```
+
+After installation, install the latest NVIDIA driver for Windows (CUDA-on-WSL is supported by the standard NVIDIA Game Ready / Studio drivers — no separate Linux driver is needed inside WSL). Then verify the GPU is visible from inside WSL:
 
 ```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# OR
-venv\Scripts\activate  # Windows
+nvidia-smi
+```
 
-# Install requirements
+If you do not see your GPU listed, update your Windows NVIDIA driver and restart WSL with `wsl --shutdown` from PowerShell.
+
+### 2. Obtain the LUMINA dataset
+
+The LUMINA dataset is **not included** in this repository. Download it from the official LUMINA source and extract it so that the resulting `LUMINA_Dataset/` folder sits at the root of the project, following the directory layout described in the [Dataset](#https://data.mendeley.com/datasets/8fw93k4rny/4) section.
+
+> Replace this paragraph with the official LUMINA download link when available.
+
+### 3. Clone the repository
+
+```bash
+git clone https://github.com/Yoelaugustan/Pre-thesis.git
+cd Pre-thesis
+```
+
+### 4. Create a Python environment
+
+This project requires Python 3.10+. A conda environment is recommended:
+
+```bash
+conda create -n lipreading python=3.10
+conda activate lipreading
+```
+
+### 5. Install dependencies
+
+```bash
 pip install -r requirements.txt
-
-# Install PyTorch with CUDA (for GPU training)
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
 
-### 2. Install Mamba
+The `mamba-ssm` package depends on `causal-conv1d`, which can be installation-sensitive. If `pip install -r requirements.txt` fails on the Mamba-related packages, install them manually with the no-build-isolation flag:
 
 ```bash
-# Mamba requires specific installation
-pip install mamba-ssm causal-conv1d
-
-# If installation fails, you can use Transformer fallback (automatic in code)
+pip install causal-conv1d --no-build-isolation
+pip install mamba-ssm --no-build-isolation
 ```
 
-### 3. Prepare Dataset
+## Usage
 
-**Directory structure:**
-```
-LUMINA/
-├── male/
-│   ├── video/
-│   │   ├── P01_S1.mp4
-│   │   ├── P01_S2.mp4
-│   │   ├── P02_S1.mp4
-│   │   └── ...
-│   └── audio/
-│       ├── P01_S1.wav
-│       └── ...
-├── female/
-│   ├── video/
-│   │   ├── P01_S1.mp4
-│   │   ├── P01_S2.mp4
-│   │   └── ...
-│   └── audio/
-│       ├── P01_S1.wav
-│       └── ...
-└── annotations.txt  # (You need to create this)
-```
+### Step 1 — Preprocessing
 
-**Annotations format:**
-```
-P01_S1.mp4|tunjuk merah angka dua di depan a satu
-P01_S2.mp4|letakkan hijau angka lima di bawah b tiga
-...
-```
-
----
-
-## Configuration
-
-Edit the `Config` class in `train_lip_reading.py`:
-
-```python
-class Config:
-    # Paths
-    DATASET_PATH = "/path/to/LUMINA"  # ← CHANGE THIS
-    
-    # Model
-    MAMBA_LAYERS = 6  # Number of Mamba layers
-    MAMBA_D_MODEL = 512  # Hidden dimension
-    BIGRU_LAYERS = 2  # Bi-GRU layers
-    
-    # Training
-    BATCH_SIZE = 8  # Adjust based on GPU memory
-    NUM_EPOCHS = 100
-    LEARNING_RATE = 1e-4
-```
-
----
-
-## Training
-
-### Quick Start
+After placing the raw `LUMINA_Dataset/` directory at the project root, run:
 
 ```bash
-python train_lip_reading.py
+python Preprocess/preprocess_dataset.py
 ```
 
-### What Happens During Training
+This generates `LUMINA_preprocessed/` containing one `.pt` tensor per video, a `manifest.csv` mapping every tensor to its speaker identifier, gender, sentence number, and ground-truth text, and a `vocab.json` describing the character-level vocabulary. Preprocessing is resumable — re-running the script skips already-processed videos.
 
-1. **Data Loading:**
-   - Scans `male/` and `female/` folders
-   - Extracts speaker IDs from filenames (P01, P02, etc.)
-   - Creates speaker-independent train/val/test splits (70/15/15)
+### Step 2 — Training
 
-2. **Preprocessing (automatic per batch):**
-   - MediaPipe Face Mesh detects facial landmarks
-   - Crops lip region (112×112)
-   - Converts to grayscale
-   - Applies augmentation (train mode only)
+From the project root:
 
-3. **Training Loop:**
-   - Shows progress bar with loss per epoch
-   - Validates after each epoch
-   - Saves best model based on validation loss
-   - Auto-saves checkpoint every 10 epochs
-
-4. **Outputs:**
-   - `checkpoints/best_model.pth` - Best model
-   - `checkpoints/final_model.pth` - Final model
-   - `logs/training_curves.png` - Loss curves
-   - Checkpoints every 10 epochs
-
----
-
-## Model Checkpoints
-
-### Saved Files
-
-```
-checkpoints/
-├── best_model.pth          # Best validation loss
-├── final_model.pth         # After all epochs
-├── checkpoint_epoch_10.pth
-├── checkpoint_epoch_20.pth
-└── ...
-```
-
-### Checkpoint Contents
-
-Each checkpoint contains:
-- Model state dict
-- Optimizer state
-- Learning rate scheduler state
-- Training history
-- Configuration
-
-### Resume Training
-
-```python
-# Load checkpoint and continue training
-trainer = Trainer(model, train_loader, val_loader, config)
-trainer.load_checkpoint('checkpoint_epoch_50.pth')
-trainer.train()  # Continues from epoch 51
-```
-
----
-
-## Data Augmentation
-
-Applied **only during training**:
-
-| Augmentation | Parameters | Probability |
-|--------------|------------|-------------|
-| Random Crop | 90% of original | 0.5 |
-| Horizontal Flip | - | 0.5 |
-| Rotation | ±5° | 0.3 |
-| Brightness/Contrast | ±20% | 0.5 |
-| Gaussian Noise | var 10-50 | 0.3 |
-| Normalization | mean=0.5, std=0.5 | 1.0 |
-
----
-
-## Hardware Requirements
-
-### Minimum
-
-- GPU: 8GB VRAM (GTX 1070, RTX 2060)
-- RAM: 16GB
-- Storage: 50GB
-
-### Recommended
-
-- GPU: 16GB+ VRAM (RTX 3090, A100)
-- RAM: 32GB+
-- Storage: 100GB SSD
-
-### Expected Training Time
-
-| GPU | Batch Size | Time per Epoch | Total (100 epochs) |
-|-----|------------|----------------|-------------------|
-| RTX 2060 | 4 | ~45 min | ~75 hours |
-| RTX 3090 | 8 | ~20 min | ~33 hours |
-| A100 | 16 | ~10 min | ~17 hours |
-
----
-
-## Memory Optimization
-
-If you run out of GPU memory:
-
-1. **Reduce batch size:**
-   ```python
-   config.BATCH_SIZE = 4  # or 2
-   ```
-
-2. **Use gradient accumulation:**
-   ```python
-   accumulation_steps = 4
-   # Effective batch size = BATCH_SIZE × accumulation_steps
-   ```
-
-3. **Downsample frames:**
-   ```python
-   config.NUM_FRAMES_SAMPLE = 42  # Instead of 84
-   ```
-
-4. **Smaller model:**
-   ```python
-   config.MAMBA_LAYERS = 4  # Instead of 6
-   config.MAMBA_D_MODEL = 256  # Instead of 512
-   ```
-
----
-
-## Monitoring Training
-
-### Progress Bar
-
-Training shows real-time progress:
-```
-Epoch 25/100 [TRAIN]: 100%|████████| 1250/1250 [18:23<00:00, loss: 2.3456]
-Epoch 25/100 [VAL]:   100%|████████| 250/250 [03:45<00:00, loss: 2.1234]
-
-Epoch 25/100
-  Train Loss: 2.3456
-  Val Loss: 2.1234
-  LR: 0.000087
-  ✓ New best model! Val Loss: 2.1234
-```
-
-### TensorBoard (Optional)
-
-Add to training loop:
-```python
-from torch.utils.tensorboard import SummaryWriter
-writer = SummaryWriter(log_dir='runs/experiment_1')
-
-# In train_epoch():
-writer.add_scalar('Loss/train', train_loss, epoch)
-writer.add_scalar('Loss/val', val_loss, epoch)
-```
-
-Then view:
 ```bash
-tensorboard --logdir=runs
+python Train/train.py
 ```
 
----
+Training writes checkpoints and per-epoch metrics to the directory specified by `Config.output_dir` (default `Train/runs/lumina_exp1/`). The `best.pt` checkpoint is updated whenever validation CER improves.
 
-## Inference
+### Step 3 — Resume
 
-### Single Video Prediction
+If training is interrupted, resume from the most recent checkpoint:
 
-```python
-import torch
-from train_lip_reading import LipReadingModel, Config, LipROIExtractor
-
-# Load model
-config = Config()
-model = LipReadingModel(config).to(config.DEVICE)
-checkpoint = torch.load('checkpoints/best_model.pth')
-model.load_state_dict(checkpoint['model_state_dict'])
-model.eval()
-
-# Process video
-extractor = LipROIExtractor(output_size=112)
-# ... (extract frames, preprocess)
-
-# Predict
-with torch.no_grad():
-    log_probs = model(frames)
-    prediction = decode_predictions(log_probs, config)
-    print(f"Prediction: {prediction[0]}")
+```bash
+python Train/train.py --resume Train/runs/lumina_exp1/latest.pt
 ```
 
----
+The optimizer state, learning rate scheduler state, AMP gradient scaler, best-CER tracker, and early stopping counter are all restored. The `--resume` argument requires a valid path; an invalid path will raise `FileNotFoundError` rather than silently restarting from epoch 1.
 
-## Troubleshooting
+### Step 4 — Visualize training curves
 
-### Issue: `mamba-ssm` installation fails
-
-**Solution:** Code automatically falls back to Transformer encoder
-```
-Warning: mamba-ssm not installed. Using Transformer fallback.
+```bash
+python Train/plot_history.py
 ```
 
-### Issue: CUDA out of memory
+This reads `runs/lumina_exp1/history.json` and produces side-by-side loss and CER plots for both training and validation splits.
 
-**Solutions:**
-1. Reduce `BATCH_SIZE`
-2. Reduce `NUM_FRAMES_SAMPLE`
-3. Use smaller model (fewer layers, smaller hidden dim)
-
-### Issue: MediaPipe can't detect face
-
-**Solution:** Fallback to center crop is automatic
-```python
-# In extract_lip_roi():
-if not results.multi_face_landmarks:
-    # Returns center crop automatically
-```
-
-### Issue: CTC Loss becomes NaN
-
-**Solutions:**
-1. Check label lengths > 0
-2. Reduce learning rate
-3. Use gradient clipping (already enabled)
-4. Check for inf/nan in inputs
-
----
-
-## Citation
-
-If you use this code, please cite:
-
-```bibtex
-@misc{lumina_lipreading_2026,
-  author = {Yoel},
-  title = {Indonesian Sentence-Level Lip Reading with Mamba},
-  year = {2026},
-  publisher = {GitHub},
-}
-```
-
----
-
-## License
-
-MIT License - feel free to use for research and commercial applications.
-
----
-
-## Contact
-
-For questions or issues, please open a GitHub issue or contact [your email].
