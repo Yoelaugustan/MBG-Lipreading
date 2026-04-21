@@ -64,6 +64,9 @@ class Config:
     # Logging / checkpoints
     log_every          : int  = 50    # log training loss every N steps
     save_every_epochs  : int  = 5     # save a checkpoint every N epochs
+    # Early stopping — halt training if val CER stops improving
+    early_stopping_patience  : int   = 10      # stop after N epochs without improvement
+    early_stopping_min_delta : float = 0.001   # minimum CER decrease to count as improvement
     seed               : int  = 42
 
 
