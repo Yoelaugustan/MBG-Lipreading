@@ -87,7 +87,7 @@ class LUMINADataset(Dataset):
     # ── __getitem__ ───────────────────────────────────────────────────────────
     def __getitem__(self, idx: int) -> dict:
         row = self.df.iloc[idx]
-        video = torch.load(row["pt_path"]).float()   # [T, C, H, W]   (from float16)
+        video = torch.load(row["pt_path"], weights_only=True).float()   # [T, C, H, W]   (from float16)
 
         video = self._augment(video) if self.is_train else self._center_crop(video)
 
