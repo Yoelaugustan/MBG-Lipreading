@@ -190,8 +190,17 @@ def main():
     # ── Resume (optional) ────────────────────────────────────────────────────
     start_epoch, best_cer = 1, float("inf")
     epochs_without_improvement = 0
-    if args.resume and Path(args.resume).is_file():
-        ckpt = torch.load(args.resume, map_location=device, weights_only=False)
+
+    if args.resume:
+        resume_path = Path(args.resume).resolve()
+        if not resume_path.is_file():
+            raise FileNotFoundError(
+                f"--resume path does not exist: {resume_path}\n"
+                f"  (raw argument: {args.resume})\n"
+                f"  (current working directory: {Path.cwd()})"
+            )
+        print(f"Loading checkpoint from: {resume_path}")
+        ckpt = torch.load(resume_path, map_location=device, weights_only=False)
         model.load_state_dict(ckpt["model"])
         optimizer.load_state_dict(ckpt["optimizer"])
         scheduler.load_state_dict(ckpt["scheduler"])
@@ -199,10 +208,18 @@ def main():
         start_epoch = ckpt["epoch"] + 1
         best_cer    = ckpt.get("best_cer", float("inf"))
         epochs_without_improvement = ckpt.get("epochs_without_improvement", 0)
-        print(f"Resumed from {args.resume} at epoch {start_epoch}")
+        print(f"Resumed at epoch {start_epoch} | best CER so far: {best_cer:.4f} | "
+              f"no-improve counter: {epochs_without_improvement}")
 
     # ── Training loop ────────────────────────────────────────────────────────
-    history = []
+    history_path = output_dir / "history.json"
+    if history_path.exists():
+        with open(history_path) as f:
+            history = json.load(f)
+        print(f"Loaded existing history with {len(history)} entries "
+              f"(epochs {history[0]['epoch']}-{history[-1]['epoch']})")
+    else:
+        history = []
     for epoch in range(start_epoch, cfg.epochs + 1):
         t0 = time.time()
         train_loss, train_cer, train_wer = train_one_epoch(
@@ -223,13 +240,18 @@ def main():
             print(f"   ref: {r}")
             print(f"   hyp: {h}")
 
-        history.append({
+        new_entry = {
             "epoch": epoch,
             "train_loss": train_loss, "train_cer": train_cer, "train_wer": train_wer,
             "val_loss": val_loss, "val_cer": val_cer, "val_wer": val_wer,
             "time_s": dt,
-        })
-        with open(output_dir / "history.json", "w") as f:
+        }
+        # Remove any existing entry for this epoch (handles re-runs)
+        history = [h for h in history if h["epoch"] != epoch]
+        history.append(new_entry)
+        history.sort(key=lambda h: h["epoch"])
+
+        with open(history_path, "w") as f:
             json.dump(history, f, indent=2)
 
         # ── Checkpointing ────────────────────────────────────────────────────
