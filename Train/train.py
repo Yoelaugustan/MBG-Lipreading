@@ -176,6 +176,7 @@ def main():
 
     # ── Resume (optional) ────────────────────────────────────────────────────
     start_epoch, best_cer = 1, float("inf")
+    epochs_without_improvement = 0
     if args.resume and Path(args.resume).is_file():
         ckpt = torch.load(args.resume, map_location=device)
         model.load_state_dict(ckpt["model"])
@@ -184,6 +185,7 @@ def main():
         scaler.load_state_dict(ckpt["scaler"])
         start_epoch = ckpt["epoch"] + 1
         best_cer    = ckpt.get("best_cer", float("inf"))
+        epochs_without_improvement = ckpt.get("epochs_without_improvement", 0)
         print(f"Resumed from {args.resume} at epoch {start_epoch}")
 
     # ── Training loop ────────────────────────────────────────────────────────
@@ -225,17 +227,25 @@ def main():
             "scheduler": scheduler.state_dict(),
             "scaler": scaler.state_dict(),
             "best_cer": best_cer,
+            "epochs_without_improvement": epochs_without_improvement,
             "vocab": vocab,
         }
         if epoch % cfg.save_every_epochs == 0:
             torch.save(ckpt, output_dir / f"ckpt_epoch{epoch}.pt")
         torch.save(ckpt, output_dir / "latest.pt")
 
-        if val_cer < best_cer:
+        if val_cer < best_cer - cfg.early_stopping_min_delta:
             best_cer = val_cer
+            epochs_without_improvement = 0
             ckpt["best_cer"] = best_cer
             torch.save(ckpt, output_dir / "best.pt")
             print(f"  ↳ new best CER: {best_cer:.4f}")
+        else:
+            epochs_without_improvement += 1
+            print(f"  ↳ no improvement ({epochs_without_improvement}/{cfg.early_stopping_patience})")
+            if epochs_without_improvement >= cfg.early_stopping_patience:
+                print(f"\nEarly stopping triggered at epoch {epoch}. Best CER: {best_cer:.4f}")
+                break
 
     # ── Final test evaluation with the best checkpoint ───────────────────────
     print("\nLoading best checkpoint for final test evaluation...")
