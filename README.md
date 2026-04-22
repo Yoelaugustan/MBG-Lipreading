@@ -59,9 +59,9 @@ If you do not see your GPU listed, update your Windows NVIDIA driver and restart
 
 ### 2. Obtain the LUMINA dataset
 
-The LUMINA dataset is **not included** in this repository. Download it from the official LUMINA source and extract it so that the resulting `LUMINA_Dataset/` folder sits at the root of the project, following the directory layout described in the [Dataset](#https://data.mendeley.com/datasets/8fw93k4rny/4) section.
+The LUMINA dataset is **not included** in this repository. Download it from the official LUMINA source and extract it so that the resulting `LUMINA_Dataset/` folder sits at the root of the project, following the directory layout described in the Dataset section.
 
-> Replace this paragraph with the official LUMINA download link when available.
+> https://data.mendeley.com/datasets/8fw93k4rny/4
 
 ### 3. Clone the repository
 
