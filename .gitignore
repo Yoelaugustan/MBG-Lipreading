@@ -3,3 +3,4 @@ LUMINA_preprocessed
 
 preprocessing.log
 Train/__pycache__
+bigru_only.log

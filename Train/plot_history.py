@@ -56,6 +56,6 @@ def plot(history_path: str):
 
 
 if __name__ == "__main__":
-    default_path = "runs/lumina_exp1/history.json"
+    default_path = "Train/runs/lumina_bigru_only/history.json"
     path = sys.argv[1] if len(sys.argv) > 1 else default_path
     plot(path)

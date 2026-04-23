@@ -35,6 +35,10 @@ class Config:
     frontend_pretrained: bool = True       # ImageNet-pretrained ResNet-18
     input_channels  : int = 1              # 1 = grayscale, 3 = RGB
 
+    # ─── Variant selection for ablation studies ──────────────────────────────
+    # Options: "parallel" | "bigru_only" | "mamba_only" | "sequential"
+    variant : str = "parallel"
+
     mamba_d_state : int = 16
     mamba_d_conv  : int = 4
     mamba_expand  : int = 2
