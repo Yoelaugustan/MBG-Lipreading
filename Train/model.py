@@ -1,5 +1,5 @@
 """
-model.py — sentence-level lip reading model.
+model.py — sentence-level lip reading model with variant support.
 
 Architecture:
     Video [B, T, 1, 80, 80]   (grayscale, single channel)
@@ -10,21 +10,23 @@ Architecture:
         ▼
     2D ResNet-18 per frame  (ImageNet pretrained, layer1–layer4)   → [B, T, 512]
         │
-        ├──── Mamba branch    ──► [B, T, 512] ──┐
-        │                                        │ concat
-        └──── Bi-GRU branch   ──► [B, T, 512] ──┘
-                                          │
-                                     Linear proj (1024→512)
-                                          │
-                                     CTC head (Linear → vocab_size)
-                                          │
-                                     log_softmax  → [T, B, vocab_size]
+        ▼
+    Temporal backend (variant-specific)                              → [B, T, 512]
+        │
+        ▼
+    CTC head (Linear → vocab_size) → log_softmax                     → [T, B, V]
+
+Variants (selected via cfg.variant):
+  • "parallel"   : Mamba ‖ Bi-GRU, concat + projection  (original design)
+  • "bigru_only" : Bi-GRU only, projection to D
+  • "mamba_only" : Mamba only, projection to D  (kept for param-count parity)
+  • "sequential" : Mamba → Bi-GRU (stacked), projection to D
 
 Design decisions:
-  • 3D stem + 2D ResNet-18 instead of r2plus1d_18 → preserves T=84 for char CTC
-  • Parallel (not sequential) Mamba/Bi-GRU → shorter gradient paths
-  • LayerNorm after each branch → stabilizes gradients
-  • ImageNet pretrained ResNet-18 → strong prior for 80×80 crops
+  • Frontend is shared across all variants — only the temporal backend differs
+  • Parallel variant preserves the original forward pass and parameter count;
+    `load_state_dict` transparently remaps old top-level keys to `temporal.*`
+    so pre-refactor checkpoints still load without error.
 """
 import math
 import torch
@@ -38,6 +40,9 @@ try:
 except ImportError:
     MAMBA_AVAILABLE = False
     print("[warning] mamba_ssm not available — install with: pip install mamba-ssm")
+
+
+VARIANTS_NEEDING_MAMBA = {"parallel", "mamba_only", "sequential"}
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -102,24 +107,18 @@ class LipFrontend(nn.Module):
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# MAIN MODEL
+# TEMPORAL BACKENDS  (each takes [B, T, D] and returns [B, T, D])
 # ──────────────────────────────────────────────────────────────────────────────
-class LUMINAModel(nn.Module):
-    def __init__(self, vocab_size: int, cfg):
+class ParallelBackend(nn.Module):
+    """
+    Mamba ‖ Bi-GRU (parallel), concatenate, project back to D.
+    Matches the original model design exactly (same submodule names/shapes).
+    """
+    def __init__(self, cfg):
         super().__init__()
-        self.cfg = cfg
-        D = cfg.hidden_dim        # 512
+        D = cfg.hidden_dim
 
-        # Frontend
-        self.frontend      = LipFrontend(pretrained=cfg.frontend_pretrained,
-                                         in_channels=cfg.input_channels)
-        self.frontend_norm = nn.LayerNorm(D)
-        self.dropout_in    = nn.Dropout(cfg.dropout)
-
-        # ── Parallel branch A: Mamba ─────────────────────────────────────────
-        if not MAMBA_AVAILABLE:
-            raise RuntimeError("mamba_ssm is required — pip install mamba-ssm")
-        self.mamba      = Mamba(
+        self.mamba = Mamba(
             d_model = D,
             d_state = cfg.mamba_d_state,
             d_conv  = cfg.mamba_d_conv,
@@ -127,7 +126,6 @@ class LUMINAModel(nn.Module):
         )
         self.mamba_norm = nn.LayerNorm(D)
 
-        # ── Parallel branch B: Bi-GRU ─────────────────────────────────────────
         self.bigru = nn.GRU(
             input_size    = D,
             hidden_size   = cfg.gru_hidden,
@@ -139,40 +137,192 @@ class LUMINAModel(nn.Module):
         bigru_out_dim = cfg.gru_hidden * 2
         self.bigru_norm = nn.LayerNorm(bigru_out_dim)
 
-        # ── Fuse and classify ─────────────────────────────────────────────────
-        fused_dim = D + bigru_out_dim                       # 512 + 512 = 1024
         self.fuse = nn.Sequential(
-            nn.Linear(fused_dim, D),
+            nn.Linear(D + bigru_out_dim, D),
             nn.GELU(),
             nn.Dropout(cfg.dropout),
         )
+
+    def forward(self, f: torch.Tensor) -> torch.Tensor:
+        m = self.mamba(f)
+        m = self.mamba_norm(m)
+
+        g, _ = self.bigru(f)
+        g = self.bigru_norm(g)
+
+        return self.fuse(torch.cat([m, g], dim=-1))
+
+
+class BiGRUOnlyBackend(nn.Module):
+    """Bi-GRU only, projected back to D."""
+    def __init__(self, cfg):
+        super().__init__()
+        D = cfg.hidden_dim
+
+        self.bigru = nn.GRU(
+            input_size    = D,
+            hidden_size   = cfg.gru_hidden,
+            num_layers    = cfg.gru_layers,
+            batch_first   = True,
+            bidirectional = True,
+            dropout       = cfg.dropout if cfg.gru_layers > 1 else 0.0,
+        )
+        bigru_out_dim = cfg.gru_hidden * 2
+        self.bigru_norm = nn.LayerNorm(bigru_out_dim)
+
+        self.proj = nn.Sequential(
+            nn.Linear(bigru_out_dim, D),
+            nn.GELU(),
+            nn.Dropout(cfg.dropout),
+        )
+
+    def forward(self, f: torch.Tensor) -> torch.Tensor:
+        g, _ = self.bigru(f)
+        g = self.bigru_norm(g)
+        return self.proj(g)
+
+
+class MambaOnlyBackend(nn.Module):
+    """Mamba only, projected back to D (projection kept for param-count parity)."""
+    def __init__(self, cfg):
+        super().__init__()
+        D = cfg.hidden_dim
+
+        self.mamba = Mamba(
+            d_model = D,
+            d_state = cfg.mamba_d_state,
+            d_conv  = cfg.mamba_d_conv,
+            expand  = cfg.mamba_expand,
+        )
+        self.mamba_norm = nn.LayerNorm(D)
+
+        self.proj = nn.Sequential(
+            nn.Linear(D, D),
+            nn.GELU(),
+            nn.Dropout(cfg.dropout),
+        )
+
+    def forward(self, f: torch.Tensor) -> torch.Tensor:
+        m = self.mamba(f)
+        m = self.mamba_norm(m)
+        return self.proj(m)
+
+
+class SequentialBackend(nn.Module):
+    """Mamba → Bi-GRU (stacked), projected back to D."""
+    def __init__(self, cfg):
+        super().__init__()
+        D = cfg.hidden_dim
+
+        self.mamba = Mamba(
+            d_model = D,
+            d_state = cfg.mamba_d_state,
+            d_conv  = cfg.mamba_d_conv,
+            expand  = cfg.mamba_expand,
+        )
+        self.mamba_norm = nn.LayerNorm(D)
+
+        self.bigru = nn.GRU(
+            input_size    = D,
+            hidden_size   = cfg.gru_hidden,
+            num_layers    = cfg.gru_layers,
+            batch_first   = True,
+            bidirectional = True,
+            dropout       = cfg.dropout if cfg.gru_layers > 1 else 0.0,
+        )
+        bigru_out_dim = cfg.gru_hidden * 2
+        self.bigru_norm = nn.LayerNorm(bigru_out_dim)
+
+        self.proj = nn.Sequential(
+            nn.Linear(bigru_out_dim, D),
+            nn.GELU(),
+            nn.Dropout(cfg.dropout),
+        )
+
+    def forward(self, f: torch.Tensor) -> torch.Tensor:
+        m = self.mamba(f)
+        m = self.mamba_norm(m)
+        g, _ = self.bigru(m)
+        g = self.bigru_norm(g)
+        return self.proj(g)
+
+
+BACKENDS = {
+    "parallel"  : ParallelBackend,
+    "bigru_only": BiGRUOnlyBackend,
+    "mamba_only": MambaOnlyBackend,
+    "sequential": SequentialBackend,
+}
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# MAIN MODEL
+# ──────────────────────────────────────────────────────────────────────────────
+class LUMINAModel(nn.Module):
+    def __init__(self, vocab_size: int, cfg):
+        super().__init__()
+        self.cfg = cfg
+        D = cfg.hidden_dim
+
+        if cfg.variant not in BACKENDS:
+            raise ValueError(
+                f"Unknown variant: {cfg.variant!r}. "
+                f"Valid options: {list(BACKENDS.keys())}"
+            )
+        if cfg.variant in VARIANTS_NEEDING_MAMBA and not MAMBA_AVAILABLE:
+            raise RuntimeError(
+                f"mamba_ssm is required for variant {cfg.variant!r} — "
+                f"pip install mamba-ssm"
+            )
+
+        print(f"[model] Using variant: {cfg.variant}")
+
+        # Frontend (shared across all variants)
+        self.frontend      = LipFrontend(pretrained=cfg.frontend_pretrained,
+                                         in_channels=cfg.input_channels)
+        self.frontend_norm = nn.LayerNorm(D)
+        self.dropout_in    = nn.Dropout(cfg.dropout)
+
+        # Temporal backend (swappable)
+        self.temporal = BACKENDS[cfg.variant](cfg)
+
+        # CTC classification head
         self.ctc_head = nn.Linear(D, vocab_size)
+
+    def load_state_dict(self, state_dict, strict: bool = True):
+        """
+        Back-compat loader: pre-refactor checkpoints for the parallel variant
+        stored its submodules at the top level (mamba.*, mamba_norm.*, bigru.*,
+        bigru_norm.*, fuse.*). The refactor moves them under "temporal.".
+        If we detect the old layout, remap keys transparently.
+        """
+        if self.cfg.variant == "parallel" and not any(
+            k.startswith("temporal.") for k in state_dict
+        ):
+            old_prefixes = ("mamba.", "mamba_norm.", "bigru.", "bigru_norm.", "fuse.")
+            remapped = {}
+            for k, v in state_dict.items():
+                if any(k.startswith(p) for p in old_prefixes):
+                    remapped["temporal." + k] = v
+                else:
+                    remapped[k] = v
+            state_dict = remapped
+        return super().load_state_dict(state_dict, strict=strict)
 
     def forward(self, video: torch.Tensor) -> torch.Tensor:
         """
         video : [B, T, 1, H, W]
         returns log_probs [T, B, vocab_size]  (ready for CTCLoss)
         """
-        f = self.frontend(video)                     # [B, T, 512]
+        f = self.frontend(video)            # [B, T, 512]
         f = self.frontend_norm(f)
         f = self.dropout_in(f)
 
-        # Parallel branches — both read the same frontend features
-        m = self.mamba(f)                            # [B, T, 512]
-        m = self.mamba_norm(m)
+        h = self.temporal(f)                # [B, T, 512]
 
-        g, _ = self.bigru(f)                         # [B, T, 512]
-        g = self.bigru_norm(g)
-
-        # Concatenate along channel axis, then project back to D
-        h = torch.cat([m, g], dim=-1)                # [B, T, 1024]
-        h = self.fuse(h)                             # [B, T, 512]
-
-        logits = self.ctc_head(h)                    # [B, T, vocab_size]
-
+        logits = self.ctc_head(h)           # [B, T, vocab_size]
         # CTCLoss expects [T, B, V] log-probs
-        log_probs = F.log_softmax(logits, dim=-1).transpose(0, 1)
-        return log_probs
+        return F.log_softmax(logits, dim=-1).transpose(0, 1)
 
 
 # ──────────────────────────────────────────────────────────────────────────────

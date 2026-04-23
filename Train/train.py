@@ -57,7 +57,10 @@ def parse_overrides():
     parser.add_argument("--batch_size",  type=int,   default=None)
     parser.add_argument("--epochs",      type=int,   default=None)
     parser.add_argument("--lr",          type=float, default=None)
-    parser.add_argument("--output_dir",  type=str,   default=None)
+    parser.add_argument("--variant",     type=str,   default=None,
+                        help="Model variant: parallel | bigru_only | mamba_only | sequential")
+    parser.add_argument("--output_dir",  type=str,   default=None,
+                        help="Override config.output_dir")
     parser.add_argument("--resume",      type=str,   default=None,
                         help="Path to checkpoint to resume from")
     return parser.parse_args()
