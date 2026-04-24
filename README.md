@@ -1,38 +1,59 @@
 # Sentence-Level Lip Reading for Bahasa Indonesia
+
 ---
 
 ## Repository Structure
 
 ```
 .
-├── EDA/                          # Exploratory data analysis notebooks
-├── LUMINA_Dataset/               # Raw video files (gitignored — user must provide)
-├── LUMINA_preprocessed/          # Preprocessed .pt tensors (gitignored — generated locally)
+├── EDA/                                  # Exploratory data analysis notebooks
+├── LUMINA_Dataset/                       # Raw video files (gitignored — user must provide)
+├── LUMINA_preprocessed/                  # Preprocessed .pt tensors (gitignored — generated locally)
 │   ├── female/
 │   ├── male/
 │   ├── manifest.csv
 │   └── vocab.json
 ├── Preprocess/
-│   └── preprocess_dataset.py     # MediaPipe lip extraction pipeline
+│   └── preprocess_dataset.py             # MediaPipe lip extraction pipeline
 ├── Train/
-│   ├── config.py                 # Centralized hyperparameter configuration
-│   ├── dataset.py                # PyTorch Dataset and DataLoader builders
-│   ├── model.py                  # LUMINAModel and LipFrontend definitions
-│   ├── train.py                  # Training entry point
-│   ├── utils.py                  # CTC decoding and CER/WER metrics
-│   ├── plot_history.py           # Training curve visualization
-│   └── runs/                     # Checkpoints and training logs (gitignored)
-│       └── lumina_exp1/
-│           ├── best.pt           # Best validation CER checkpoint
-│           ├── latest.pt         # Most recent epoch checkpoint
-│           ├── ckpt_epoch{N}.pt  # Periodic backups
-│           └── history.json      # Per-epoch metrics
+│   ├── config.py                         # Centralized hyperparameter configuration
+│   ├── dataset.py                        # PyTorch Dataset and DataLoader builders
+│   ├── model.py                          # LUMINAModel + four architecture variants
+│   ├── train.py                          # Training entry point
+│   ├── utils.py                          # CTC decoding and CER/WER metrics
+│   ├── plot_history.py                   # Single-run training curve visualization
+│   ├── plot_variants.py                  # Multi-variant ablation comparison plots
+│   └── runs/                             # Checkpoints and training logs (gitignored)
+│       ├── lumina_sequential/            # Main model — sequential Mamba → Bi-GRU
+│       │   ├── best.pt                   # Best validation CER checkpoint
+│       │   ├── latest.pt                 # Most recent epoch checkpoint
+│       │   └── history.json              # Per-epoch metrics
+│       ├── lumina_parallel/              # Ablation — parallel Mamba + Bi-GRU
+│       │   ├── best.pt
+│       │   ├── history.json
+│       │   ├── latest.pt
+│       │   └── training_curves.png
+│       ├── lumina_bigru_only/            # Ablation — Bi-GRU only (no Mamba)
+│       │   ├── best.pt
+│       │   ├── history.json
+│       │   ├── latest.pt
+│       │   └── training_curves.png
+│       ├── lumina_mamba_only/            # Ablation — Mamba only (no Bi-GRU)
+│       │   ├── best.pt
+│       │   ├── history.json
+│       │   └── latest.pt
+│       └── comparison/                   # Cross-variant comparison outputs
+│           ├── comparison.csv            # Best metrics per variant
+│           ├── variants_best.png         # Bar chart of best CER/WER per variant
+│           └── variants_curves.png       # Side-by-side training curves
 ├── .gitignore
 ├── README.md
 └── requirements.txt
 ```
 
 The `LUMINA_Dataset/`, `LUMINA_preprocessed/`, and `Train/runs/` directories are excluded from version control via `.gitignore`. They must be created locally — the dataset by download from the official source, the preprocessed tensors by running the preprocessing script, and the run directory by training the model.
+
+The `Train/runs/` folder contains four subdirectories corresponding to the architecture variants evaluated in the ablation study. The main model is **sequential** (Mamba → Bi-GRU), which was selected based on empirical ablation results showing it outperforms parallel composition, Bi-GRU alone, and Mamba alone. The other three variants are retained for reproducibility of the ablation study.
 
 ---
 
@@ -104,7 +125,7 @@ python Preprocess/preprocess_dataset.py
 
 This generates `LUMINA_preprocessed/` containing one `.pt` tensor per video, a `manifest.csv` mapping every tensor to its speaker identifier, gender, sentence number, and ground-truth text, and a `vocab.json` describing the character-level vocabulary. Preprocessing is resumable — re-running the script skips already-processed videos.
 
-### Step 2 — Training
+### Step 2 — Training the main model
 
 From the project root:
 
@@ -112,23 +133,60 @@ From the project root:
 python Train/train.py
 ```
 
-Training writes checkpoints and per-epoch metrics to the directory specified by `Config.output_dir` (default `Train/runs/lumina_exp1/`). The `best.pt` checkpoint is updated whenever validation CER improves.
+This trains the **sequential** variant (Mamba → Bi-GRU), which is the default configured in `Train/config.py`. Training writes checkpoints and per-epoch metrics to the directory specified by `Config.output_dir` (default `Train/runs/lumina_sequential/`). The `best.pt` checkpoint is updated whenever validation CER improves.
 
 ### Step 3 — Resume
 
 If training is interrupted, resume from the most recent checkpoint:
 
 ```bash
-python Train/train.py --resume Train/runs/lumina_exp1/latest.pt
+python Train/train.py --resume Train/runs/lumina_sequential/latest.pt
 ```
 
 The optimizer state, learning rate scheduler state, AMP gradient scaler, best-CER tracker, and early stopping counter are all restored. The `--resume` argument requires a valid path; an invalid path will raise `FileNotFoundError` rather than silently restarting from epoch 1.
 
-### Step 4 — Visualize training curves
+### Step 4 — Training the ablation variants (optional)
+
+Three additional architecture variants are implemented for comparison against the main sequential model. Each can be trained by overriding the `--variant` and `--output_dir` arguments:
+
+```bash
+# Parallel variant — Mamba + Bi-GRU in parallel
+python Train/train.py --variant parallel \
+    --output_dir Train/runs/lumina_parallel
+
+# Bi-GRU only — no Mamba
+python Train/train.py --variant bigru_only \
+    --output_dir Train/runs/lumina_bigru_only
+
+# Mamba only — no Bi-GRU
+python Train/train.py --variant mamba_only \
+    --output_dir Train/runs/lumina_mamba_only
+```
+
+All variants share the same frontend, hyperparameters, and training loop — only the temporal backend differs, so results are directly comparable.
+
+### Step 5 — Visualize training curves
+
+For a single variant's training curves (loss and CER, train and val):
 
 ```bash
 python Train/plot_history.py
 ```
 
-This reads `runs/lumina_exp1/history.json` and produces side-by-side loss and CER plots for both training and validation splits.
+This reads `runs/lumina_sequential/history.json` by default. To plot a different variant, pass the path as an argument.
 
+### Step 6 — Compare variants (ablation study)
+
+After training multiple variants, generate comparison plots and a summary table:
+
+```bash
+python Train/plot_variants.py
+```
+
+This produces three outputs in `Train/runs/comparison/`:
+
+- **`variants_curves.png`** — 2×2 grid overlaying train/val loss and train/val CER curves across all variants
+- **`variants_best.png`** — horizontal bar chart ranking variants by best validation CER and WER
+- **`comparison.csv`** — table with the best epoch, loss, CER, and WER for each variant
+
+The script automatically detects which variants have been trained by looking for `history.json` files in each `lumina_<variant>/` subdirectory. Variants without completed training are skipped with a warning.
