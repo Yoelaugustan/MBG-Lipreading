@@ -17,16 +17,18 @@ Architecture:
     CTC head (Linear → vocab_size) → log_softmax                     → [T, B, V]
 
 Variants (selected via cfg.variant):
-  • "parallel"   : Mamba ‖ Bi-GRU, concat + projection  (original design)
+  • "sequential" : Mamba → Bi-GRU (stacked), projection to D  (main model)
+  • "parallel"   : Mamba ‖ Bi-GRU, concat + projection         (ablation variant)
   • "bigru_only" : Bi-GRU only, projection to D
   • "mamba_only" : Mamba only, projection to D  (kept for param-count parity)
-  • "sequential" : Mamba → Bi-GRU (stacked), projection to D
 
 Design decisions:
   • Frontend is shared across all variants — only the temporal backend differs
-  • Parallel variant preserves the original forward pass and parameter count;
-    `load_state_dict` transparently remaps old top-level keys to `temporal.*`
-    so pre-refactor checkpoints still load without error.
+  • Sequential composition was selected as the main model based on ablation
+    results showing it outperforms parallel composition on LUMINA.
+  • For the parallel variant, `load_state_dict` transparently remaps old
+    top-level keys (mamba.*, bigru.*, fuse.*, ...) to `temporal.*` so
+    pre-refactor checkpoints still load without error.
 """
 import math
 import torch
@@ -111,8 +113,8 @@ class LipFrontend(nn.Module):
 # ──────────────────────────────────────────────────────────────────────────────
 class ParallelBackend(nn.Module):
     """
-    Mamba ‖ Bi-GRU (parallel), concatenate, project back to D.
-    Matches the original model design exactly (same submodule names/shapes).
+    Ablation variant: Mamba ‖ Bi-GRU (parallel), concatenate, project back to D.
+    Retains the pre-refactor submodule names/shapes so legacy checkpoints load.
     """
     def __init__(self, cfg):
         super().__init__()
