@@ -1,0 +1,5 @@
+variant,best_epoch,val_loss,val_cer,val_wer,epochs_trained
+sequential,32,0.1989,0.0403,0.1044,33
+bigru_only,37,0.278,0.0487,0.13,41
+parallel,31,0.2293,0.0488,0.137,40
+mamba_only,31,1.0921,0.2256,0.5596,41
