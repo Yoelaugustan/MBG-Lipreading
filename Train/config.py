@@ -36,8 +36,9 @@ class Config:
     input_channels  : int = 1              # 1 = grayscale, 3 = RGB
 
     # ─── Variant selection for ablation studies ──────────────────────────────
+    # Main model: "sequential" (Mamba → Bi-GRU stacked).
     # Options: "parallel" | "bigru_only" | "mamba_only" | "sequential"
-    variant : str = "parallel"
+    variant : str = "sequential"
 
     mamba_d_state : int = 16
     mamba_d_conv  : int = 4

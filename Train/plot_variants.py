@@ -20,10 +20,10 @@ import pandas as pd
 
 
 VARIANT_STYLE = {
-    "parallel":   {"color": "#378ADD", "label": "Parallel (ours)"},
+    "parallel":   {"color": "#7F77DD", "label": "Parallel"},
     "bigru_only": {"color": "#1D9E75", "label": "Bi-GRU only"},
     "mamba_only": {"color": "#D85A30", "label": "Mamba only"},
-    "sequential": {"color": "#7F77DD", "label": "Sequential (Mamba→Bi-GRU)"},
+    "sequential": {"color": "#378ADD", "label": "Sequential (ours)"},
 }
 
 
