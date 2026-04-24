@@ -5,3 +5,4 @@ preprocessing.log
 Train/__pycache__
 bigru_only.log
 mamba_only.log
+sequential.log
