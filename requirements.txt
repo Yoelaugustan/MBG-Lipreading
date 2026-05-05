@@ -19,6 +19,7 @@ causal-conv1d==1.4.0
 tqdm>=4.65.0
 matplotlib>=3.5.0
 seaborn>=0.12.0
+torchinfo>=1.8.0
 
 # Optional/Experiment Tracking
 tensorboard>=2.10.0
