@@ -1,5 +1,6 @@
-# Core dependencies (Pinned to match your current WSL/CUDA 12.4 setup)
---index-url https://download.pytorch.org/whl/cu124
+# Use nvcc (CUDA Toolkit) version 12.4.1: conda install cuda -c nvidia/label/cuda-12.4.1
+# Use PyPI as the primary index and add PyTorch wheels as an extra index
+--extra-index-url https://download.pytorch.org/whl/cu124
 torch==2.5.1
 torchvision==0.20.1
 numpy==1.26.4
@@ -11,7 +12,7 @@ mediapipe==0.10.21
 albumentations>=1.3.0
 
 # Mamba (State Space Model)
-# Note: These usually require --no-build-isolation during pip install
+# Note: These usually require --no-build-isolation during pip install, also requires nvcc CUDA toolkit, and C++ compiler g++
 mamba-ssm==2.2.2
 causal-conv1d==1.4.0
 

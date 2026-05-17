@@ -190,3 +190,6 @@ This produces three outputs in `Train/runs/comparison/`:
 - **`comparison.csv`** — table with the best epoch, loss, CER, and WER for each variant
 
 The script automatically detects which variants have been trained by looking for `history.json` files in each `lumina_<variant>/` subdirectory. Variants without completed training are skipped with a warning.
+## Config
+`config.py` may need to be modified as the path for the dataset etc. might be different per user.
+CONFIG section in `preprocess_dataset.py` needs to also be modified according to the path.
