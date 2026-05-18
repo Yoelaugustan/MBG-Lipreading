@@ -286,6 +286,7 @@ def build_vocab(texts: list[str]) -> dict[str, int]:
 # ──────────────────────────────────────────────────────────────────────────────
 def main() -> None:
     cfg = CONFIG
+    setup_logging(cfg["log_file"])
     logging.info("LUMINA Preprocessing — starting")
     logging.info(f"Settings: frames={cfg['num_frames']}, "
                  f"roi={cfg['roi_size']}x{cfg['roi_size']}, "
