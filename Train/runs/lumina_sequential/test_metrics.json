@@ -1,0 +1,17 @@
+{
+  "num_samples": 1082,
+  "loss": 1.0052711256330422,
+  "cer": 0.16408186949411827,
+  "wer": 0.3391866913123845,
+  "char_acc_micro": 0.8359181305058817,
+  "word_acc_micro": 0.6608133086876156,
+  "sentence_acc": 0.11829944547134935,
+  "char_er_mean": 0.16462921922315768,
+  "char_er_median": 0.15151515151515152,
+  "word_er_mean": 0.3391866913123845,
+  "word_er_median": 0.3333333333333333,
+  "split": "test",
+  "checkpoint": "Train/runs/lumina_sequential/best.pt",
+  "variant": "sequential",
+  "batch_size": 32
+}
