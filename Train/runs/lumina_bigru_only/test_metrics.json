@@ -1,0 +1,17 @@
+{
+  "num_samples": 1082,
+  "loss": 0.8095419826657406,
+  "cer": 0.14788732394366197,
+  "wer": 0.316543438077634,
+  "char_acc_micro": 0.852112676056338,
+  "word_acc_micro": 0.683456561922366,
+  "sentence_acc": 0.1377079482439926,
+  "char_er_mean": 0.1472195924437996,
+  "char_er_median": 0.11764705882352941,
+  "word_er_mean": 0.316543438077634,
+  "word_er_median": 0.3333333333333333,
+  "split": "test",
+  "checkpoint": "Train/runs/lumina_bigru_only/best.pt",
+  "variant": "bigru_only",
+  "batch_size": 32
+}

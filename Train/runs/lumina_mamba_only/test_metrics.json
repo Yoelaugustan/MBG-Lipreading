@@ -1,0 +1,17 @@
+{
+  "num_samples": 1082,
+  "loss": 2.201196046501343,
+  "cer": 0.38946035765152714,
+  "wer": 0.8314849044978435,
+  "char_acc_micro": 0.6105396423484728,
+  "word_acc_micro": 0.1685150955021565,
+  "sentence_acc": 0.0,
+  "char_er_mean": 0.38945494873953235,
+  "char_er_median": 0.38235294117647056,
+  "word_er_mean": 0.8314849044978436,
+  "word_er_median": 0.8333333333333334,
+  "split": "test",
+  "checkpoint": "Train/runs/lumina_mamba_only/best.pt",
+  "variant": "mamba_only",
+  "batch_size": 32
+}
