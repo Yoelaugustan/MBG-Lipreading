@@ -63,6 +63,14 @@ def parse_overrides():
                         help="Override config.output_dir")
     parser.add_argument("--resume",      type=str,   default=None,
                         help="Path to checkpoint to resume from")
+    parser.add_argument(
+        "--val_speakers", type=str, nargs="+", default=None,
+        help="Override config.val_speakers. Pass speaker IDs separated by spaces, e.g., --val_speakers P11"
+    )
+    parser.add_argument(
+        "--test_speakers", type=str, nargs="+", default=None,
+        help="Override config.test_speakers. Pass speaker IDs separated by spaces, e.g., --test_speakers P05"
+    )
     return parser.parse_args()
 
 
@@ -162,6 +170,8 @@ def main():
     cfg  = get_config()
     for k, v in vars(args).items():
         if v is not None and hasattr(cfg, k):
+            if k in ("val_speakers", "test_speakers"):
+                v = tuple(v)
             setattr(cfg, k, v)
 
     set_seed(cfg.seed)

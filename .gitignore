@@ -6,3 +6,12 @@ Train/__pycache__
 bigru_only.log
 mamba_only.log
 sequential.log
+
+LUMINA_Dataset
+LUMINA_preprocessed
+
+preprocessing.log
+Train/__pycache__
+bigru_only.log
+mamba_only.log
+sequential.log
