@@ -1,0 +1,5150 @@
+{
+  "num_samples": 1025,
+  "loss": 0.5217195605068672,
+  "cer": 0.17100818047295976,
+  "wer": 0.4900813008130081,
+  "char_acc_micro": 0.8289918195270403,
+  "word_acc_micro": 0.509918699186992,
+  "sentence_acc": 0.005853658536585366,
+  "char_er_mean": 0.171115907767392,
+  "char_er_median": 0.16129032258064516,
+  "word_er_mean": 0.4900813008130081,
+  "word_er_median": 0.5,
+  "split": "test",
+  "checkpoint": "Train/runs/fold3_mamba_only/best.pt",
+  "variant": "mamba_only",
+  "batch_size": 32,
+  "beam_metrics": {
+    "cer": 0.1676298964179021,
+    "wer": 0.4686178861788618,
+    "delta_cer": -0.003378284055057662,
+    "delta_wer": -0.021463414634146305
+  },
+  "beam_predictions": [
+    {
+      "ref": "baca lima jeruji hijau di hotel",
+      "greedy": "gubi lima ceruji hijau di hotel",
+      "beam": "gubi lima ceruji hijau di hotel"
+    },
+    {
+      "ref": "gutik tiga jeruji hijau ke kantor",
+      "greedy": "gutik tga djeruji hijau ke kantor",
+      "beam": "gutik tga jeruji hijau ke kantor"
+    },
+    {
+      "ref": "baca sepuluh defensi merah ke festival",
+      "greedy": "cabi semuluh defensi merah ke festival",
+      "beam": "cabi sepuluh defensi merah ke festival"
+    },
+    {
+      "ref": "taruh tujuh ujiyan kuning di negeri",
+      "greedy": "gubih tuh ukiyan uning ke negeri",
+      "beam": "gubih tuh ukiyan uning ke negeri"
+    },
+    {
+      "ref": "ambil lima logika merah di loket",
+      "greedy": "gatil lima rgogika mah dig loket",
+      "beam": "gatil lima rgogika mah dig loket"
+    },
+    {
+      "ref": "cari enam lukisan merah dari negeri",
+      "greedy": "gubi enam sukisan a dari ke negeri",
+      "beam": "gubi enam sukisan a dari ke negeri"
+    },
+    {
+      "ref": "lihat tujuh logika merah di monumen",
+      "greedy": "garit tujuh kondika merah di monumen",
+      "beam": "garit tujuh kondika merah di monumen"
+    },
+    {
+      "ref": "coba enam fonemik merah di solo",
+      "greedy": "cabi enam sonemik merah di  solo",
+      "beam": "gabi enam sonemik merah di  solo"
+    },
+    {
+      "ref": "baca tujuh kimono merah dari sekolah",
+      "greedy": "cabi dujuh ukiumono merah dardi sekolah",
+      "beam": "cari dujuh ukiumono merah dardi sekolah"
+    },
+    {
+      "ref": "gutik lima piano merah dari opera",
+      "greedy": "cabik limae mpinou merah dari opera",
+      "beam": "cabik limae mpinou merah dari opera"
+    },
+    {
+      "ref": "ambil empat sukulen merah di monumen",
+      "greedy": "cabil empat ukulganm merah di monumen",
+      "beam": "cabil empat ukulganm merah di monumen"
+    },
+    {
+      "ref": "coba dua fundamen kuning dari festival",
+      "greedy": "gubi dua fundamen unigu dari festival",
+      "beam": "gubi dua fundamen unigu dari festival"
+    },
+    {
+      "ref": "gutik satu berewok hijau di festival",
+      "greedy": "gutik datu pungaewok hijau di festival",
+      "beam": "gutik datu pungaewok hijau di festival"
+    },
+    {
+      "ref": "gutik tiga ujiyan hijau dari opera",
+      "greedy": "catik tigna hujiyan hndiau dari opera",
+      "beam": "catik tigna hujiyan hndiau dari opera"
+    },
+    {
+      "ref": "baca tujuh wejangan hijau di bekasi",
+      "greedy": "caba tujuh uwejangan hidiu di bekasi",
+      "beam": "caba tujuh uwejangan hidiu di bekasi"
+    },
+    {
+      "ref": "ambil sepuluh jeruji kuning di loket",
+      "greedy": "gubil semuluh deruji kuning dig loket",
+      "beam": "gubil semuluh deruji kuning dig loket"
+    },
+    {
+      "ref": "ambil tiga piano hijau ke opera",
+      "greedy": "gabil tigapiano hkeu ke opera",
+      "beam": "gabil tigapiano hkeu ke opera"
+    },
+    {
+      "ref": "baca dua obyektif indigo ke sekolah",
+      "greedy": "gabi tua obyektif indigo kig s kolglrh",
+      "beam": "gabi tua obyektif indigo kig s kolglrh"
+    },
+    {
+      "ref": "gutik tujuh acuhan hijau dari sekolah",
+      "greedy": "guta tujuh acunan hijau darigo oerh",
+      "beam": "guta tujuh acunan hijau darigo oerh"
+    },
+    {
+      "ref": "ambil tujuh yodiyum hijau ke solo",
+      "greedy": "gubil tujuh yodiyumw hijau ke solo",
+      "beam": "gubil tujuh yodiyumw hijau ke solo"
+    },
+    {
+      "ref": "lihat delapan fonemik indigo di jogja",
+      "greedy": "cubit delapan fonemik indigo di joggja",
+      "beam": "cubit delapan fonemik indigo di joggja"
+    },
+    {
+      "ref": "taruh tiga berewok ungu di bekasi",
+      "greedy": "gutih tiga berewok ungu di bekasi",
+      "beam": "gutih tiga berewok ungu di bekasi"
+    },
+    {
+      "ref": "taruh empat logika merah dari loket",
+      "greedy": "gubih empbat gogika merah dari loket",
+      "beam": "gubih empbat gogika merah dari loket"
+    },
+    {
+      "ref": "ambil satu logika hijau di kantor",
+      "greedy": "cubil datuongka hijau di kanolo",
+      "beam": "cubil datuongka hijau di kanolo"
+    },
+    {
+      "ref": "ambil dua defensi ungu dari hotel",
+      "greedy": "garil dua defensi ungu dari hotel",
+      "beam": "garil dua defensi ungu dari hotel"
+    },
+    {
+      "ref": "coba lima fundamen merah di negeri",
+      "greedy": "guti lima fundamen merah dai negeri",
+      "beam": "guti lima fundamen merah dai negeri"
+    },
+    {
+      "ref": "coba sembilan ilmuwan indigo ke loket",
+      "greedy": "gubi semjeran kimuwan indigo ke loke",
+      "beam": "gubi semjeran kimuwan indigo ke loke"
+    },
+    {
+      "ref": "baca sembilan ceciwis hijau dari jogja",
+      "greedy": "gubi dsemlrnjeciwis hijau dari jogja",
+      "beam": "gubi dsemlrnjeciwis hijau dari jogja"
+    },
+    {
+      "ref": "gutik delapan ilmuwan merah di sekolah",
+      "greedy": "garik denap an ilmuwan mrah di sekolah",
+      "beam": "garik denap an ilmuwan mrah di sekolah"
+    },
+    {
+      "ref": "ambil tujuh fundamen ungu di sekolah",
+      "greedy": "garil duh fundamen ungu di sekolah",
+      "beam": "garil duh fundamen ungu di sekolah"
+    },
+    {
+      "ref": "gutik tujuh filsafat merah dari monumen",
+      "greedy": "cabik tuh vensafat merah dari monuen",
+      "beam": "cabik tuh vensafat merah dari monuen"
+    },
+    {
+      "ref": "taruh empat hubungan merah di negeri",
+      "greedy": "gutih ebubit ubungan merah di negeri",
+      "beam": "gutih ebubit ubungan merah di negeri"
+    },
+    {
+      "ref": "lihat sepuluh komodo indigo dari sekolah",
+      "greedy": "cabit semuluh oumudoning indigo dari sekolah",
+      "beam": "cabit semuluh oumudoning indigo dari sekolah"
+    },
+    {
+      "ref": "ambil satu emosi indigo dari bekasi",
+      "greedy": "guril satu hamosi indigo dari bekasi",
+      "beam": "guril satu hamosi indigo dari bekasi"
+    },
+    {
+      "ref": "baca tiga romawi merah dari kantor",
+      "greedy": "caba iga romawi merah dari ka solo",
+      "beam": "caba iga romawi merah dari ka solo"
+    },
+    {
+      "ref": "ambil enam ujiyan indigo di kantor",
+      "greedy": "cabil enam hujiyan indigo dki kanntolo",
+      "beam": "cabil enam hujiyan indigo dki kanntolo"
+    },
+    {
+      "ref": "baca sembilan romawi indigo ke solo",
+      "greedy": "gubi sem kia komawi indigo ke solo",
+      "beam": "gubi sem kia komawi indigo ke solo"
+    },
+    {
+      "ref": "lihat sembilan sukulen hijau di solo",
+      "greedy": "guti sembilan sunlen hijau di solo",
+      "beam": "guti sembilan sunlen hijau di solo"
+    },
+    {
+      "ref": "baca empat wejangan merah dari bekasi",
+      "greedy": "gabi empatmwejangan ra darii bekari",
+      "beam": "gabi empatmwejangan ra darii bekari"
+    },
+    {
+      "ref": "lihat sepuluh emosi hijau di sekolah",
+      "greedy": "cabit semuluh emosi hidigu indig sekolah",
+      "beam": "cabit semuluh emosi hidigu indig sekolah"
+    },
+    {
+      "ref": "taruh empat ujiyan ungu ke negeri",
+      "greedy": "gubih mpat ujiyan kungu ke negeri",
+      "beam": "gubih mpat ujiyan ungu ke negeri"
+    },
+    {
+      "ref": "ambil tujuh kimono hijau ke bekasi",
+      "greedy": "cabil dujukium ono hijau ke bekasi",
+      "beam": "cabil dujukium ono hijau ke bekasi"
+    },
+    {
+      "ref": "gutik dua nubuwat merah ke hotel",
+      "greedy": "cabik dua nubunwat merah ke hotel",
+      "beam": "cabik dua nubunwat merah ke hotel"
+    },
+    {
+      "ref": "baca enam berewok indigo ke opera",
+      "greedy": "cabi deam berewok indigo ke opera",
+      "beam": "cari deam berewok indigo ke opera"
+    },
+    {
+      "ref": "cari lima piano indigo di bekasi",
+      "greedy": "gabi lima piano indigo di bekasi",
+      "beam": "gabi lima piano indigo di bekasi"
+    },
+    {
+      "ref": "lihat lima piano ungu dari monumen",
+      "greedy": "gubit ima pinoungu dari monumen",
+      "beam": "gubit ima pinoungu dari monumen"
+    },
+    {
+      "ref": "cari tiga fonemik ungu di kantor",
+      "greedy": "gubi tiga fonemik kungu di kantour",
+      "beam": "gubi tiga fonemik kungu di kantor"
+    },
+    {
+      "ref": "taruh sepuluh berewok kuning di monumen",
+      "greedy": "garih sepuluh buenrewok kuning di monumen",
+      "beam": "garih sepuluh buenrewok kuning di monumen"
+    },
+    {
+      "ref": "coba sepuluh boneka indigo di hotel",
+      "greedy": "guti sempuluh mungeka rdigo di hotel",
+      "beam": "guti sempuluh mungeka rdigo di hotel"
+    },
+    {
+      "ref": "cari tujuh suvenir indigo di hotel",
+      "greedy": "cabi tujuh suvenir indigo di hotel",
+      "beam": "cabi tujuh suvenir indigo di hotel"
+    },
+    {
+      "ref": "ambil tujuh solusi merah dari hotel",
+      "greedy": "gubil duh syol usi merah dari hotel",
+      "beam": "gubil duh syol usi merah dari hotel"
+    },
+    {
+      "ref": "coba enam mukjizat indigo dari opera",
+      "greedy": "caba enam mukjizan indigo dari opera",
+      "beam": "caba enam mukjizan indigo dari opera"
+    },
+    {
+      "ref": "ambil enam filsafat ungu ke sekolah",
+      "greedy": "gabil ea funlsafat ungu ig dogr",
+      "beam": "gabil ea funlsafat ungu ig dogr"
+    },
+    {
+      "ref": "coba sepuluh obyektif kuning ke hotel",
+      "greedy": "gubi sepuluh obyektif uning ke hotel",
+      "beam": "gubi sepuluh obyektif uning ke hotel"
+    },
+    {
+      "ref": "ambil tiga lukisan hijau di loket",
+      "greedy": "guril tidgea lukisan hijau di loket",
+      "beam": "guril tidgea lukisan hijau di loket"
+    },
+    {
+      "ref": "cari tujuh fundamen indigo dari jogja",
+      "greedy": "cabi tujuh sundamen indigo dari joj",
+      "beam": "cabi tujuh sundamen indigo dari joj"
+    },
+    {
+      "ref": "ambil sembilan romawi ungu dari solo",
+      "greedy": "gmbil semuilan omawi ungu dari esolo",
+      "beam": "gmbil semuilan omawi ungu dari solo"
+    },
+    {
+      "ref": "ambil satu solusi kuning ke loket",
+      "greedy": "ambil dat uo uji kuning ke loket",
+      "beam": "ambil dat uo uji kuning ke loket"
+    },
+    {
+      "ref": "ambil sepuluh sukulen kuning dari bekasi",
+      "greedy": "gubil sepuluh sunen uning dari bekasi",
+      "beam": "gubil sepuluh sunen uning dari bekasi"
+    },
+    {
+      "ref": "ambil empat fundamen merah dari sekolah",
+      "greedy": "gubul mpit fundamenm merah dari dagrh",
+      "beam": "gubul mpit fundamenm merah dari dagrh"
+    },
+    {
+      "ref": "ambil delapan defensi hijau di opera",
+      "greedy": "ambil degapan defensi hijau di opera",
+      "beam": "ambil degapan defensi hijau di opera"
+    },
+    {
+      "ref": "cari dua lukisan indigo di sekolah",
+      "greedy": "gubu tuaa ukisan indigo ndig sekolah",
+      "beam": "gubu tuaa ukisan indigo ndig sekolah"
+    },
+    {
+      "ref": "gutik sepuluh defensi indigo di hotel",
+      "greedy": "gutik sepuluh defensi indigo di hotel",
+      "beam": "gutik sepuluh defensi indigo di hotel"
+    },
+    {
+      "ref": "ambil lima ujiyan indigo ke negeri",
+      "greedy": "gmbil lima ujiyan in indigo ke negeri",
+      "beam": "gmbil lima ujiyan in indigo ke negeri"
+    },
+    {
+      "ref": "gutik dua hubungan kuning ke hotel",
+      "greedy": "gubak dua kumungan uning ke hotel",
+      "beam": "gubak dua kumungan uning ke hotel"
+    },
+    {
+      "ref": "coba sembilan defensi indigo ke sekolah",
+      "greedy": "guta sembilan defensi indigo nkig sekolah",
+      "beam": "guta sembilan defensi indigo nkig sekolah"
+    },
+    {
+      "ref": "gutik sembilan nubuwat ungu ke sekolah",
+      "greedy": "guta demailan nubuwat ungu keo sekolah",
+      "beam": "guta demailan nubuwat ungu ke sekolah"
+    },
+    {
+      "ref": "baca lima yodiyum indigo dari negeri",
+      "greedy": "gubi lima yodiyum indigo dari negeri",
+      "beam": "gubi lima yodiyum indigo dari negeri"
+    },
+    {
+      "ref": "lihat enam fundamen hijau dari monumen",
+      "greedy": "cutit dnam sundamen hijau dari monumen",
+      "beam": "cutit dnam sundamen hijau dari monumen"
+    },
+    {
+      "ref": "coba lima sukulen indigo di solo",
+      "greedy": "gabi lima sukulen indigo di solo",
+      "beam": "gabi lima sukulen indigo di solo"
+    },
+    {
+      "ref": "baca sembilan defensi kuning ke hotel",
+      "greedy": "gati sembilan defensi kuning ke hotel",
+      "beam": "gati sembilan defensi kuning ke hotel"
+    },
+    {
+      "ref": "coba satu fundamen kuning dari solo",
+      "greedy": "guta sdatu sungamen kuning dari solo",
+      "beam": "guta sdatu sungamen kuning dari solo"
+    },
+    {
+      "ref": "baca lima ujiyan ungu di sekolah",
+      "greedy": "caba lima ujiyan ungu di sekolah",
+      "beam": "caba lima ujiyan ungu di sekolah"
+    },
+    {
+      "ref": "gutik satu heliyum merah ke sekolah",
+      "greedy": "gubik datu nanyum merah ke sekoglah",
+      "beam": "gutik datu nanyum merah ke sekolah"
+    },
+    {
+      "ref": "coba lima komodo merah ke negeri",
+      "greedy": "cabi lima gomodo o merah k kenegeri",
+      "beam": "cari lima gomodo o merah k kenegeri"
+    },
+    {
+      "ref": "cari enam berewok ungu di bekasi",
+      "greedy": "cabi enam berewok ungu k bekasi",
+      "beam": "cabi enam berewok ungu k bekasi"
+    },
+    {
+      "ref": "coba delapan hubungan ungu dari jogja",
+      "greedy": "guba dilap en ubungan ungu dari jogja",
+      "beam": "guba dilap en ubungan ungu dari jogja"
+    },
+    {
+      "ref": "taruh sepuluh piano merah dari hotel",
+      "greedy": "gubuh sepuh piano merah dari hotel",
+      "beam": "gubuh sepuh piano merah dari hotel"
+    },
+    {
+      "ref": "taruh satu jerami kuning ke solo",
+      "greedy": "gutuh satu ujyrami uning de solo",
+      "beam": "gutuh satu ujyrami uning ke solo"
+    },
+    {
+      "ref": "gutik tiga lukisan kuning dari hotel",
+      "greedy": "gutik  tga lunian kuning dari hotel",
+      "beam": "gutik  tga lunian kuning dari hotel"
+    },
+    {
+      "ref": "gutik delapan piano indigo ke bekasi",
+      "greedy": "gutik denap enpino indigo k bekasi",
+      "beam": "gutik denap enpino indigo k bekasi"
+    },
+    {
+      "ref": "ambil delapan berewok merah dari loket",
+      "greedy": "ambil delapinbirewok merah dari loket",
+      "beam": "ambil delapinbirewok merah dari loket"
+    },
+    {
+      "ref": "coba delapan logika merah di hotel",
+      "greedy": "goba delapan kukian merah di hotel",
+      "beam": "goba delapan kukian merah di hotel"
+    },
+    {
+      "ref": "ambil satu filsafat indigo di kantor",
+      "greedy": "gmbil satu silsafat indigo di kannator",
+      "beam": "gmbil satu silsafat indigo di kannator"
+    },
+    {
+      "ref": "lihat tujuh ilmuwan kuning ke monumen",
+      "greedy": "gurat tujuh lmuwan uning ke monumen",
+      "beam": "gurat tujuh lmuwan uning ke monumen"
+    },
+    {
+      "ref": "baca delapan komodo hijau ke negeri",
+      "greedy": "cutia delapan yomodongu hijau ke negeri",
+      "beam": "cutia delapan yomodongu hijau ke negeri"
+    },
+    {
+      "ref": "cari delapan sukulen hijau di bekasi",
+      "greedy": "gabi delapan dsulen hijau di bekasi",
+      "beam": "gabi delapan dsulen hijau di bekasi"
+    },
+    {
+      "ref": "cari empat difusi ungu di negeri",
+      "greedy": "cabi em a difuni kungu di negeri",
+      "beam": "cabi em a difuni kungu di negeri"
+    },
+    {
+      "ref": "gutik satu fundamen ungu ke monumen",
+      "greedy": "gabik datusundamen ungu ke monumen",
+      "beam": "gabik datusundamen ungu ke monumen"
+    },
+    {
+      "ref": "lihat sembilan jeruji kuning dari negeri",
+      "greedy": "gabit sembilarn cer ujin uning dari  negri",
+      "beam": "gabit sembilarn cer ujin uning dari  negri"
+    },
+    {
+      "ref": "cari tujuh lukisan kuning ke loket",
+      "greedy": "cabi tujuh ukisan ung ke loket",
+      "beam": "cari tujuh ukisan ung ke loket"
+    },
+    {
+      "ref": "cari enam sukulen ungu dari monumen",
+      "greedy": "cabi enam sulen ungu dari monumen",
+      "beam": "cabi enam sukulen ungu dari monumen"
+    },
+    {
+      "ref": "coba enam wejangan merah ke bekasi",
+      "greedy": "guba enam mwkjangan mearah ke bekari",
+      "beam": "guba enam mwkjangan mearah ke bekari"
+    },
+    {
+      "ref": "gutik lima yodiyum indigo di bekasi",
+      "greedy": "gutik lima gogiyum indigo di bekasi",
+      "beam": "gutik lima gogiyum indigo di bekasi"
+    },
+    {
+      "ref": "cari sepuluh sukulen indigo dari hotel",
+      "greedy": "gubi emuluh sunlen indigo dari hotel",
+      "beam": "gubi emuluh sunlen indigo dari hotel"
+    },
+    {
+      "ref": "taruh empat wejangan kuning dari monumen",
+      "greedy": "gutih empiat wjangan uning dari monumen",
+      "beam": "gutih empiatwjangan uning dari monumen"
+    },
+    {
+      "ref": "coba delapan solusi indigo dari opera",
+      "greedy": "cabi dlapan sousi indigo dari opera",
+      "beam": "cari dlapan sousi indigo dari opera"
+    },
+    {
+      "ref": "taruh tujuh emosi hijau dari opera",
+      "greedy": "gurih tujuh hemosi hijau dari opera",
+      "beam": "gurih tujuh hemosi hijau dari opera"
+    },
+    {
+      "ref": "lihat empat ujiyan hijau dari jogja",
+      "greedy": "gatit empat ujiyan hijau dari joggja",
+      "beam": "gatit empat ujiyan hijau dari joggja"
+    },
+    {
+      "ref": "ambil lima acuhan hijau di loket",
+      "greedy": "caril lima acuhan hijau di loket",
+      "beam": "caril lima acuhan hijau di loket"
+    },
+    {
+      "ref": "taruh dua ilmuwan kuning di jogja",
+      "greedy": "gubih dua munan ung di joggja",
+      "beam": "gubih dua munan ung di joggja"
+    },
+    {
+      "ref": "cari sembilan wejangan ungu ke jogja",
+      "greedy": "gubi semlan wejangan ungu ke jogja",
+      "beam": "gubi semlan wejangan ungu ke jogja"
+    },
+    {
+      "ref": "lihat lima fundamen merah ke festival",
+      "greedy": "gubit lima fundamen merah ke festival",
+      "beam": "gubit lima fundamen merah ke festival"
+    },
+    {
+      "ref": "gutik empat fundamen hijau dari bekasi",
+      "greedy": "gutik empat fundamen hijau dari bekasi",
+      "beam": "gutik empat fundamen hijau dari bekasi"
+    },
+    {
+      "ref": "lihat empat defensi indigo di hotel",
+      "greedy": "gutit empat defensi indigo di hotel",
+      "beam": "gutit empat defensi indigo di hotel"
+    },
+    {
+      "ref": "gutik tiga acuhan ungu dari jogja",
+      "greedy": "gubik tiga acuhan ungu dari jogja",
+      "beam": "gutik tiga acuhan ungu dari jogja"
+    },
+    {
+      "ref": "baca empat fundamen kuning di bekasi",
+      "greedy": "cari empat fundamen uning di bekasi",
+      "beam": "cari empat fundamen uning di bekasi"
+    },
+    {
+      "ref": "coba delapan yodiyum hijau ke monumen",
+      "greedy": "cubi delap an rondiyum hijau ke monumen",
+      "beam": "cubi delap an rondiyum hijau ke monumen"
+    },
+    {
+      "ref": "baca empat piano indigo dari monumen",
+      "greedy": "cabi empat piano indigo dari monuen",
+      "beam": "cabi empat piano indigo dari monuen"
+    },
+    {
+      "ref": "coba delapan difusi merah ke hotel",
+      "greedy": "gabi delapan difusi merah ke hotel",
+      "beam": "cari delapan difusi merah ke hotel"
+    },
+    {
+      "ref": "baca delapan mukjizat ungu dari festival",
+      "greedy": "cari delapan mukjizat ungu dari festival",
+      "beam": "cari delapan mukjizat ungu dari festival"
+    },
+    {
+      "ref": "cari tujuh fonemik hijau di jogja",
+      "greedy": "cuba tujuh fonemik hijau di jogja",
+      "beam": "cuba tujuh fonemik hijau di jogja"
+    },
+    {
+      "ref": "taruh sepuluh ceciwis hijau dari hotel",
+      "greedy": "gubih sepuluh dciwis hijau dari hotel",
+      "beam": "gubih sepuluh dciwis hijau dari hotel"
+    },
+    {
+      "ref": "gutik enam suvenir ungu ke sekolah",
+      "greedy": "carik enam uvenir kungu kdi skogah",
+      "beam": "carik enam uvenir kungu kdi skogah"
+    },
+    {
+      "ref": "lihat satu romawi ungu ke loket",
+      "greedy": "cabit satugopawi kungu ke loket",
+      "beam": "cabit satugopawi kungu ke loket"
+    },
+    {
+      "ref": "gutik satu obyektif indigo ke hotel",
+      "greedy": "gabik satu robyektif indigo ke hotel",
+      "beam": "gabik satu obyektif indigo ke hotel"
+    },
+    {
+      "ref": "lihat tiga jeruji indigo ke jogja",
+      "greedy": "cabit iga jeruji indigo ke jogja",
+      "beam": "cabit iga jeruji indigo ke jogja"
+    },
+    {
+      "ref": "gutik tujuh logika kuning ke loket",
+      "greedy": "cabik uh uongika kuning ke loket",
+      "beam": "cabik uh uongika kuning ke loket"
+    },
+    {
+      "ref": "cari delapan piano ungu di solo",
+      "greedy": "cabi delapan piano ungu di solo",
+      "beam": "cabi delapan piano ungu di solo"
+    },
+    {
+      "ref": "gutik tiga defensi indigo ke opera",
+      "greedy": "gabik tiga derfensi indigo ke opera",
+      "beam": "gabik tiga derfensi indigo ke opera"
+    },
+    {
+      "ref": "lihat delapan boneka hijau dari jogja",
+      "greedy": "gabit delapan muneka hijau dari jogja",
+      "beam": "gabit delapan muneka hijau dari jogja"
+    },
+    {
+      "ref": "lihat tiga ujiyan ungu di jogja",
+      "greedy": "cabit tliga ujiyan ungu di jogja",
+      "beam": "cabit tliga ujiyan ungu di jogja"
+    },
+    {
+      "ref": "cari tiga lukisan indigo dari opera",
+      "greedy": "gari iga lukisan indigo dari opera",
+      "beam": "gari iga lukisan indigo dari opera"
+    },
+    {
+      "ref": "coba lima romawi kuning di sekolah",
+      "greedy": "guta lima romawi uning di sekolah",
+      "beam": "guta lima romawi uning di sekolah"
+    },
+    {
+      "ref": "taruh tiga difusi merah di sekolah",
+      "greedy": "cabih igakdifusi merah di sekollah",
+      "beam": "cabih igakdifusi merah di sekollah"
+    },
+    {
+      "ref": "baca sepuluh ujiyan indigo dari hotel",
+      "greedy": "cabi sepuluh ujiyan indigo dari hotel",
+      "beam": "cabi sepuluh ujiyan indigo dari hotel"
+    },
+    {
+      "ref": "taruh tiga obyektif ungu dari hotel",
+      "greedy": "catih iga kbyektif ungu dari hotel",
+      "beam": "catih iga kbyektif ungu dari hotel"
+    },
+    {
+      "ref": "gutik sembilan mukjizat kuning ke loket",
+      "greedy": "gabik sepmilan mukjizat uning ke loket",
+      "beam": "gabik sepmilan mukjizat uning ke loket"
+    },
+    {
+      "ref": "lihat delapan heliyum hijau ke monumen",
+      "greedy": "gutit elapan delaiyumk hijau ke monumen",
+      "beam": "gutit elapan delaiyumk hijau ke monumen"
+    },
+    {
+      "ref": "gutik dua filsafat ungu dari jogja",
+      "greedy": "gabik tua filsafat ungu dari jogja",
+      "beam": "gabik tua filsafat ungu dari jogja"
+    },
+    {
+      "ref": "lihat satu yodiyum hijau dari monumen",
+      "greedy": "gubi satu yodiym hijau dari monumen",
+      "beam": "gubi satu yodiym hijau dari monumen"
+    },
+    {
+      "ref": "baca enam hubungan kuning dari opera",
+      "greedy": "cabi enam mubungan uning dari opera",
+      "beam": "cabi enam mubungan uning dari opera"
+    },
+    {
+      "ref": "taruh sembilan jeruji merah dari hotel",
+      "greedy": "gabih semuirn jeruji mearah dari hotl",
+      "beam": "gabih semuirn jeruji mearah dari hotel"
+    },
+    {
+      "ref": "lihat empat mukjizat hijau ke negeri",
+      "greedy": "gabit empiat mukjizat hijau  ke enegri",
+      "beam": "gabit empiat mukjizat hijau  ke enegri"
+    },
+    {
+      "ref": "lihat delapan difusi indigo ke negeri",
+      "greedy": "gabit delapan difusi indigo ke negeri",
+      "beam": "gabit delapan difusi indigo ke negeri"
+    },
+    {
+      "ref": "taruh dua wejangan indigo di solo",
+      "greedy": "cabih dua felsangan indigo di solo",
+      "beam": "cabih dua felsangan indigo di solo"
+    },
+    {
+      "ref": "cari tiga gondola ungu dari loket",
+      "greedy": "cari siena gunga ungu dari loket",
+      "beam": "cari siena gunga ungu dari loket"
+    },
+    {
+      "ref": "lihat satu heliyum kuning dari kantor",
+      "greedy": "gabi satu keniyum ungu dari katolo",
+      "beam": "gabi satu keniyum ungu dari katolo"
+    },
+    {
+      "ref": "cari delapan sukulen merah di kantor",
+      "greedy": "gubi delapan sulgen merah di kanoul",
+      "beam": "gubi delapan sulgen merah di kanoul"
+    },
+    {
+      "ref": "gutik dua emosi kuning di loket",
+      "greedy": "cutik dua mosi kuning di lokt",
+      "beam": "gutik dua mosi kuning di lokt"
+    },
+    {
+      "ref": "baca sembilan filsafat ungu dari opera",
+      "greedy": "gubi sembilan filsafat ungu dari opera",
+      "beam": "gubi sembilan filsafat ungu dari opera"
+    },
+    {
+      "ref": "gutik lima boneka hijau di loket",
+      "greedy": "gatik lima moneka hijau di loket",
+      "beam": "gutik lima moneka hijau di loket"
+    },
+    {
+      "ref": "coba tiga solusi ungu dari jogja",
+      "greedy": "cabi tiga sruji ungu dari jogja",
+      "beam": "cabi tiga sruji ungu dari jogja"
+    },
+    {
+      "ref": "ambil sepuluh acuhan ungu dari opera",
+      "greedy": "gubil sepuluh aacuhan ungu dari opera",
+      "beam": "gubil sepuluh aacuhan ungu dari opera"
+    },
+    {
+      "ref": "ambil lima ujiyan kuning ke kantor",
+      "greedy": "cubil lima ujiyan uning ke kantolo",
+      "beam": "cubil lima ujiyan kuning ke kantolo"
+    },
+    {
+      "ref": "cari sepuluh yodiyum indigo ke bekasi",
+      "greedy": "cuba seuluh yodiyuw indigo ke bekasi",
+      "beam": "cuba seuluh yodiyuw indigo ke bekasi"
+    },
+    {
+      "ref": "ambil tiga boneka hijau ke negeri",
+      "greedy": "gutil tigam moneka hijau k   negeri",
+      "beam": "gutil tigam moneka hijau    negeri"
+    },
+    {
+      "ref": "lihat sepuluh suvenir hijau di negeri",
+      "greedy": "gutit semuluh suvenir hijau di negeri",
+      "beam": "gutit sepuluh suvenir hijau di negeri"
+    },
+    {
+      "ref": "gutik enam logika hijau di negeri",
+      "greedy": "cubik enam kongka hijau di negeri",
+      "beam": "cubik enam kongka hijau di negeri"
+    },
+    {
+      "ref": "lihat dua jerami kuning di solo",
+      "greedy": "cabit tua jerami kuning di solo",
+      "beam": "cabit tua jerami kuning di solo"
+    },
+    {
+      "ref": "baca satu boneka merah dari negeri",
+      "greedy": "caba satu bungeka mrah dari neger",
+      "beam": "caba satu bungeka mrah dari negeri"
+    },
+    {
+      "ref": "taruh tujuh solusi merah ke sekolah",
+      "greedy": "cabah tuh solusi merah ke sekolah",
+      "beam": "cabah tuh solusi merah ke sekolah"
+    },
+    {
+      "ref": "lihat enam romawi merah dari solo",
+      "greedy": "cabit enam fomawi merah dari solo",
+      "beam": "cabit enam fomawi merah dari solo"
+    },
+    {
+      "ref": "cari tujuh suvenir indigo di kantor",
+      "greedy": "cabi tujuh nuvenir indigo di kanntolo",
+      "beam": "cabi tujuh nuvenir indigo di kanntolo"
+    },
+    {
+      "ref": "ambil delapan mukjizat hijau dari jogja",
+      "greedy": "catil delapan mukjizatn iu daring jogja",
+      "beam": "catil delapan mukjizatn iu daring jogja"
+    },
+    {
+      "ref": "baca sepuluh ujiyan merah dari sekolah",
+      "greedy": "cari sepuluh ujiyanmi rah dari sekolah",
+      "beam": "cari sepuluh ujiyanmi rah dari sekolah"
+    },
+    {
+      "ref": "ambil sepuluh mukjizat indigo di solo",
+      "greedy": "gubil sepuluh ukjizat indigo di solo",
+      "beam": "gubil sepuluh ukjizat indigo di solo"
+    },
+    {
+      "ref": "taruh satu telepon merah dari solo",
+      "greedy": "gahah satu kelepo mah dari solo",
+      "beam": "gahah satu kelepo mah dari solo"
+    },
+    {
+      "ref": "coba satu jeruji hijau di solo",
+      "greedy": "gobik satujiyruji hijau disolo",
+      "beam": "gobik satujiyruji hijau disolo"
+    },
+    {
+      "ref": "gutik tiga wejangan kuning ke opera",
+      "greedy": "gutik tiga iwejangan uning ke opera",
+      "beam": "gutik tiga wejangan uning ke opera"
+    },
+    {
+      "ref": "cari tujuh logika ungu dari jogja",
+      "greedy": "guri tuh yodika iungu dari jogja",
+      "beam": "guri tuh yodika iungu dari jogja"
+    },
+    {
+      "ref": "baca sepuluh difusi indigo di kantor",
+      "greedy": "cabi sepmlu jifusi indigo di ka solo",
+      "beam": "cari sepmlu jifusi indigo di ka solo"
+    },
+    {
+      "ref": "taruh lima romawi indigo ke jogja",
+      "greedy": "gubih ima komawi indigo ke jogja",
+      "beam": "gubih ima komawi indigo ke jogja"
+    },
+    {
+      "ref": "ambil delapan nubuwat kuning di solo",
+      "greedy": "gmbil delapin ubuwat ung di solo",
+      "beam": "gmbil delapin ubuwat ung di solo"
+    },
+    {
+      "ref": "baca lima gondola indigo ke loket",
+      "greedy": "cac ema kgo udonga indigo ke lokrt",
+      "beam": "cac ema kgo udonga indigo ke lokrt"
+    },
+    {
+      "ref": "gutik lima suvenir indigo ke opera",
+      "greedy": "gutik lima suvenr indigo ke opera",
+      "beam": "gutik lima suvenir indigo ke opera"
+    },
+    {
+      "ref": "ambil tujuh komodo hijau dari negeri",
+      "greedy": "ambil dujuh omodo on hijau dari n neri",
+      "beam": "ambil dujuh omodo on hijau darii n neri"
+    },
+    {
+      "ref": "coba sembilan gondola merah di opera",
+      "greedy": "goba semilan kunungu merah di opera",
+      "beam": "goba semilan kunungu merah di opera"
+    },
+    {
+      "ref": "baca delapan hubungan kuning dari kantor",
+      "greedy": "caba deapan hubunan ung dari ka olo",
+      "beam": "caba deapan hubunan ung dari ka olo"
+    },
+    {
+      "ref": "lihat tiga lukisan kuning dari hotel",
+      "greedy": "guhat ena uninsan kuning dari hotel",
+      "beam": "guhat ena uninsan kuning dari hotel"
+    },
+    {
+      "ref": "cari dua jeruji merah ke kantor",
+      "greedy": "guri tua j ruji merah ke kaosolo",
+      "beam": "guri tua jruji merah ke kaosolo"
+    },
+    {
+      "ref": "taruh empat komodo indigo ke solo",
+      "greedy": "gobuh epat omud ndio ke  solo",
+      "beam": "gobuh epat omud ndio ke  solo"
+    },
+    {
+      "ref": "lihat enam gondola indigo ke bekasi",
+      "greedy": "cabit enam kon ungan indigo ke bekasi",
+      "beam": "cabit enam kon ungan indigo ke bekasi"
+    },
+    {
+      "ref": "taruh sepuluh fundamen ungu ke loket",
+      "greedy": "cutih sepuluh undamen ungu ke loket",
+      "beam": "cutih sepuluh undamen ungu ke loket"
+    },
+    {
+      "ref": "coba empat filsafat hijau dari hotel",
+      "greedy": "goba aempat filsafat hijau dari hotel",
+      "beam": "goba aempat filsafat hijau dari hotel"
+    },
+    {
+      "ref": "coba tujuh mukjizat indigo dari loket",
+      "greedy": "goba  dujuh mukjizat indigo dari loket",
+      "beam": "goba  dujuh mukjizat indigo dari loket"
+    },
+    {
+      "ref": "lihat tujuh gondola hijau ke bekasi",
+      "greedy": "gubit tuh gonldola hkau ke bdeasi",
+      "beam": "gubit tuh gonldola hkau ke bdeasi"
+    },
+    {
+      "ref": "ambil satu romawi hijau dari kantor",
+      "greedy": "gmbil satu gomawi hijau dari kannntoulo",
+      "beam": "gmbil satu gomawi hijau dari kannntoulo"
+    },
+    {
+      "ref": "gutik dua jerami ungu ke festival",
+      "greedy": "gutik dua jerami ungudi festival",
+      "beam": "gutik dua jerami ungudi festival"
+    },
+    {
+      "ref": "gutik tiga logika kuning dari loket",
+      "greedy": "gutik ega logika uning dari loket",
+      "beam": "gutik ega logika uning dari loket"
+    },
+    {
+      "ref": "cari satu nubuwat kuning di festival",
+      "greedy": "gubi datu ubuwat uning de festivval",
+      "beam": "gubi datu ubuwat uning de festivval"
+    },
+    {
+      "ref": "gutik lima suvenir ungu ke sekolah",
+      "greedy": "gubik lima cuvenir kungu kei sekolah",
+      "beam": "gubik lima cuvenir kungu ke sekolah"
+    },
+    {
+      "ref": "ambil enam piano ungu dari bekasi",
+      "greedy": "gutil deam peano ungu darii bekari",
+      "beam": "gutil deam peano ungu darii bekari"
+    },
+    {
+      "ref": "gutik sembilan filsafat merah di negeri",
+      "greedy": "gubik lemulan fildafat keta di negeri",
+      "beam": "gubik lemulan fildafat keta di negeri"
+    },
+    {
+      "ref": "lihat tiga jeruji kuning ke solo",
+      "greedy": "gubit tiga jeruji kuning de solo",
+      "beam": "gubit tiga jeruji kuning ke solo"
+    },
+    {
+      "ref": "lihat sembilan piano indigo di solo",
+      "greedy": "gurit semuilanm iano indigo di solo",
+      "beam": "gurit semuilanm iano indigo di solo"
+    },
+    {
+      "ref": "lihat lima lukisan merah di monumen",
+      "greedy": "gubit lima lukisan merah di monumen",
+      "beam": "gubit lima lukisan merah di monumen"
+    },
+    {
+      "ref": "cari delapan filsafat hijau ke kantor",
+      "greedy": "gubi delapan filsafat hdja ke kantor",
+      "beam": "gubi delapan filsafat hdja ke kantor"
+    },
+    {
+      "ref": "lihat tujuh obyektif ungu ke bekasi",
+      "greedy": "gubit tujuh obyekti ungu k bekasi",
+      "beam": "gubit tujuh obyekti ungu k bekasi"
+    },
+    {
+      "ref": "baca empat jerami indigo di opera",
+      "greedy": "gari empat jerami indigo di opera",
+      "beam": "cari empat jerami indigo di opera"
+    },
+    {
+      "ref": "ambil empat defensi hijau ke bekasi",
+      "greedy": "gabil empat defensi hijau ke bekasi",
+      "beam": "gabil empat defensi hijau ke bekasi"
+    },
+    {
+      "ref": "taruh sembilan fonemik indigo ke monumen",
+      "greedy": "gubih sembilanmonemik indigo ke monumen",
+      "beam": "gubih sembilanmonemik indigo ke monumen"
+    },
+    {
+      "ref": "baca tiga ujiyan indigo ke kantor",
+      "greedy": "gubi tiga ujiyan indigo ke kantolo",
+      "beam": "gubi tiga ujiyan indigo ke kantolo"
+    },
+    {
+      "ref": "lihat tiga sukulen ungu dari hotel",
+      "greedy": "gubit tiga sukulen ungu dari hotel",
+      "beam": "gubit tiga sukulen ungu dari hotel"
+    },
+    {
+      "ref": "taruh empat heliyum ungu di sekolah",
+      "greedy": "gurih subit deliym ungu ndi sekolah",
+      "beam": "gurih subit deliym ungu ndi sekolah"
+    },
+    {
+      "ref": "taruh satu solusi merah di solo",
+      "greedy": "gutih satujuso usi merah di solo",
+      "beam": "gutih satujuso usi merah di solo"
+    },
+    {
+      "ref": "ambil dua defensi kuning di loket",
+      "greedy": "gutil dua defensi uning di loket",
+      "beam": "gutil dua defensi uning di loket"
+    },
+    {
+      "ref": "gutik lima berewok ungu di bekasi",
+      "greedy": "gutik lima mpberewok ungu  di bekasi",
+      "beam": "gutik lima mpberewok ungu  di bekasi"
+    },
+    {
+      "ref": "cari dua gondola indigo dari festival",
+      "greedy": "gubi tua konudola indigo dari festival",
+      "beam": "gubi tua konudola indigo dari festival"
+    },
+    {
+      "ref": "ambil tiga solusi merah di hotel",
+      "greedy": "cabil tiga syolusi merah di hotel",
+      "beam": "cabil tiga syolusi merah di hotel"
+    },
+    {
+      "ref": "lihat dua defensi indigo ke hotel",
+      "greedy": "gubit tua defensi indigo ke hotel",
+      "beam": "gubit tua defensi indigo ke hotel"
+    },
+    {
+      "ref": "gutik enam nubuwat indigo di jogja",
+      "greedy": "gubik dem hubunwat indigo di jogja",
+      "beam": "gubik dem hubunwat indigo di jogja"
+    },
+    {
+      "ref": "taruh sembilan fonemik ungu dari negeri",
+      "greedy": "gubih sembilan fonemik kungu dari negeri",
+      "beam": "gubih sembilane fonemik kungu dari negeri"
+    },
+    {
+      "ref": "gutik delapan berewok ungu di loket",
+      "greedy": "guba k ulna ienbunewok ungu di loket",
+      "beam": "guba k ulna ienbunewok ungu di loket"
+    },
+    {
+      "ref": "taruh satu sukulen kuning dari kantor",
+      "greedy": "gabih satunen kung dari ka o",
+      "beam": "gabih satunen kung dari ka o"
+    },
+    {
+      "ref": "baca tiga romawi ungu di loket",
+      "greedy": "cabi iga romawi ungu di loket",
+      "beam": "cabi iga romawi ungu di loket"
+    },
+    {
+      "ref": "taruh tujuh sukulen indigo ke sekolah",
+      "greedy": "gabih tuhskunlen indigo kng dh",
+      "beam": "gabih tuhskunlen indigo kng dh"
+    },
+    {
+      "ref": "gutik tujuh lukisan ungu ke hotel",
+      "greedy": "gabik tujuhnguan ungu ke hotel",
+      "beam": "gabik tujuhnguan ungu ke hotel"
+    },
+    {
+      "ref": "gutik delapan solusi indigo dari monumen",
+      "greedy": "garik enam in sungu indigo dari monun",
+      "beam": "garik enam insungu indigo dari monun"
+    },
+    {
+      "ref": "ambil satu komodo indigo ke loket",
+      "greedy": "gubil datu soumudng indigo ke loket",
+      "beam": "gubil datu soumudng indigo ke loket"
+    },
+    {
+      "ref": "cari tujuh piano ungu di jogja",
+      "greedy": "cabi tujuh piano ungu di joogja",
+      "beam": "cabi tujuh piano ungu di joogja"
+    },
+    {
+      "ref": "coba lima fonemik hijau dari opera",
+      "greedy": "gubik lima fwonemik hijau ke opera",
+      "beam": "gubik lima fonemik hijau ke opera"
+    },
+    {
+      "ref": "cari tujuh logika kuning di loket",
+      "greedy": "gubi tujuh godika uning dig loket",
+      "beam": "gubi tujuh godika uning dig loket"
+    },
+    {
+      "ref": "lihat tujuh komodo kuning di festival",
+      "greedy": "gubit tujuh yomodo unig di festival",
+      "beam": "gubit tujuh yomodo unig di festival"
+    },
+    {
+      "ref": "gutik sembilan piano ungu ke hotel",
+      "greedy": "gubak demuilan piano ungu ke hotel",
+      "beam": "gubak demuilan piano ungu ke hotel"
+    },
+    {
+      "ref": "baca tujuh romawi hijau dari loket",
+      "greedy": "cubi tujuh yomawi hijau darki loket",
+      "beam": "cubi tujuh yomawi hijau dari loket"
+    },
+    {
+      "ref": "gutik enam fundamen kuning di opera",
+      "greedy": "gubak enamsunganmen uning di oera",
+      "beam": "gubak enamsunganmen uning di opera"
+    },
+    {
+      "ref": "baca enam lukisan ungu ke solo",
+      "greedy": "cabi enam mukizat ungu klo",
+      "beam": "cabi enam mukizat ungu klo"
+    },
+    {
+      "ref": "cari dua romawi merah dari negeri",
+      "greedy": "cubus tua komawi merah darii nenenegri",
+      "beam": "cubus tua komawi merah darii nenenegri"
+    },
+    {
+      "ref": "taruh enam berewok indigo dari loket",
+      "greedy": "cabih eam uyre ok indigo dari loket",
+      "beam": "cabih eam uyre ok indigo dari loket"
+    },
+    {
+      "ref": "taruh satu acuhan merah ke sekolah",
+      "greedy": "gubih satu anc unan merah kei sekolah",
+      "beam": "gubih satu anc unan merah kei sekolah"
+    },
+    {
+      "ref": "lihat satu jeruji kuning dari kantor",
+      "greedy": "cubit satu j uji kuning dari kantor",
+      "beam": "cubit satu j uji kuning dari kantor"
+    },
+    {
+      "ref": "taruh delapan yodiyum hijau dari loket",
+      "greedy": "gubih anampin sodi yum hijau dari loket",
+      "beam": "gubih anampin sodi yum hijau dari loket"
+    },
+    {
+      "ref": "baca sembilan logika merah dari hotel",
+      "greedy": "gabi semilan oka marah dari hotel",
+      "beam": "cari semilan oka marah dari hotel"
+    },
+    {
+      "ref": "coba satu logika kuning dari festival",
+      "greedy": "cabi datuogika uning darii festival",
+      "beam": "cabi datuogika uning darii festival"
+    },
+    {
+      "ref": "baca tujuh fundamen indigo ke sekolah",
+      "greedy": "caba duh sveundamen indigo ke sekolah",
+      "beam": "caba duh sveundamen indigo ke sekolah"
+    },
+    {
+      "ref": "coba dua ceciwis merah dari opera",
+      "greedy": "gubi dua jeciwis merah dari opera",
+      "beam": "gubi dua jeciwis merah dari opera"
+    },
+    {
+      "ref": "cari enam fonemik merah ke sekolah",
+      "greedy": "cubi enam fonemik merah ke sekolah",
+      "beam": "cubi enam fonemik merah ke sekolah"
+    },
+    {
+      "ref": "taruh lima nubuwat hijau dari solo",
+      "greedy": "cabih isma hubungan hijau dari solo",
+      "beam": "cabih isma hubungan hijau dari solo"
+    },
+    {
+      "ref": "ambil dua heliyum ungu dari monumen",
+      "greedy": "gabil duanlyum ungu dari monumen",
+      "beam": "gabil duanlyum ungu dari monumen"
+    },
+    {
+      "ref": "gutik tiga ceciwis hijau di solo",
+      "greedy": "cabik gna jeschiwi hijau di souolo",
+      "beam": "cabik gna jeschiwi hijau di souolo"
+    },
+    {
+      "ref": "gutik sembilan hubungan kuning dari hotel",
+      "greedy": "gubik semilan hubungan kuning dari hotel",
+      "beam": "gutik semilan hubungan kuning dari hotel"
+    },
+    {
+      "ref": "lihat delapan difusi hijau di hotel",
+      "greedy": "gubit delapan difusi hdi di hotel",
+      "beam": "gubit delapan difusi hdi di hotel"
+    },
+    {
+      "ref": "lihat sepuluh romawi merah ke sekolah",
+      "greedy": "gutut semuluh omawi merah ke sekolah",
+      "beam": "gutut semuluh omawi merah ke sekolah"
+    },
+    {
+      "ref": "gutik sembilan lukisan kuning dari monumen",
+      "greedy": "gubik sembilan ukisan unin dari monumen",
+      "beam": "gutik sembilan ukisan unin dari monumen"
+    },
+    {
+      "ref": "baca lima obyektif hijau ke jogja",
+      "greedy": "gubi lima obyektif hidau ke jogja",
+      "beam": "gubi lima obyektif hidau ke jogja"
+    },
+    {
+      "ref": "lihat sembilan ujiyan merah ke solo",
+      "greedy": "gubit sembilan lujiyanm merah ke slo",
+      "beam": "gubit sembilan lujiyanm merah ke slo"
+    },
+    {
+      "ref": "coba tujuh obyektif hijau di kantor",
+      "greedy": "gubi tujuh aobyektif hki di kantolr",
+      "beam": "gubi tujuh aobyektif ki di kantolr"
+    },
+    {
+      "ref": "cari enam romawi hijau ke bekasi",
+      "greedy": "gubi eam komawi hijau ke bekasi",
+      "beam": "gubi eam komawi hijau ke bekasi"
+    },
+    {
+      "ref": "lihat satu filsafat ungu ke opera",
+      "greedy": "cabit datu filsafat ungu ke opera",
+      "beam": "cabit datu filsafat ungu ke opera"
+    },
+    {
+      "ref": "coba tujuh difusi merah dari loket",
+      "greedy": "cari dujuh kdiufusi merah dari iloket",
+      "beam": "cari dujuh kdiufusi merah dari iloket"
+    },
+    {
+      "ref": "ambil dua nubuwat kuning ke bekasi",
+      "greedy": "cabil dua hubunat uning ke bekasi",
+      "beam": "cabil dua hubunat uning ke bekasi"
+    },
+    {
+      "ref": "coba empat solusi indigo dari kantor",
+      "greedy": "gabi empat olui indigo dari kanolulo",
+      "beam": "gabi empat olui indigo dari kanolulo"
+    },
+    {
+      "ref": "taruh dua romawi indigo dari jogja",
+      "greedy": "cabih dunga komawi indigo dari jogja",
+      "beam": "cabih dunga komawi indigo dari jogja"
+    },
+    {
+      "ref": "baca tiga jeruji ungu di loket",
+      "greedy": "cabi tiga jruji kungu di loket",
+      "beam": "cari tiga jruji kungu di loket"
+    },
+    {
+      "ref": "lihat sembilan obyektif indigo di negeri",
+      "greedy": "gubit semilan obyektif indigo d nger",
+      "beam": "gubit semilan obyektif indigo d nger"
+    },
+    {
+      "ref": "taruh sembilan sukulen hijau dari hotel",
+      "greedy": "gabih emuilarn ungan hijau dari hotel",
+      "beam": "gabih emuilarn ungan hijau dari hotel"
+    },
+    {
+      "ref": "coba tujuh wejangan indigo dari opera",
+      "greedy": "cabi duh kejangan indigo dari opera",
+      "beam": "cabi duh kejangan indigo dari opera"
+    },
+    {
+      "ref": "lihat empat obyektif hijau di sekolah",
+      "greedy": "cabit embat kobyektif hidi indigsekolah",
+      "beam": "cabit embat kobyektif hidi indigsekolah"
+    },
+    {
+      "ref": "coba sepuluh komodo merah dari sekolah",
+      "greedy": "guba sepuluh omodo merah dari sekolah",
+      "beam": "guba sepuluh omodo merah dari sekolah"
+    },
+    {
+      "ref": "lihat tujuh obyektif kuning di bekasi",
+      "greedy": "cabi sujuh obyekti kuning di bekasi",
+      "beam": "cabi sujuh obyektif kuning di bekasi"
+    },
+    {
+      "ref": "lihat empat difusi kuning di festival",
+      "greedy": "cabit mbp ifusi kuning di festival",
+      "beam": "cabit mb ifusi kuning di festival"
+    },
+    {
+      "ref": "baca tujuh mukjizat indigo ke bekasi",
+      "greedy": "cabi tujuhubujizat indigo  k be",
+      "beam": "cari tujuhubujizat indigo  k be"
+    },
+    {
+      "ref": "cari enam logika indigo dari jogja",
+      "greedy": "gaba eam nukian indigo dari jgja",
+      "beam": "gaba eam nukian indigo dari jgja"
+    },
+    {
+      "ref": "baca delapan nubuwat indigo di hotel",
+      "greedy": "cari enam in hubuwan indigo di hotel",
+      "beam": "cari enam in hubuwan indigo di hotel"
+    },
+    {
+      "ref": "baca empat heliyum merah di hotel",
+      "greedy": "cari empuldeiyum mearah di hotel",
+      "beam": "cari empuldeiyum mearah di hotel"
+    },
+    {
+      "ref": "cari satu boneka kuning ke kantor",
+      "greedy": "gubi deatu bunaing uning ke kantor",
+      "beam": "gubi deatu bunaing uning ke kantor"
+    },
+    {
+      "ref": "baca sepuluh sukulen indigo ke loket",
+      "greedy": "cara sempuluh ulen indigo ke loke",
+      "beam": "cara sempuluh ulen indigo ke loke"
+    },
+    {
+      "ref": "cari lima romawi hijau dari sekolah",
+      "greedy": "gubik ima romawi hijau darndigo skea",
+      "beam": "gutik ima romawi hijau darndigo skea"
+    },
+    {
+      "ref": "gutik tiga kimono indigo ke loket",
+      "greedy": "guti utg kekimuno indigo ke loket",
+      "beam": "guti utg kekimuno indigo ke loket"
+    },
+    {
+      "ref": "gutik tiga wejangan indigo di hotel",
+      "greedy": "gutihu ukg ukejang indigo di hotel",
+      "beam": "gutihukg ukejang indigo di hotel"
+    },
+    {
+      "ref": "ambil tiga acuhan kuning di opera",
+      "greedy": "gmbil tigaculan uning di opera",
+      "beam": "gmbil tigaculan uning di opera"
+    },
+    {
+      "ref": "cari lima komodo kuning dari bekasi",
+      "greedy": "cubi lima gkomodo uning dar bekasi",
+      "beam": "cubi lima gkomodo uning dar bekasi"
+    },
+    {
+      "ref": "coba sembilan kimono hijau ke hotel",
+      "greedy": "caba simuilan kimono hjau ke hotel",
+      "beam": "caba simuilan kimono hjau ke hotel"
+    },
+    {
+      "ref": "coba sembilan defensi kuning dari jogja",
+      "greedy": "cabi semilandefensi kuning dari jogja",
+      "beam": "cabi semilandefensi kuning dari jogja"
+    },
+    {
+      "ref": "taruh satu defensi merah dari loket",
+      "greedy": "cubih satu kdefensi merah dari loket",
+      "beam": "cubih satu kdefensi merah dari loket"
+    },
+    {
+      "ref": "baca tujuh piano hijau di opera",
+      "greedy": "cuba tujuh piano hidiu di opera",
+      "beam": "cuba tujuh piano hidiu di opera"
+    },
+    {
+      "ref": "baca tujuh heliyum indigo dari sekolah",
+      "greedy": "guri tujuh henliymi ndigo dari sekoljh",
+      "beam": "guri tujuh henliymi ndigo dari sekoljh"
+    },
+    {
+      "ref": "lihat enam hubungan hijau ke sekolah",
+      "greedy": "gutit enam mubungan jeau ke sekolglrh",
+      "beam": "gutit enam mubungan jeau ke sekolglrh"
+    },
+    {
+      "ref": "cari enam komodo merah dari bekasi",
+      "greedy": "cubi enam lomodo merah dari bekasi",
+      "beam": "cubi enam lomodo merah dari bekasi"
+    },
+    {
+      "ref": "taruh sepuluh ilmuwan ungu di bekasi",
+      "greedy": "cubih sepuluh kilmuwan ungu di bekasi",
+      "beam": "cubih sepuluh kilmuwan ungu di bekasi"
+    },
+    {
+      "ref": "ambil lima fonemik kuning di monumen",
+      "greedy": "gubil lima foemik kuning di monumen",
+      "beam": "gubil lima foemik kuning di monumen"
+    },
+    {
+      "ref": "baca tujuh ujiyan merah di loket",
+      "greedy": "cabi tujuh unjiyan merah di loket",
+      "beam": "cabi tujuh ujiyan merah di loket"
+    },
+    {
+      "ref": "lihat tujuh lukisan kuning dari bekasi",
+      "greedy": "cabi tujuh uniuan uning dari benkasi",
+      "beam": "cari tujuh uniuan uning dari benkasi"
+    },
+    {
+      "ref": "lihat sepuluh lukisan hijau di bekasi",
+      "greedy": "gubit emuluh uniguan hijau di beksi",
+      "beam": "gubit emuluh uniguan hijau di beksi"
+    },
+    {
+      "ref": "taruh enam logika kuning dari festival",
+      "greedy": "cabih nam kongika uning dari festival",
+      "beam": "cabih nam kongika uning dari festival"
+    },
+    {
+      "ref": "gutik satu fundamen merah dari loket",
+      "greedy": "cubik datusundamen marah dari loket",
+      "beam": "cubik datusundamen marah dari loket"
+    },
+    {
+      "ref": "ambil delapan heliyum hijau di negeri",
+      "greedy": "gabil delapan healynumk hijau di negeri",
+      "beam": "gabil delapan healynumk hijau di negeri"
+    },
+    {
+      "ref": "coba lima logika indigo di opera",
+      "greedy": "gubi lima gogika indigo di opera",
+      "beam": "gubi lima gogikaindigo di opera"
+    },
+    {
+      "ref": "coba tujuh ceciwis indigo ke hotel",
+      "greedy": "gubu tujuh cciwis indigo ke hottel",
+      "beam": "gubu tujuh cciwis indigo ke hottel"
+    },
+    {
+      "ref": "ambil sembilan ceciwis merah dari bekasi",
+      "greedy": "gabil sembilan jechiwis mrtah darii bekasi",
+      "beam": "gabil sembilan jechiwis mrtah dari bekasi"
+    },
+    {
+      "ref": "cari delapan heliyum ungu di opera",
+      "greedy": "cubis delapan helim ungu de opera",
+      "beam": "cubis delapan helim ungu ke opera"
+    },
+    {
+      "ref": "cari tujuh romawi indigo ke kantor",
+      "greedy": "gari tujuh komawi indigo ke kan solo",
+      "beam": "cari tujuh komawi indigo ke kan solo"
+    },
+    {
+      "ref": "gutik enam obyektif kuning ke negeri",
+      "greedy": "garik dnam kobyektif uning ke e neri",
+      "beam": "garik dnam kobyektif uning ke e neri"
+    },
+    {
+      "ref": "ambil enam telepon merah ke festival",
+      "greedy": "guril eam kelepone merah ke festival",
+      "beam": "guril eam kelepone merah ke festival"
+    },
+    {
+      "ref": "gutik tujuh piano ungu ke negeri",
+      "greedy": "garik tuju piano unigu k  negeri",
+      "beam": "garik tuju piano unigu k  negeri"
+    },
+    {
+      "ref": "cari sepuluh acuhan hijau ke hotel",
+      "greedy": "guri sepuluh acuhan hijau ke hotel",
+      "beam": "guri sepuluh acuhan hijau ke hotel"
+    },
+    {
+      "ref": "cari sembilan hubungan kuning ke loket",
+      "greedy": "gabi semilan hubungan uning ke loke",
+      "beam": "gabi semilan hubungan uning ke loke"
+    },
+    {
+      "ref": "taruh sembilan wejangan merah ke festival",
+      "greedy": "gurih sembilane fwiljangan merah ke festival",
+      "beam": "gurih sembilane fwiljangan merah ke festival"
+    },
+    {
+      "ref": "cari sembilan fundamen merah ke kantor",
+      "greedy": "gari sembilan fundamen merah ke kantor",
+      "beam": "cari sembilan fundamen merah ke kantor"
+    },
+    {
+      "ref": "baca empat logika kuning ke monumen",
+      "greedy": "guti empat logika uning ke monumen",
+      "beam": "guti empat gogika uning ke monumen"
+    },
+    {
+      "ref": "coba lima kimono merah ke loket",
+      "greedy": "gabi lima kimono merah ke loket",
+      "beam": "gabi lima kimono merah ke loket"
+    },
+    {
+      "ref": "baca tujuh ceciwis ungu di negeri",
+      "greedy": "guri tujuh ujesaiwi ungu di negeri",
+      "beam": "guri tujuh ujesaiwi ungu di negeri"
+    },
+    {
+      "ref": "coba tujuh filsafat merah di negeri",
+      "greedy": "cari tujuh fvinlsafat k di negeri",
+      "beam": "cari tujuh fvinlsafat k di negeri"
+    },
+    {
+      "ref": "baca tiga romawi merah ke negeri",
+      "greedy": "cabi dtiga romawi merah k ke egeri",
+      "beam": "cabi dtiga romawi merah ke egeri"
+    },
+    {
+      "ref": "baca tujuh jerami kuning dari monumen",
+      "greedy": "cabi duh kyuami uning dari monumen",
+      "beam": "cabi duh kyuami uning dari monumen"
+    },
+    {
+      "ref": "baca tujuh solusi hijau ke negeri",
+      "greedy": "curi duh o usi ijau  k  neger",
+      "beam": "curi duh o usi ijau   neger"
+    },
+    {
+      "ref": "ambil dua ceciwis merah dari negeri",
+      "greedy": "caril dua jeciwis mtrah dari negeri",
+      "beam": "caril dua jeciwis mtrah dari negeri"
+    },
+    {
+      "ref": "baca delapan berewok indigo di hotel",
+      "greedy": "cabi elapan berewok indigo di hotel",
+      "beam": "cari elapan berewok indigo di hotel"
+    },
+    {
+      "ref": "cari dua lukisan kuning ke negeri",
+      "greedy": "gubi dua uknisan uning ke negeri",
+      "beam": "gubi dua uknisan uning ke negeri"
+    },
+    {
+      "ref": "ambil tujuh acuhan ungu dari sekolah",
+      "greedy": "cabil duh ga unhan ungu dari sekolah",
+      "beam": "cabil duh ga unhan ungu dari sekolah"
+    },
+    {
+      "ref": "baca enam acuhan merah dari loket",
+      "greedy": "cabi nam a luwan merah dari loket",
+      "beam": "cabi nam a luwan merah dari loket"
+    },
+    {
+      "ref": "baca lima komodo ungu dari sekolah",
+      "greedy": "cara ima gkomodo ungu dari sekolah",
+      "beam": "cari ima komodo ungu dari sekolah"
+    },
+    {
+      "ref": "cari tiga suvenir hijau dari monumen",
+      "greedy": "cabi tiega suvenir hijau dari monuen",
+      "beam": "cari tiega suvenir hijau dari monuen"
+    },
+    {
+      "ref": "gutik lima ceciwis merah dari monumen",
+      "greedy": "garik lima jeciwis mrah dari monumen",
+      "beam": "garik lima jeciwis mrah dari monumen"
+    },
+    {
+      "ref": "gutik satu defensi ungu dari jogja",
+      "greedy": "gutik datujdifensi ungu dari jogja",
+      "beam": "gutik datujdifensi ungu dari jogja"
+    },
+    {
+      "ref": "lihat tiga hubungan kuning di monumen",
+      "greedy": "cabit tiga hubungan uning di monumen",
+      "beam": "cabit tiga hubungan uning di monumen"
+    },
+    {
+      "ref": "lihat empat logika merah dari bekasi",
+      "greedy": "cabi empat gogikam rah dari bekasi",
+      "beam": "cabi empat gogikam rah dari bekasi"
+    },
+    {
+      "ref": "gutik enam heliyum ungu ke hotel",
+      "greedy": "gubak enam keliyum ungu ke hotel",
+      "beam": "gubak enam keliyum ungu ke hotel"
+    },
+    {
+      "ref": "coba sepuluh filsafat indigo ke monumen",
+      "greedy": "guri sepuluh filsafat indigo ke monumen",
+      "beam": "cari sepuluh filsafat indigo ke monumen"
+    },
+    {
+      "ref": "lihat tujuh komodo hijau ke hotel",
+      "greedy": "cabit tujuh goodon hijau ke hotel",
+      "beam": "cabit tujuh goodon hijau ke hotel"
+    },
+    {
+      "ref": "cari delapan solusi kuning di jogja",
+      "greedy": "cabi delapan solusi kuning di jogja",
+      "beam": "cari delapan solusi kuning di jogja"
+    },
+    {
+      "ref": "cari dua boneka indigo di kantor",
+      "greedy": "cubi tua moneka indigo di kator",
+      "beam": "cubi tua moneka indigo di kator"
+    },
+    {
+      "ref": "ambil tujuh suvenir indigo ke loket",
+      "greedy": "cabil tujuh suvenir indigo ke loket",
+      "beam": "cabil tujuh suvenir indigo ke loket"
+    },
+    {
+      "ref": "taruh sepuluh yodiyum indigo dari solo",
+      "greedy": "gubih emuh yodiyumn indigo dari solo",
+      "beam": "gubih emuh yodiyumn indigo dari solo"
+    },
+    {
+      "ref": "lihat sepuluh filsafat indigo ke festival",
+      "greedy": "gubit semuluh fenlsafat indigo dke festival",
+      "beam": "gubit semuluh fenlsafat indigo dke festival"
+    },
+    {
+      "ref": "gutik satu romawi ungu ke opera",
+      "greedy": "cabik satuj gomawi ungu ke opera",
+      "beam": "cabik satuj gomawi ungu ke opera"
+    },
+    {
+      "ref": "lihat empat kimono merah di jogja",
+      "greedy": "cabit empat timono merah di jogja",
+      "beam": "cabit empat timono merah di jogja"
+    },
+    {
+      "ref": "gutik lima sukulen merah dari bekasi",
+      "greedy": "gatik lima sukulean ah dari bekasi",
+      "beam": "gatik lima sukulean ah dari bekasi"
+    },
+    {
+      "ref": "cari sepuluh fundamen hijau di bekasi",
+      "greedy": "gabi euluh sundamen hijau di bekasi",
+      "beam": "gabi euluh sundamen hijau di bekasi"
+    },
+    {
+      "ref": "lihat lima sukulen merah ke sekolah",
+      "greedy": "gubit ima sungau merah keigosekoelah",
+      "beam": "gubit ima sungau merah keigosekoelah"
+    },
+    {
+      "ref": "lihat dua acuhan indigo di bekasi",
+      "greedy": "gabit tuancuhan indigo di bekasi",
+      "beam": "gabit tuancuhan indigo di bekasi"
+    },
+    {
+      "ref": "ambil enam jerami merah ke opera",
+      "greedy": "gubil eamjeami merah ke opera",
+      "beam": "gubil eamjeami merah ke opera"
+    },
+    {
+      "ref": "lihat tujuh boneka kuning ke loket",
+      "greedy": "cabit tujubungen uning  ke loket",
+      "beam": "cabit tujubungen uning  ke loket"
+    },
+    {
+      "ref": "lihat enam emosi indigo di monumen",
+      "greedy": "gubit eam imosi indigo di monumen",
+      "beam": "gubit eam imosi indigo di monumen"
+    },
+    {
+      "ref": "baca sembilan ujiyan merah dari solo",
+      "greedy": "gabi semlilan ujiyan merah dari",
+      "beam": "gabi semlilan ujiyan merah dari"
+    },
+    {
+      "ref": "ambil tiga mukjizat ungu di kantor",
+      "greedy": "catil tiga mujiat ungu ke kanor",
+      "beam": "catil tiga mujiat ungu ke kanor"
+    },
+    {
+      "ref": "gutik enam kimono ungu dari hotel",
+      "greedy": "gubik dnam kimono ungu dari hotel",
+      "beam": "gutik dnam kimono ungu dari hotel"
+    },
+    {
+      "ref": "cari sembilan defensi kuning di opera",
+      "greedy": "gubi emilandefensi uning di opera",
+      "beam": "gubi emilandefensi uning di opera"
+    },
+    {
+      "ref": "taruh tiga difusi indigo dari monumen",
+      "greedy": "gubih tiga difusi indigo dari monumen",
+      "beam": "gubih tiga difusi indigo dari monumen"
+    },
+    {
+      "ref": "coba sepuluh yodiyum kuning di sekolah",
+      "greedy": "guti sepuluh yodiyum uning ndig osekolah",
+      "beam": "guti sepuluh yodiyum uning ndigosekolah"
+    },
+    {
+      "ref": "taruh tiga gondola indigo di opera",
+      "greedy": "gutih iga gudongan indigo di opera",
+      "beam": "gutih iga gudongan indigo di opera"
+    },
+    {
+      "ref": "baca delapan boneka kuning di sekolah",
+      "greedy": "gati delapan moneka uning ndigosekolah",
+      "beam": "gati delapan moneka uning ndigosekolah"
+    },
+    {
+      "ref": "coba delapan hubungan merah dari bekasi",
+      "greedy": "gubi dnapan hubungan merah dari bekasi",
+      "beam": "gubi dnapan hubungan merah dari bekasi"
+    },
+    {
+      "ref": "lihat satu obyektif indigo dari hotel",
+      "greedy": "gabit satu obyektif indigo dari hotel",
+      "beam": "gabit satu obyektif indigo dari hotel"
+    },
+    {
+      "ref": "gutik satu kimono ungu di solo",
+      "greedy": "gutik datu kimono ungu di solo",
+      "beam": "gutik datu kimono ungu di solo"
+    },
+    {
+      "ref": "lihat sembilan ilmuwan ungu ke sekolah",
+      "greedy": "gutit semuilan imuwan ungu kig sekolrh",
+      "beam": "gutit semuilan imuwan ungu kig sekolrh"
+    },
+    {
+      "ref": "ambil tiga komodo indigo di kantor",
+      "greedy": "gutil tiga gkomodo indigo di kantor",
+      "beam": "gutil tiga gkomodo indigo di kantor"
+    },
+    {
+      "ref": "lihat empat heliyum kuning ke festival",
+      "greedy": "cutit empat deliym uning kde festival",
+      "beam": "cutit empat deliym uning ke festival"
+    },
+    {
+      "ref": "cari sembilan kimono kuning ke opera",
+      "greedy": "cuti semuilan imono uning ke opera",
+      "beam": "cuti semuilan imono uning ke opera"
+    },
+    {
+      "ref": "gutik delapan filsafat hijau di opera",
+      "greedy": "catik enapan filsafat hijau di opera",
+      "beam": "gutik enapan filsafat hijau di opera"
+    },
+    {
+      "ref": "coba empat acuhan indigo di jogja",
+      "greedy": "cati empat hacuhan indigo di jogja",
+      "beam": "cati empat acuhan indigo di jogja"
+    },
+    {
+      "ref": "taruh delapan telepon kuning dari solo",
+      "greedy": "cabih elapan delapon kuning daria o",
+      "beam": "cabih elapan delapon kuning daria o"
+    },
+    {
+      "ref": "gutik tujuh ujiyan hijau ke negeri",
+      "greedy": "gutik tujuh ujiyanhiau ke negeri",
+      "beam": "gutik tujuh ujiyanhiau ke negeri"
+    },
+    {
+      "ref": "lihat delapan defensi kuning di jogja",
+      "greedy": "cabit delapan defensi kuning di jogja",
+      "beam": "cabit delapan defensi kuning di jogja"
+    },
+    {
+      "ref": "coba tiga fundamen ungu dari solo",
+      "greedy": "goba tiga fundamen ungu dari solo",
+      "beam": "coba tiga fundamen ungu dari solo"
+    },
+    {
+      "ref": "baca tiga telepon ungu dari negeri",
+      "greedy": "gari tiga dtelepkon ungu dari negeri",
+      "beam": "cari tiga dtelepkon ungu dari negeri"
+    },
+    {
+      "ref": "gutik sembilan wejangan hijau di negeri",
+      "greedy": "gubik semjkeana wejangan hijau dii negeri",
+      "beam": "gutik semjkeana wejangan hijau dii negeri"
+    },
+    {
+      "ref": "cari dua komodo ungu ke solo",
+      "greedy": "gutik tua komwodo kungu ke  sosolo",
+      "beam": "gutik tua komwodo kungu ke  solo"
+    },
+    {
+      "ref": "coba lima suvenir kuning dari jogja",
+      "greedy": "carik lima suvenir uning dari jogra",
+      "beam": "garik lima suvenir uning dari jogra"
+    },
+    {
+      "ref": "gutik sepuluh fundamen ungu di monumen",
+      "greedy": "gubak sepuluh fundamen ungu di monumen",
+      "beam": "gubak sepuluh fundamen ungu di monumen"
+    },
+    {
+      "ref": "gutik tiga fonemik ungu dari loket",
+      "greedy": "gubak ega fonemik ungu dari loket",
+      "beam": "gubak ega fonemik ungu dari loket"
+    },
+    {
+      "ref": "taruh lima jeruji ungu dari monumen",
+      "greedy": "gubih eima jeruji ungu dari monumen",
+      "beam": "gubih eima jeruji ungu dari monumen"
+    },
+    {
+      "ref": "gutik tiga acuhan kuning dari negeri",
+      "greedy": "cubik ia acuhan uning dari negri",
+      "beam": "cubik ia acuhan uning dari negri"
+    },
+    {
+      "ref": "lihat delapan obyektif hijau ke opera",
+      "greedy": "cubit deapan oyektif hidau ke opera",
+      "beam": "cubit deapan oyektif hidau ke opera"
+    },
+    {
+      "ref": "ambil empat wejangan indigo dari sekolah",
+      "greedy": "gubil empat wejangan indigo dardi sekolah",
+      "beam": "gubil empat wejangan indigo dardi sekolah"
+    },
+    {
+      "ref": "taruh empat ilmuwan hijau ke kantor",
+      "greedy": "cabih eupiatimuwan hkea ke kantolr",
+      "beam": "cabih eupiatimuwan hkea ke kantolr"
+    },
+    {
+      "ref": "coba empat sukulen kuning dari opera",
+      "greedy": "gubi aempat unlgen uning dari opera",
+      "beam": "gubi aempat unlgen uning dari opera"
+    },
+    {
+      "ref": "ambil sepuluh logika ungu ke bekasi",
+      "greedy": "cabil sepuluh godika ungu ke bekasi",
+      "beam": "cabil sepuluh godika ungu ke bekasi"
+    },
+    {
+      "ref": "gutik empat ceciwis hijau ke opera",
+      "greedy": "cabik empat jecijau hijau ke opera",
+      "beam": "cabik empat jecijau hijau ke opera"
+    },
+    {
+      "ref": "taruh sembilan komodo kuning ke jogja",
+      "greedy": "gubih sembilan komodo uning ke jogja",
+      "beam": "gubih sembuilan komodo uning ke jogja"
+    },
+    {
+      "ref": "coba sepuluh fonemik kuning dari hotel",
+      "greedy": "cuba lepmluh fonemik kuning dari hotel",
+      "beam": "guba lepmluh fonemik kuning dari hotel"
+    },
+    {
+      "ref": "coba dua emosi merah dari sekolah",
+      "greedy": "cari dua mosi marah darisekolah",
+      "beam": "cari dua mosi marah darisekolah"
+    },
+    {
+      "ref": "taruh empat ujiyan hijau di opera",
+      "greedy": "gabih empat ujiyan hijau hi opera",
+      "beam": "gabih empat ujiyan hijau hi opera"
+    },
+    {
+      "ref": "cari sepuluh defensi indigo di kantor",
+      "greedy": "gubi demuluh defensi indigo di kantor",
+      "beam": "gubi demuluh defensi indigo di kantor"
+    },
+    {
+      "ref": "gutik delapan boneka ungu dari sekolah",
+      "greedy": "cabi enampan monena ungu dari sekolah",
+      "beam": "cari enampan monena ungu dari sekolah"
+    },
+    {
+      "ref": "gutik empat komodo hijau dari negeri",
+      "greedy": "gutik empat gomodonu hijau darii negeri",
+      "beam": "gutik empat gomodonu hijau darii negeri"
+    },
+    {
+      "ref": "taruh empat jerami kuning dari monumen",
+      "greedy": "cabih empat tjerami uning dari monumen",
+      "beam": "cabih empat tjerami uning dari monumen"
+    },
+    {
+      "ref": "coba lima nubuwat indigo di loket",
+      "greedy": "cabi lima roubuwan indigo ki loket",
+      "beam": "cabi lima roubuwan indigo ki loket"
+    },
+    {
+      "ref": "lihat tujuh wejangan indigo dari jogja",
+      "greedy": "gubi tuh fesanga indigo dari jogja",
+      "beam": "gubi tuh fesanga indigo dari jogja"
+    },
+    {
+      "ref": "ambil satu obyektif indigo ke opera",
+      "greedy": "gubil datunobyektif indigo ke opera",
+      "beam": "gubil datunobyektif indigo ke opera"
+    },
+    {
+      "ref": "gutik lima boneka merah di sekolah",
+      "greedy": "gutik lima moneka mearah ndig osekolah",
+      "beam": "gutik lima moneka mearah ndig osekolah"
+    },
+    {
+      "ref": "coba empat suvenir hijau ke bekasi",
+      "greedy": "cabi empat huvenir hijau ke bekasi",
+      "beam": "cari empat huvenir hijau ke bekasi"
+    },
+    {
+      "ref": "taruh empat berewok merah ke monumen",
+      "greedy": "gubih umpiatmpirewok merah ke monumen",
+      "beam": "gubih umpiatmpirewok merah ke monumen"
+    },
+    {
+      "ref": "cari tujuh difusi merah ke solo",
+      "greedy": "cabi tujuh difusi merah ke solo",
+      "beam": "cabi tujuh difusi merah ke solo"
+    },
+    {
+      "ref": "cari sembilan filsafat merah dari kantor",
+      "greedy": "gabi semlilan filsafat marah dari kantor",
+      "beam": "cari semlilan filsafat marah dari kantor"
+    },
+    {
+      "ref": "taruh sembilan jerami ungu dari hotel",
+      "greedy": "gabih semuilan jerami ungu dari hotel",
+      "beam": "gabih semuilan jerami ungu dari hotel"
+    },
+    {
+      "ref": "baca sepuluh suvenir indigo ke solo",
+      "greedy": "gubi semuluh uvenir indigo ke solo",
+      "beam": "gubi semuluh uvenir indigo ke solo"
+    },
+    {
+      "ref": "taruh satu defensi indigo ke solo",
+      "greedy": "gubih satukdefensi indigo ke solo",
+      "beam": "gubih satukdefensi indigo ke solo"
+    },
+    {
+      "ref": "baca satu obyektif ungu di solo",
+      "greedy": "caca satu aobyekti ungu di soulo",
+      "beam": "caca satu aobyekti ungu di solo"
+    },
+    {
+      "ref": "lihat sepuluh heliyum kuning ke festival",
+      "greedy": "gubit sepuluh henlyum uning ke festival",
+      "beam": "gubit sepuluh henlyum uning ke festival"
+    },
+    {
+      "ref": "taruh sepuluh sukulen ungu ke bekasi",
+      "greedy": "gutih tsepuluh sunen ungu ke bekasi",
+      "beam": "gutih tsepuluh sunen ungu ke bekasi"
+    },
+    {
+      "ref": "lihat enam romawi indigo di opera",
+      "greedy": "gubit enam kumawi indigo di opera",
+      "beam": "gubit enam kumawi indigo di opera"
+    },
+    {
+      "ref": "cari empat komodo merah ke opera",
+      "greedy": "gabi emat yomodo merah ke opera",
+      "beam": "gabi emat yomodo merah ke opera"
+    },
+    {
+      "ref": "coba lima komodo kuning ke loket",
+      "greedy": "guta lima komodo uning ke loket",
+      "beam": "guta lima gkomodo uning ke loket"
+    },
+    {
+      "ref": "cari enam nubuwat kuning di opera",
+      "greedy": "gubus enam subunat kung di opera",
+      "beam": "gubus enam subunat kuning di opera"
+    },
+    {
+      "ref": "baca tiga ilmuwan ungu di sekolah",
+      "greedy": "gubi tiga kilmwan ungu di osekolah",
+      "beam": "gubi tiga kilmwan ungu di osekolah"
+    },
+    {
+      "ref": "gutik tujuh ceciwis merah di loket",
+      "greedy": "gutik duju jic wis merah dig loket",
+      "beam": "gutik duju jic wis merah di loket"
+    },
+    {
+      "ref": "cari sembilan logika ungu dari bekasi",
+      "greedy": "gati semilan kogika iungu dari bekasi",
+      "beam": "gati semilan kogika iungu dari bekasi"
+    },
+    {
+      "ref": "ambil sepuluh nubuwat kuning dari negeri",
+      "greedy": "cabil sepuluh nubuwat uning dari  negeri",
+      "beam": "cabil sepuluh nubuwat kuning dari  negeri"
+    },
+    {
+      "ref": "baca dua nubuwat merah ke opera",
+      "greedy": "gubi dua nubungat merah ke opera",
+      "beam": "gubi dua nubungat merah ke opera"
+    },
+    {
+      "ref": "gutik lima jeruji indigo di opera",
+      "greedy": "gutak lima jeruji indigo di opera",
+      "beam": "gutak lima jeruji indigo di opera"
+    },
+    {
+      "ref": "taruh empat yodiyum indigo di jogja",
+      "greedy": "cabih empat godiyum indigo di jogja",
+      "beam": "cabih empatgodiyum indigo di jogja"
+    },
+    {
+      "ref": "taruh delapan filsafat kuning di loket",
+      "greedy": "gabah denaman filsafat uning di loket",
+      "beam": "gabah denaman filsafat uning di loket"
+    },
+    {
+      "ref": "taruh sembilan acuhan merah dari sekolah",
+      "greedy": "gutih semuian  uhan merah dari sekolah",
+      "beam": "gutih semuian  uhan merah dari sekolah"
+    },
+    {
+      "ref": "taruh empat boneka hijau di negeri",
+      "greedy": "cabih empbatmuneka hke di negeri",
+      "beam": "cabih empbatmuneka hke di negeri"
+    },
+    {
+      "ref": "cari sepuluh defensi ungu ke sekolah",
+      "greedy": "gubi semluh efensi ungu ke sekolah",
+      "beam": "gubi semluh efensi ungu ke sekolah"
+    },
+    {
+      "ref": "lihat tiga nubuwat merah dari sekolah",
+      "greedy": "gubit iga lnubuwat merah dari sekela",
+      "beam": "gubit iga lnubuwat merah dari sekela"
+    },
+    {
+      "ref": "taruh satu jerami hijau ke negeri",
+      "greedy": "gubih kdatujyami hikjau k negeri",
+      "beam": "gubih kdatujyami hikjau ke negeri"
+    },
+    {
+      "ref": "taruh dua fundamen hijau di loket",
+      "greedy": "cabih duna fundamen hijau di loket",
+      "beam": "cabih duna fundamen hijau di loket"
+    },
+    {
+      "ref": "lihat enam mukjizat ungu ke loket",
+      "greedy": "gubit enam mukjiat ungu ke loket",
+      "beam": "gubit enam mukjiat ungu ke loket"
+    },
+    {
+      "ref": "ambil empat kimono hijau ke negeri",
+      "greedy": "gubil empat imono hidjau k negeri",
+      "beam": "gubil empat imono hidjau k negeri"
+    },
+    {
+      "ref": "gutik dua heliyum ungu dari sekolah",
+      "greedy": "cubak duanliyum ungu darni sekoglglah",
+      "beam": "gubak duanliyum ungu darni sekoglglah"
+    },
+    {
+      "ref": "coba dua kimono indigo ke solo",
+      "greedy": "gata dua monong indigo k solo",
+      "beam": "gata dua monong indigo k solo"
+    },
+    {
+      "ref": "coba sembilan wejangan merah ke jogja",
+      "greedy": "gubak sembilana uejanai meah n jogja",
+      "beam": "gubak sembilana uejanai meah n jogja"
+    },
+    {
+      "ref": "gutik tiga hubungan ungu di sekolah",
+      "greedy": "cubak ga khubungan ungu digoseogrh",
+      "beam": "cubak ga khubungan ungu digoseogrh"
+    },
+    {
+      "ref": "ambil sepuluh komodo kuning dari bekasi",
+      "greedy": "cubil sepuluh omodoung dari bekasi",
+      "beam": "cubil sepuluh omodoung dari bekasi"
+    },
+    {
+      "ref": "baca tiga nubuwat ungu ke loket",
+      "greedy": "caba eiga nubuwat ungu ke loke",
+      "beam": "caba eiga nubuwat ungu ke loke"
+    },
+    {
+      "ref": "ambil sembilan ilmuwan merah ke solo",
+      "greedy": "gutil semblilantmuwn mrah k solo",
+      "beam": "gutil semblilantmuwn mrah k solo"
+    },
+    {
+      "ref": "coba delapan nubuwat kuning ke solo",
+      "greedy": "guba delapan hubuwat kuning ke solo",
+      "beam": "coba delapan hubuwat kuning ke solo"
+    },
+    {
+      "ref": "ambil sembilan berewok hijau di kantor",
+      "greedy": "catil semuilan borewok hijau di kantor",
+      "beam": "catil semuilan borewok hijau di kantor"
+    },
+    {
+      "ref": "lihat delapan gondola merah dari hotel",
+      "greedy": "gubi delampan lkununguk kerah dari hotel",
+      "beam": "gubi delampan lkununguk kerah dari hotel"
+    },
+    {
+      "ref": "taruh lima defensi indigo ke negeri",
+      "greedy": "cabih lema defensi indigo   enegeri",
+      "beam": "cabih lema defensi indigo   enegeri"
+    },
+    {
+      "ref": "taruh sembilan romawi hijau dari sekolah",
+      "greedy": "gubih sembilan omawi hijau darki solgrh",
+      "beam": "gubih sembilan omawi hijau darki solgrh"
+    },
+    {
+      "ref": "gutik sepuluh ujiyan kuning di hotel",
+      "greedy": "gutik sepuluh ngan kuning di hotel",
+      "beam": "gutik sepuluh nguan kuning di hotel"
+    },
+    {
+      "ref": "ambil lima wejangan indigo dari opera",
+      "greedy": "ambil lema wejangan indig dari opera",
+      "beam": "ambil lima wejangan indig dari opera"
+    },
+    {
+      "ref": "baca dua hubungan ungu dari monumen",
+      "greedy": "cati tua hubungan ungu dari monumen",
+      "beam": "cati tua hubungan ungu dari monumen"
+    },
+    {
+      "ref": "cari tujuh gondola merah di opera",
+      "greedy": "gubi tujuh goldola merah di opera",
+      "beam": "gubi tujuh goldola merah di opera"
+    },
+    {
+      "ref": "coba enam solusi indigo ke sekolah",
+      "greedy": "guba limsulujiy indigo nkeig sekolah",
+      "beam": "guba limsulujiy indigo nkeig sekolah"
+    },
+    {
+      "ref": "lihat satu lukisan indigo ke monumen",
+      "greedy": "gubit satuligsan indigo ke monumen",
+      "beam": "gubit satuligsan indigo ke monumen"
+    },
+    {
+      "ref": "coba empat filsafat merah ke negeri",
+      "greedy": "cubi empat filsafat merahke negeri",
+      "beam": "cubi empat filsafat merahke negeri"
+    },
+    {
+      "ref": "taruh tiga solusi hijau ke bekasi",
+      "greedy": "gubih iga uolusi hijau k bekasi",
+      "beam": "gubih iga uolusi hijau k bekasi"
+    },
+    {
+      "ref": "gutik lima defensi indigo ke bekasi",
+      "greedy": "gubik lima defensi indigo ke bekasi",
+      "beam": "gubik lima defensi indigo ke bekasi"
+    },
+    {
+      "ref": "coba enam mukjizat merah ke solo",
+      "greedy": "cabi enam hukjian mrah ke solo",
+      "beam": "cari enam hukjian mrah ke solo"
+    },
+    {
+      "ref": "taruh sepuluh jeruji indigo ke hotel",
+      "greedy": "cubih semuh kruji indigo ke hotel",
+      "beam": "cubih semuh kruji indigo ke hotel"
+    },
+    {
+      "ref": "coba satu sukulen ungu ke solo",
+      "greedy": "cabi datujsukngen ungu ke solo",
+      "beam": "cabi datujsungen ungu ke solo"
+    },
+    {
+      "ref": "lihat enam solusi ungu dari sekolah",
+      "greedy": "cubit enam suolusi ungu dardi sekolah",
+      "beam": "cubit enam suolusi ungu dardi sekolah"
+    },
+    {
+      "ref": "baca satu mukjizat merah di hotel",
+      "greedy": "gabi satu mukjizatirah di hottel",
+      "beam": "gabi satu mukjizatirah di hottel"
+    },
+    {
+      "ref": "taruh tiga berewok ungu di monumen",
+      "greedy": "catih igam berewok ungu di monumumen",
+      "beam": "catih igam berewok ungu di monumumen"
+    },
+    {
+      "ref": "coba satu ilmuwan merah dari loket",
+      "greedy": "goba datu kimuwan merah dari loket",
+      "beam": "coba datu kimuwan merah dari loket"
+    },
+    {
+      "ref": "baca sepuluh nubuwat ungu ke kantor",
+      "greedy": "cari sempuluh unubunat ungu ke kanor",
+      "beam": "cari sempuluh unubunat ungu ke kantor"
+    },
+    {
+      "ref": "baca tiga difusi merah di negeri",
+      "greedy": "cabi dtiga deifusi marah di negeri",
+      "beam": "cari dtiga deifusi marah di negeri"
+    },
+    {
+      "ref": "coba tiga emosi merah di bekasi",
+      "greedy": "guba tgamhusi merahi de be nekgari",
+      "beam": "guba tgamhusi merahi de be nekgari"
+    },
+    {
+      "ref": "baca satu heliyum ungu ke sekolah",
+      "greedy": "cabi datu hanliym ungu die sekolah",
+      "beam": "cabi datu hanliym ungu di sekolah"
+    },
+    {
+      "ref": "coba tujuh filsafat hijau dari monumen",
+      "greedy": "cuba dujuh uvinlsafaen hijau dari monumen",
+      "beam": "cuba dujuh uvinlsafaen hijau dari monumen"
+    },
+    {
+      "ref": "gutik delapan yodiyum merah ke opera",
+      "greedy": "gutik enapan sodiyum merah ke opera",
+      "beam": "gutik enapan sodiyum merah ke opera"
+    },
+    {
+      "ref": "taruh lima ceciwis hijau ke festival",
+      "greedy": "cabih lemat jeciwis hijau de festival",
+      "beam": "cabih lemat jeciwis hijau dke festival"
+    },
+    {
+      "ref": "taruh lima ujiyan kuning dari festival",
+      "greedy": "carih lema ujiyan uningu darii festival",
+      "beam": "carih lema ujiyan uningu darii festival"
+    },
+    {
+      "ref": "lihat sepuluh ceciwis ungu ke kantor",
+      "greedy": "gubit semuluh jeciwis kungu ke kantolo",
+      "beam": "gubit semuluh jeciwis kungu ke kantolo"
+    },
+    {
+      "ref": "coba delapan ceciwis merah di bekasi",
+      "greedy": "guba tenamp an jeciwis marah di bekasi",
+      "beam": "coba tenamp an jeciwis marah di bekasi"
+    },
+    {
+      "ref": "lihat sembilan telepon ungu dari monumen",
+      "greedy": "cabit sembilan telepon ungu dari monumen",
+      "beam": "cabit sembilan telepon ungu dari monumen"
+    },
+    {
+      "ref": "lihat enam romawi kuning dari solo",
+      "greedy": "cubit enam mloawi kuning dari solo",
+      "beam": "cubit enam mloawi kuning dari solo"
+    },
+    {
+      "ref": "coba tiga yodiyum merah dari negeri",
+      "greedy": "goba tiga rodi um merah darii negri",
+      "beam": "coba tiga rodi um merah darii negri"
+    },
+    {
+      "ref": "gutik dua ujiyan ungu ke solo",
+      "greedy": "gobik tua ujiyan ungu ke solo",
+      "beam": "gobik tua ujiyan ungu ke solo"
+    },
+    {
+      "ref": "coba sepuluh nubuwat kuning dari monumen",
+      "greedy": "goba semuluh subunat kuning dari monumen",
+      "beam": "coba semuluh subunat kuning dari monumen"
+    },
+    {
+      "ref": "taruh sembilan ujiyan kuning di festival",
+      "greedy": "aibih semuiean uiyat uning di festival",
+      "beam": "aibih semuiean uiyat uning di festival"
+    },
+    {
+      "ref": "cari empat sukulen ungu ke negeri",
+      "greedy": "gora em at sukunlen ungu k neri",
+      "beam": "gora em at sukunlen ungu k neri"
+    },
+    {
+      "ref": "lihat sepuluh solusi kuning di loket",
+      "greedy": "gihat semuluh syolusi kuning digo loket",
+      "beam": "gihat semuluh syolusi kuning digo loket"
+    },
+    {
+      "ref": "cari sembilan telepon ungu dari jogja",
+      "greedy": "guri semuilan telepon ungu dari jogja",
+      "beam": "guri semuilan telepon ungu dari jogja"
+    },
+    {
+      "ref": "gutik enam piano ungu di hotel",
+      "greedy": "gutik enam piano ungu di hotel",
+      "beam": "gutik enam piano ungu di hotel"
+    },
+    {
+      "ref": "lihat enam fonemik merah ke hotel",
+      "greedy": "gira enam sonemik merah ke hotel",
+      "beam": "gira enam fonemik merah ke hotel"
+    },
+    {
+      "ref": "lihat empat jerami indigo di negeri",
+      "greedy": "gutit embit jerami indigo di negeri",
+      "beam": "gutit embit jerami indigo di negeri"
+    },
+    {
+      "ref": "cari sembilan gondola merah dari loket",
+      "greedy": "cubi semulan kon ungau merah dari loe",
+      "beam": "cubi semulan kon ungau merah dari loe"
+    },
+    {
+      "ref": "baca empat nubuwat ungu ke kantor",
+      "greedy": "gubi em pa ubuwat ungu ke kannsolo",
+      "beam": "gubi em pa ubuwat ungu ke kannsolo"
+    },
+    {
+      "ref": "ambil sepuluh defensi indigo ke negeri",
+      "greedy": "gatil sepuluh kefeni indigo negri",
+      "beam": "gatil sepuluh kefeni indigo negri"
+    },
+    {
+      "ref": "taruh empat komodo hijau ke kantor",
+      "greedy": "gabih empat numouon hijau ke kanolo",
+      "beam": "gabih empat numouon hijau ke kanolo"
+    },
+    {
+      "ref": "baca sembilan jerami hijau ke monumen",
+      "greedy": "gati semujlanjerami hidiu ke monumen",
+      "beam": "gati semujlanjerami hidiu ke monumen"
+    },
+    {
+      "ref": "cari satu piano indigo dari bekasi",
+      "greedy": "gabi satu piano indigo dari bekasi",
+      "beam": "cari satu piano indigo dari bekasi"
+    },
+    {
+      "ref": "cari dua berewok indigo ke jogja",
+      "greedy": "gabi tua pyerewok indigo ke jogja",
+      "beam": "gabi tua pyerewok indigo ke jogja"
+    },
+    {
+      "ref": "baca tiga komodo kuning ke kantor",
+      "greedy": "gubi tiga gromodo uning ke kantoulr",
+      "beam": "gubi tiga gromodo uning ke kantoulr"
+    },
+    {
+      "ref": "taruh satu fonemik ungu di festival",
+      "greedy": "gabih satu fonemik kungu di festival",
+      "beam": "gabih satu fonemik kungu di festival"
+    },
+    {
+      "ref": "gutik dua logika kuning di opera",
+      "greedy": "gutik u tua rogika uning di opera",
+      "beam": "gutik u tua rogika uning di opera"
+    },
+    {
+      "ref": "ambil enam fonemik ungu dari loket",
+      "greedy": "cubil enam fonemik ungu dari loket",
+      "beam": "gubil enam fonemik ungu dari loket"
+    },
+    {
+      "ref": "gutik delapan wejangan ungu dari opera",
+      "greedy": "cobak enam yujiangan ungu dari opera",
+      "beam": "cobak enam yujiangan ungu dari opera"
+    },
+    {
+      "ref": "lihat enam hubungan indigo dari bekasi",
+      "greedy": "cuba enamubungan indigo dari be ns",
+      "beam": "cuba enamubungan indigo dari be ns"
+    },
+    {
+      "ref": "ambil dua telepon hijau dari solo",
+      "greedy": "gubil dua delpon hijau darisolo",
+      "beam": "gubil dua delpon hijau darisolo"
+    },
+    {
+      "ref": "coba lima obyektif hijau dari bekasi",
+      "greedy": "guba lima kobyktf hkjau dari be nkasi",
+      "beam": "guba lima kobyktf hkjau dari benkasi"
+    },
+    {
+      "ref": "cari dua jerami merah ke bekasi",
+      "greedy": "guba tua jerami merah ke bekasi",
+      "beam": "guba tua jerami merah ke bekasi"
+    },
+    {
+      "ref": "lihat satu boneka ungu dari solo",
+      "greedy": "gubit satu bunek ungu dari solo",
+      "beam": "gubit satu bunek ungu dari solo"
+    },
+    {
+      "ref": "lihat enam jeruji ungu ke hotel",
+      "greedy": "gutit nam jeruji kungu ke hotel",
+      "beam": "gutit nam jeruji kungu ke hotel"
+    },
+    {
+      "ref": "baca lima mukjizat hijau dari opera",
+      "greedy": "gabi lima moujiat hijau dari opera",
+      "beam": "cari lima moujiat hijau dari opera"
+    },
+    {
+      "ref": "baca tujuh komodo ungu di opera",
+      "greedy": "gari tujuh omodo ungu di opera",
+      "beam": "cari tujuh omodo ungu di opera"
+    },
+    {
+      "ref": "lihat empat solusi indigo dari jogja",
+      "greedy": "gubit empat solusi indigo dari jogja",
+      "beam": "gubit empat solusi indigo dari jogja"
+    },
+    {
+      "ref": "coba tiga obyektif indigo di jogja",
+      "greedy": "gubi tiga obyektif indigo di jogja",
+      "beam": "gubi tiga obyektif indigo di jogja"
+    },
+    {
+      "ref": "baca tujuh yodiyum ungu ke monumen",
+      "greedy": "gubi tujuh syodiyum ungu ke monumen",
+      "beam": "gubi tujuh syodiyum ungu ke monumen"
+    },
+    {
+      "ref": "baca tujuh sukulen merah di opera",
+      "greedy": "gara tu juh ukunlgu k di opera",
+      "beam": "cari tu juh ukunlgu k di opera"
+    },
+    {
+      "ref": "taruh enam nubuwat hijau di opera",
+      "greedy": "gubih enamubuwan hijau di opera",
+      "beam": "gubih enamubuwan hijau di opera"
+    },
+    {
+      "ref": "gutik dua telepon merah di hotel",
+      "greedy": "cabik dua delepon merah di hotel",
+      "beam": "cabik dua delepon merah di hotel"
+    },
+    {
+      "ref": "baca dua ceciwis hijau di solo",
+      "greedy": "gabi dua jeciwis hijau di solo",
+      "beam": "cari dua jeciwis hijau di solo"
+    },
+    {
+      "ref": "taruh delapan jeruji hijau dari festival",
+      "greedy": "gubih eapan jeruji hijau dari festival",
+      "beam": "gubih eapan jeruji hijau dari festival"
+    },
+    {
+      "ref": "taruh enam sukulen hijau ke loket",
+      "greedy": "gubih nam sukulen di ke loket",
+      "beam": "gubih namsukulen di ke loket"
+    },
+    {
+      "ref": "lihat dua solusi hijau ke hotel",
+      "greedy": "gubit tua srouji hjau ke hotel",
+      "beam": "gubit tua srouji hjau ke hotel"
+    },
+    {
+      "ref": "taruh enam kimono indigo dari jogja",
+      "greedy": "cabih enam kikmono indigo dari jogja",
+      "beam": "gubih enam kikmono indigo dari jogja"
+    },
+    {
+      "ref": "taruh enam sukulen hijau ke jogja",
+      "greedy": "cabih enam sukulen di ke jogja",
+      "beam": "cabih enam sukulen di ke jogja"
+    },
+    {
+      "ref": "baca lima solusi hijau dari jogja",
+      "greedy": "cati lima yolusi hijau dari jogja",
+      "beam": "cati lima yolusi hijau dari jogja"
+    },
+    {
+      "ref": "baca enam emosi indigo ke sekolah",
+      "greedy": "cubi nam emosi indigo ka sekolah",
+      "beam": "cubi nam emosi indigo ka sekolah"
+    },
+    {
+      "ref": "taruh sembilan nubuwat ungu dari negeri",
+      "greedy": "gubih sebilan hubuwat ungu dari egri",
+      "beam": "gubih sebilan hubuwat ungu dari egri"
+    },
+    {
+      "ref": "taruh dua emosi merah di loket",
+      "greedy": "gutih duaga emosi merah dig loket",
+      "beam": "gutih duaga emosi merah dig loket"
+    },
+    {
+      "ref": "gutik tujuh gondola merah ke kantor",
+      "greedy": "cati dujuh gondolami erah ke kantor",
+      "beam": "cati dujuh gondolami merah ke kantor"
+    },
+    {
+      "ref": "ambil enam nubuwat kuning dari hotel",
+      "greedy": "catil snam ubuwat uning dari hotel",
+      "beam": "catil snam ubuwat uning dari hotel"
+    },
+    {
+      "ref": "baca sembilan fonemik ungu dari loket",
+      "greedy": "gabi semjlafonemik kungu dari loket",
+      "beam": "gabi semjlafonemik kungu dari loket"
+    },
+    {
+      "ref": "gutik tujuh suvenir hijau dari jogja",
+      "greedy": "gubi tujuh suvenir hijau dari jogja",
+      "beam": "gubi tujuh suvenir hijau dari jogja"
+    },
+    {
+      "ref": "lihat lima fundamen indigo ke jogja",
+      "greedy": "gubit lima fundamen indigo ke jgja",
+      "beam": "gubit lima fundamen indigo ke jgja"
+    },
+    {
+      "ref": "lihat lima yodiyum merah dari bekasi",
+      "greedy": "gubit lima ryodiyum mah dari bekasi",
+      "beam": "gubit lima ryodiyum mah dari bekasi"
+    },
+    {
+      "ref": "coba tiga sukulen ungu dari sekolah",
+      "greedy": "gubi tiga sulen ungu dari sekolah",
+      "beam": "gubi tiga sulen ungu dari sekolah"
+    },
+    {
+      "ref": "ambil satu logika hijau di negeri",
+      "greedy": "gubil satu ogikarhijau di negeri",
+      "beam": "gubil satu ogikarhijau di negeri"
+    },
+    {
+      "ref": "lihat enam ceciwis ungu di sekolah",
+      "greedy": "gabit enam cechiwi kungu di sekolrh",
+      "beam": "gabit enam cechiwi kungu di sekolrh"
+    },
+    {
+      "ref": "cari enam gondola kuning di monumen",
+      "greedy": "cabi enam monl uola uning di monumen",
+      "beam": "cabi enam monl uola uning di monumen"
+    },
+    {
+      "ref": "baca sepuluh defensi ungu di loket",
+      "greedy": "cabi dsepuluh defensi kungu di loket",
+      "beam": "cabi dsepuluh defensi kungu di loket"
+    },
+    {
+      "ref": "cari empat suvenir kuning dari kantor",
+      "greedy": "cubi emat uvenir uning dari kanaolo",
+      "beam": "cubi emat uvenir uning dari kanaolo"
+    },
+    {
+      "ref": "lihat delapan gondola indigo di monumen",
+      "greedy": "cutit enapan ounnlgu indigo di monuen",
+      "beam": "cutit enapan ounnlgu indigo di monuen"
+    },
+    {
+      "ref": "cari empat logika kuning di monumen",
+      "greedy": "cabi emuat gogika kung di monumen",
+      "beam": "cabi emuat gogika kuning di monumen"
+    },
+    {
+      "ref": "coba sepuluh jeruji merah ke monumen",
+      "greedy": "cuba semuluh kerkuji merah ke monumen",
+      "beam": "cuba semuluh kerkuji merah ke monumen"
+    },
+    {
+      "ref": "taruh sepuluh gondola ungu dari sekolah",
+      "greedy": "cabih sepuluh gondola ungu dardi sekolah",
+      "beam": "cabih sepuluh gondola ungu dardi sekolah"
+    },
+    {
+      "ref": "taruh sepuluh emosi kuning ke solo",
+      "greedy": "cabih sepuluh emosi uning ke solo",
+      "beam": "cabih sepuluh emosi uning ke solo"
+    },
+    {
+      "ref": "coba sepuluh ujiyan indigo ke negeri",
+      "greedy": "cabi sepuluh ujiyan indigo e  negeri",
+      "beam": "cabi sepuluh ujiyan indigo e  negeri"
+    },
+    {
+      "ref": "taruh delapan ceciwis kuning di jogja",
+      "greedy": "carih delapan jeciwis uning di jogja",
+      "beam": "garih delapan jeciwis uning di jogja"
+    },
+    {
+      "ref": "taruh sembilan heliyum indigo dari bekasi",
+      "greedy": "cabih tsembian aliymi indigo dari beksi",
+      "beam": "cabih tsembian aliymi indigo dari beksi"
+    },
+    {
+      "ref": "lihat tiga filsafat indigo ke negeri",
+      "greedy": "cutut tiga filsafat indigok enegeri",
+      "beam": "cutut tiga filsafat indigo  enegeri"
+    },
+    {
+      "ref": "cari satu ilmuwan kuning ke kantor",
+      "greedy": "cubi datu kimuwan uning ke kantoul",
+      "beam": "cubi datu kimuwan uning ke kantoul"
+    },
+    {
+      "ref": "lihat dua heliyum ungu di opera",
+      "greedy": "gubit duan liyum ungu di opera",
+      "beam": "gubit duan liyum ungu di opera"
+    },
+    {
+      "ref": "ambil sepuluh fonemik merah dari loket",
+      "greedy": "caril sepuluh fonemik merah dari loket",
+      "beam": "caril sepuluh fonemik merah dari loket"
+    },
+    {
+      "ref": "baca tiga telepon indigo di loket",
+      "greedy": "cubi tgnadelepon indigo di loket",
+      "beam": "cubi tgnadelepon indigo di loket"
+    },
+    {
+      "ref": "taruh tujuh romawi ungu di monumen",
+      "greedy": "gubih tujuh omawi kungu di monumen",
+      "beam": "gubih tujuh omawi kungu di monumen"
+    },
+    {
+      "ref": "baca enam ceciwis kuning di loket",
+      "greedy": "cata em wejiciwis uning di loket",
+      "beam": "cati em wejiciwis kuning di loket"
+    },
+    {
+      "ref": "baca delapan fundamen indigo di solo",
+      "greedy": "cari delapan fundamen indigo di solo",
+      "beam": "cari delapan fundamen indigo di solo"
+    },
+    {
+      "ref": "coba tujuh nubuwat hijau dari loket",
+      "greedy": "gati tujuh lubuwat hijau dari loket",
+      "beam": "gati tujuh lubuwat hijau dari loket"
+    },
+    {
+      "ref": "taruh empat romawi merah dari loket",
+      "greedy": "cubah dsempiat lomawi merah dari loket",
+      "beam": "cubah dsempiat lomawi merah dari loket"
+    },
+    {
+      "ref": "cari sepuluh acuhan ungu dari monumen",
+      "greedy": "cubu semuluw acunan ungu dari moumen",
+      "beam": "cubu semuluw acunan ungu dari monumen"
+    },
+    {
+      "ref": "baca delapan ilmuwan merah dari jogja",
+      "greedy": "caca delapan ilmuwan merah dari jogja",
+      "beam": "caca delapan ilmuwan merah dari jogja"
+    },
+    {
+      "ref": "coba tujuh fundamen kuning ke loket",
+      "greedy": "cuba dujuh sundamen uning ke loket",
+      "beam": "cuba dujuh sundamen uning ke loket"
+    },
+    {
+      "ref": "ambil tujuh komodo ungu ke hotel",
+      "greedy": "gubil dujuh komodoungu ke hotel",
+      "beam": "gubil dujuh komodoungu ke hotel"
+    },
+    {
+      "ref": "ambil dua solusi merah ke festival",
+      "greedy": "cabil dua yoluji merah ke festival",
+      "beam": "cabil dua yoluji merah ke festival"
+    },
+    {
+      "ref": "taruh delapan kimono kuning dari hotel",
+      "greedy": "cubih delapan imono uning dari hotel",
+      "beam": "cubih delapan imono uning dari hotel"
+    },
+    {
+      "ref": "ambil empat yodiyum merah di loket",
+      "greedy": "gutil empat sonusi um merah digo loket",
+      "beam": "gutil empat sonusi um merah digo loket"
+    },
+    {
+      "ref": "cari sepuluh obyektif kuning di opera",
+      "greedy": "cabi semuluh obyekti uning di opera",
+      "beam": "cabi semuluh obyekti uning di opera"
+    },
+    {
+      "ref": "coba empat hubungan hijau dari jogja",
+      "greedy": "guba   mpt ubungan hijau dar i ji ",
+      "beam": "guba   mpt ubungan hijau dari ji "
+    },
+    {
+      "ref": "lihat sembilan jeruji ungu dari hotel",
+      "greedy": "gabit sembilan jeruji kungu dari hotel",
+      "beam": "gabit sembilan ceruji kungu dari hotel"
+    },
+    {
+      "ref": "coba lima suvenir hijau dari solo",
+      "greedy": "guba lima suveinir hijau dari olo",
+      "beam": "guba lima suveinir hijau dari olo"
+    },
+    {
+      "ref": "coba satu jerami merah ke sekolah",
+      "greedy": "goba sat ujiyami mah ke sekokkeh",
+      "beam": "goba sat ujiyami mah ke sekokkeh"
+    },
+    {
+      "ref": "ambil tiga defensi hijau ke hotel",
+      "greedy": "ambil tiga defensi hijau ke hotel",
+      "beam": "ambil tiga defensi hijau ke hotel"
+    },
+    {
+      "ref": "baca tiga emosi merah di monumen",
+      "greedy": "caca eigamosi merah di monumen",
+      "beam": "caca eigamosi merah di monumen"
+    },
+    {
+      "ref": "taruh dua fundamen hijau ke monumen",
+      "greedy": "guhah unga fundamen hijau ke monumen",
+      "beam": "guhah unga fundamen hijau ke monumen"
+    },
+    {
+      "ref": "gutik tiga hubungan merah di solo",
+      "greedy": "gutik j tga kubungan merah di solo",
+      "beam": "gutik j tga kubungan merah di solo"
+    },
+    {
+      "ref": "ambil sepuluh jeruji hijau di opera",
+      "greedy": "gmbil semuluh jeruji hijau di opera",
+      "beam": "ambil semuluh jeruji hijau di opera"
+    },
+    {
+      "ref": "baca satu kimono indigo di negeri",
+      "greedy": "gubl sdatu kimono indigo di negeri",
+      "beam": "gubl sdatu kimono indigo di negeri"
+    },
+    {
+      "ref": "lihat enam ilmuwan indigo dari solo",
+      "greedy": "guhat enam kilmuwan indigo dari solo",
+      "beam": "guhat enam kilmuwan indigo dari solo"
+    },
+    {
+      "ref": "cari enam ceciwis indigo dari monumen",
+      "greedy": "garu eim jeciwis indigo dari monumen",
+      "beam": "garu eim jeciwis indigo dari monumen"
+    },
+    {
+      "ref": "gutik empat nubuwat indigo di hotel",
+      "greedy": "gabik empat hubuwat indigo di hotel",
+      "beam": "gabik empat hubuwat indigo di hotel"
+    },
+    {
+      "ref": "lihat empat wejangan ungu di negeri",
+      "greedy": "gihat empat wisangan ungu di negeri",
+      "beam": "gihat empat wisangan ungu di negeri"
+    },
+    {
+      "ref": "ambil empat heliyum indigo di sekolah",
+      "greedy": "gutil empat deliyum indigo ndigosekolah",
+      "beam": "gutil empat deliyum indigo ndigosekolah"
+    },
+    {
+      "ref": "baca satu kimono merah di bekasi",
+      "greedy": "cabi deatu kimono merah di bekasi",
+      "beam": "cari deatu kimono merah di bekasi"
+    },
+    {
+      "ref": "lihat sepuluh yodiyum merah di hotel",
+      "greedy": "cabit sepuluh odiyum merah di hotel",
+      "beam": "cabit sepuluh odiyum merah di hotel"
+    },
+    {
+      "ref": "cari empat yodiyum ungu ke monumen",
+      "greedy": "gabi em a yodiyum ungu ke monumen",
+      "beam": "gabi em a yodiyum ungu ke monumen"
+    },
+    {
+      "ref": "lihat delapan difusi hijau di loket",
+      "greedy": "gurut inam indifusi hijau di loket",
+      "beam": "gurut inam indifusi hijau di loket"
+    },
+    {
+      "ref": "taruh empat emosi kuning ke loket",
+      "greedy": "guhuh smpbiltnemosi kung ke lokt",
+      "beam": "guhuh smpbiltnemosi kung ke loket"
+    },
+    {
+      "ref": "baca tiga filsafat hijau dari solo",
+      "greedy": "cati tiga fiesafat hijau darisolo",
+      "beam": "cati tiga filsafat hijau darisolo"
+    },
+    {
+      "ref": "taruh sembilan boneka indigo ke hotel",
+      "greedy": "guhuh semuilan muninka indigo ke hotel",
+      "beam": "guhuh semuilan muninka indigo ke hotel"
+    },
+    {
+      "ref": "baca sembilan hubungan merah di loket",
+      "greedy": "guci semuilarn hubungan merah di loket",
+      "beam": "guci semuilarn hubungan merah di loket"
+    },
+    {
+      "ref": "taruh dua sukulen ungu ke hotel",
+      "greedy": "guruh u a sukulen ungu ke hottel",
+      "beam": "guruh u a sukulen ungu ke hottel"
+    },
+    {
+      "ref": "cari satu solusi ungu ke negeri",
+      "greedy": "guri sdatu suoluni kungu k eger",
+      "beam": "guri sdatu suoluni kungu k eger"
+    },
+    {
+      "ref": "baca dua lukisan ungu ke solo",
+      "greedy": "cabi dua hukisan ungu ke solo",
+      "beam": "cabi dua hukisan ungu ke solo"
+    },
+    {
+      "ref": "coba tiga romawi merah di solo",
+      "greedy": "gubi tiga romawi mearah di solo",
+      "beam": "gubi tiga romawi mearah di solo"
+    },
+    {
+      "ref": "taruh sepuluh obyektif kuning ke jogja",
+      "greedy": "gubih tepuluwa byektif uning ke jogja",
+      "beam": "gubih tepuluwa byektif uning ke jogja"
+    },
+    {
+      "ref": "coba lima defensi merah ke bekasi",
+      "greedy": "cabi lima defensi merah ke bekasi",
+      "beam": "cabi lima defensi merah ke bekasi"
+    },
+    {
+      "ref": "gutik enam hubungan hijau di sekolah",
+      "greedy": "cabik enam hubungan hijau di sekolah",
+      "beam": "cabik enam hubungan hijau di sekolah"
+    },
+    {
+      "ref": "cari enam ilmuwan ungu di festival",
+      "greedy": "gubi enam kmuwan ungu di festival",
+      "beam": "gubi enam kmuwan ungu di festival"
+    },
+    {
+      "ref": "gutik tujuh jeruji indigo dari loket",
+      "greedy": "gurik dujuhukyur kuji indigo dari loket",
+      "beam": "gurik dujuhukyur kuji indigo dari loket"
+    },
+    {
+      "ref": "cari lima ilmuwan kuning ke monumen",
+      "greedy": "gubi lima imuwan uning ke monumen",
+      "beam": "gubi lima imuwan uning ke monumen"
+    },
+    {
+      "ref": "taruh lima ceciwis merah dari negeri",
+      "greedy": "gubih ema jechiwius merah dari negeri",
+      "beam": "gubih ema jechiwius merah dari negeri"
+    },
+    {
+      "ref": "taruh sembilan komodo kuning dari bekasi",
+      "greedy": "gutih demilan komodo uning dari bekasi",
+      "beam": "gutih demilan komodo uning dari bekasi"
+    },
+    {
+      "ref": "lihat empat acuhan kuning ke jogja",
+      "greedy": "guti empat acuhan uning ke jogja",
+      "beam": "guti empat acuhan uning ke jogja"
+    },
+    {
+      "ref": "cari satu telepon indigo di solo",
+      "greedy": "cabi satu telepon indigo di solo",
+      "beam": "cabi satu telepon indigo di solo"
+    },
+    {
+      "ref": "gutik enam wejangan merah di hotel",
+      "greedy": "gubak dnm wejangan merah di hotel",
+      "beam": "gubak dnm wejangan merah di hotel"
+    },
+    {
+      "ref": "gutik dua lukisan kuning ke negeri",
+      "greedy": "gubak duan lukisan kuning ke negeri",
+      "beam": "gubak duan lukisan kuning ke negeri"
+    },
+    {
+      "ref": "gutik sepuluh logika hijau di bekasi",
+      "greedy": "gubik semuluh gogika rhijiu di bekamsi",
+      "beam": "gutik semuluh gogika rhijiu di bekamsi"
+    },
+    {
+      "ref": "gutik sembilan sukulen hijau ke negeri",
+      "greedy": "gabik sembilan sukulen hijau kenegeri",
+      "beam": "gabik sembilan sukulen hijau kenegeri"
+    },
+    {
+      "ref": "taruh empat hubungan merah ke loket",
+      "greedy": "cabih empuilt nubungan merah ke loket",
+      "beam": "cabih empuilt nubungan merah ke loket"
+    },
+    {
+      "ref": "cari enam filsafat hijau ke opera",
+      "greedy": "gari enam filsafat hijau ke opera",
+      "beam": "cari enam filsafat hijau ke opera"
+    },
+    {
+      "ref": "gutik tujuh logika ungu ke bekasi",
+      "greedy": "gubak tujuh yodika kungu ke beinesi",
+      "beam": "gubak tujuh yodika kungu ke beinesi"
+    },
+    {
+      "ref": "lihat enam ceciwis ungu dari bekasi",
+      "greedy": "garit enam jeciwis kungu dari benesi",
+      "beam": "garit enam jeciwis kungu dari benesi"
+    },
+    {
+      "ref": "taruh sepuluh mukjizat kuning dari solo",
+      "greedy": "garih tsepuluh mujiat uning dari slo",
+      "beam": "garih tsepuluh mujiat uning dari slo"
+    },
+    {
+      "ref": "taruh empat fundamen hijau di bekasi",
+      "greedy": "carih empat fundamen hijau di bekasi",
+      "beam": "carih empat fundamen hijau di bekasi"
+    },
+    {
+      "ref": "ambil enam yodiyum kuning dari opera",
+      "greedy": "gatil dam soiyu uning dari opera",
+      "beam": "gatil dam soiyu uning dari opera"
+    },
+    {
+      "ref": "taruh empat gondola hijau di loket",
+      "greedy": "cabih dmpat gondola hijau di loket",
+      "beam": "cabih dmpat gondola hijau di loket"
+    },
+    {
+      "ref": "coba enam lukisan merah dari monumen",
+      "greedy": "caba nam ukinsan merah dari monumen",
+      "beam": "caba nam ukinsan merah dari monumen"
+    },
+    {
+      "ref": "lihat lima jeruji merah ke solo",
+      "greedy": "gabit ima jeruji merah kesolo",
+      "beam": "gabit ima jeruji merah kesolo"
+    },
+    {
+      "ref": "baca enam filsafat merah di sekolah",
+      "greedy": "guri renam fisafat merah diosekolrh",
+      "beam": "guri renam fisafat merah diosekolrh"
+    },
+    {
+      "ref": "ambil dua heliyum ungu ke sekolah",
+      "greedy": "gubil duaeliym ungu kegos ekrlrh",
+      "beam": "gubil duaeliym ungu kegos ekrlrh"
+    },
+    {
+      "ref": "baca enam yodiyum hijau di hotel",
+      "greedy": "cari dnam sodiyum hijau di hotel",
+      "beam": "cari dnam sodiyum hijau di hotel"
+    },
+    {
+      "ref": "ambil tiga gondola ungu dari sekolah",
+      "greedy": "gubil tiga gkuola ungu dari osekolah",
+      "beam": "gubil tiga gkuola ungu dari osekolah"
+    },
+    {
+      "ref": "lihat empat romawi hijau dari bekasi",
+      "greedy": "gurit empat lomawi hijau dari bekasi",
+      "beam": "gurit empat lomawi hijau dari bekasi"
+    },
+    {
+      "ref": "lihat empat nubuwat hijau dari solo",
+      "greedy": "gubit empat hubuwat hijau dari souolo",
+      "beam": "gubit empat hubuwat hijau dari souolo"
+    },
+    {
+      "ref": "taruh enam filsafat merah dari sekolah",
+      "greedy": "cabih enamfilsafat merah dardigosekolrh",
+      "beam": "cabih enamfilsafat merah dardigosekolrh"
+    },
+    {
+      "ref": "taruh satu mukjizat merah di sekolah",
+      "greedy": "gabih satu mukjizat mera indig sekolah",
+      "beam": "gabih satu mukjizat mera indig sekolah"
+    },
+    {
+      "ref": "cari satu ilmuwan merah dari festival",
+      "greedy": "gutis satu imuwan merah dari festival",
+      "beam": "gutis satu imuwan merah dari festival"
+    },
+    {
+      "ref": "baca lima sukulen hijau dari jogja",
+      "greedy": "gari lima sukulen hijau dari jogja",
+      "beam": "cari lima sukulen hijau dari jogja"
+    },
+    {
+      "ref": "taruh tujuh berewok kuning dari negeri",
+      "greedy": "cabih tujuh buenrewok uning dari negeri",
+      "beam": "cabih tujuh buenrewok uning dari negeri"
+    },
+    {
+      "ref": "gutik sepuluh mukjizat ungu di bekasi",
+      "greedy": "gutik sepuluh mukjiat ungu di bes",
+      "beam": "gutik sepuluh mukjiat ungu di bes"
+    },
+    {
+      "ref": "cari dua heliyum hijau di hotel",
+      "greedy": "cati dua hliyum hijau di hotel",
+      "beam": "cati dua hliyum hijau di hotel"
+    },
+    {
+      "ref": "coba delapan nubuwat kuning dari monumen",
+      "greedy": "gubi delapan nubuwat uning dari monumen",
+      "beam": "gubi delapan nubuwat kuning dari monumen"
+    },
+    {
+      "ref": "cari lima suvenir hijau di monumen",
+      "greedy": "gabi lima suvenir hijau di monumen",
+      "beam": "gabi lima suvenir hijau di monumen"
+    },
+    {
+      "ref": "taruh delapan komodo ungu di negeri",
+      "greedy": "gubih enapan romodo kungu di negeri",
+      "beam": "gubih enapan romodo kungu di negeri"
+    },
+    {
+      "ref": "ambil dua acuhan kuning dari kantor",
+      "greedy": "gabil dua acuhan uning dari kan solo",
+      "beam": "gabil dua acuhan uning dari kan solo"
+    },
+    {
+      "ref": "baca delapan acuhan hijau ke jogja",
+      "greedy": "gabi deapan acuhan hijau ke jogeja",
+      "beam": "gabi delapan acuhan hijau ke jogeja"
+    },
+    {
+      "ref": "coba dua mukjizat kuning ke sekolah",
+      "greedy": "guba dua mukjizat kuning di sekolah",
+      "beam": "guba dua mukjizat kuning di sekolah"
+    },
+    {
+      "ref": "coba sepuluh lukisan hijau di negeri",
+      "greedy": "guba semuluh unkiuan hija di negeri",
+      "beam": "guba semuluh unkiuan hija di negeri"
+    },
+    {
+      "ref": "cari empat lukisan hijau ke kantor",
+      "greedy": "gori empat uninsan hijau ke katolo",
+      "beam": "gori empat uninsan hijau ke katolo"
+    },
+    {
+      "ref": "lihat sembilan fonemik hijau dari jogja",
+      "greedy": "gihat sembilan fonemik hijaudar jogja",
+      "beam": "gihat semuilan fonemik hijaudar jogja"
+    },
+    {
+      "ref": "lihat lima boneka hijau dari kantor",
+      "greedy": "gurat ima muneka hijau dari kantoro",
+      "beam": "gurat ima muneka hijau dari kantoro"
+    },
+    {
+      "ref": "ambil enam mukjizat hijau dari negeri",
+      "greedy": "gmbil dnam mukjizat hijau dar negeri",
+      "beam": "ambil dnam mukjizat hijau dari negeri"
+    },
+    {
+      "ref": "ambil empat fonemik indigo dari hotel",
+      "greedy": "ambil emput fonemik indigo dari hottel",
+      "beam": "ambil emput fonemik indigo dari hottel"
+    },
+    {
+      "ref": "baca tujuh boneka ungu dari sekolah",
+      "greedy": "caca tujuh bune ungu dari sekolah",
+      "beam": "caca tujuhubune ungu dari sekolah"
+    },
+    {
+      "ref": "baca sepuluh solusi indigo ke loket",
+      "greedy": "cobi sepuluh olusi indigo ke loket",
+      "beam": "cobi sepuluh solusi indigo ke loket"
+    },
+    {
+      "ref": "taruh enam emosi kuning di loket",
+      "greedy": "gubih nam enmosi uning di loket",
+      "beam": "gubih nam enmosi kuning di loket"
+    },
+    {
+      "ref": "lihat dua solusi kuning di kantor",
+      "greedy": "gubit tua yolusi uning ki kan sol",
+      "beam": "gubit tua yolusi uning ki kan sol"
+    },
+    {
+      "ref": "baca tujuh filsafat hijau dari opera",
+      "greedy": "gubi tujuhuvelsafat hidiu dari opera",
+      "beam": "gubi tujuhuvelsafat hidiu dari opera"
+    },
+    {
+      "ref": "baca sepuluh nubuwat kuning di solo",
+      "greedy": "cati sepuluh lubuwgat uning di solo",
+      "beam": "cati sepuluh lubuwgat uning di solo"
+    },
+    {
+      "ref": "cari delapan fundamen kuning di solo",
+      "greedy": "gubis delapan fundamen uning di solo",
+      "beam": "gubis delapan fundamen uning di solo"
+    },
+    {
+      "ref": "lihat delapan jerami merah di loket",
+      "greedy": "gutit delapen jerami merah di loket",
+      "beam": "gutit delapan jerami merah di loket"
+    },
+    {
+      "ref": "lihat satu komodo kuning ke hotel",
+      "greedy": "gatit satu somodo kuning ke hotel",
+      "beam": "gatit satu somodo kuning ke hotel"
+    },
+    {
+      "ref": "lihat empat ujiyan ungu di jogja",
+      "greedy": "gubit empat ujiyan kungu di jogja",
+      "beam": "gubit empat ujiyan kungu di jogja"
+    },
+    {
+      "ref": "gutik satu ujiyan hijau ke solo",
+      "greedy": "gutik satu ujiyanhiau ke solo",
+      "beam": "gutik satu ujiyanhiau ke solo"
+    },
+    {
+      "ref": "lihat lima difusi hijau di negeri",
+      "greedy": "gubit lima difusi hijau di negeri",
+      "beam": "gubit lima difusi hijau di negeri"
+    },
+    {
+      "ref": "gutik empat logika hijau di solo",
+      "greedy": "catik empt lukigkahijau di solo",
+      "beam": "gutik empt lukigkahijau di solo"
+    },
+    {
+      "ref": "ambil tiga komodo ungu ke kantor",
+      "greedy": "cabil tiga gkomodongu ke kantoul",
+      "beam": "cabil tiga gkomodongu ke kantoul"
+    },
+    {
+      "ref": "lihat tujuh ilmuwan hijau di negeri",
+      "greedy": "gabit tujuh kimuwan hija di negeri",
+      "beam": "gabit tujuh kimuwan hijau di negeri"
+    },
+    {
+      "ref": "cari dua solusi ungu di negeri",
+      "greedy": "gubi tui solusi kungu di negeri",
+      "beam": "gubi tui solusi kungu di negeri"
+    },
+    {
+      "ref": "taruh sepuluh fonemik indigo ke opera",
+      "greedy": "cabih semuh fonemik indigoke opera",
+      "beam": "cabih semuh fonemik indigoke opera"
+    },
+    {
+      "ref": "coba satu telepon ungu di loket",
+      "greedy": "goba satu kilpmon ungu di loket",
+      "beam": "coba satu kilpmon ungu di loket"
+    },
+    {
+      "ref": "lihat enam fundamen merah ke sekolah",
+      "greedy": "cabit eam sundanmen merah eni dlgah",
+      "beam": "cabit eam sundanmen merah eni dlgah"
+    },
+    {
+      "ref": "gutik empat kimono merah ke jogja",
+      "greedy": "gutik empat timono merah ke jogja",
+      "beam": "gutik empat timono merah ke jogja"
+    },
+    {
+      "ref": "taruh tujuh ujiyan indigo di sekolah",
+      "greedy": "cabih ujuh kujiyan indigo ndi sekolah",
+      "beam": "cabih ujuh kujiyan indigo ndi sekolah"
+    },
+    {
+      "ref": "lihat dua fonemik kuning ke kantor",
+      "greedy": "cutit dua fonemik uning ke ka solo",
+      "beam": "cutit duha fonemik uning ke ka solo"
+    },
+    {
+      "ref": "gutik lima ilmuwan kuning dari jogja",
+      "greedy": "cabik im ma kimuwan uning dari jogja",
+      "beam": "cabik im ma kimuwan uning dari jogja"
+    },
+    {
+      "ref": "cari sembilan fundamen ungu ke monumen",
+      "greedy": "cabi semuleae fundamen ungu ke monumen",
+      "beam": "cabi semuleae fundamen ungu ke monumen"
+    },
+    {
+      "ref": "ambil delapan defensi merah di bekasi",
+      "greedy": "gutil delapan defensi merah di bekasi",
+      "beam": "gutil delapan defensi merah di bekasi"
+    },
+    {
+      "ref": "baca empat ujiyan hijau ke bekasi",
+      "greedy": "caba empat ujiyan hiu ke bekari",
+      "beam": "caba empat ujiyan hiu ke bekari"
+    },
+    {
+      "ref": "gutik lima sukulen merah ke solo",
+      "greedy": "gubak lima sukulgan merah ke solo",
+      "beam": "gubak lima sukulgan merah ke solo"
+    },
+    {
+      "ref": "lihat lima solusi ungu dari festival",
+      "greedy": "gutut lima yolusi ungu dari festival",
+      "beam": "gutut lima yolusi ungu dari festival"
+    },
+    {
+      "ref": "lihat sembilan suvenir indigo di bekasi",
+      "greedy": "gubit semuilansuvenir indigo di bekasi",
+      "beam": "gubit semuilansuvenir indigo di bekasi"
+    },
+    {
+      "ref": "ambil delapan fonemik hijau dari negeri",
+      "greedy": "gabil deapan fonemik hijau darii negeri",
+      "beam": "gabil deapan fonemik hijau darii negeri"
+    },
+    {
+      "ref": "cari sembilan yodiyum indigo dari solo",
+      "greedy": "cubi sembilan sodiyum indigo dari eseulo",
+      "beam": "cubi sembilan sodiyum indigo dari eseulo"
+    },
+    {
+      "ref": "gutik dua ilmuwan ungu dari hotel",
+      "greedy": "gubak ua muwan ungu dari hotel",
+      "beam": "gubak ua muwan ungu dari hotel"
+    },
+    {
+      "ref": "coba sepuluh gondola ungu di jogja",
+      "greedy": "guba sepuluh gonuduola ungu di jogja",
+      "beam": "guba sepuluh gonuduola ungu di jogja"
+    },
+    {
+      "ref": "taruh dua piano hijau dari bekasi",
+      "greedy": "gabih dua pyano hijau dari bekasi",
+      "beam": "gabih dua pyano hijau dari bekasi"
+    },
+    {
+      "ref": "baca sembilan jeruji merah di negeri",
+      "greedy": "cari dsemuilan jeruji mearah di negeri",
+      "beam": "cari dsemuilan jeruji mearah di negeri"
+    },
+    {
+      "ref": "ambil satu yodiyum indigo dari solo",
+      "greedy": "ambil datu sodiyum indigo dari esolo",
+      "beam": "ambil datu sodiyum indigo dariesolo"
+    },
+    {
+      "ref": "coba sepuluh jerami indigo dari opera",
+      "greedy": "goba sepuluh jerami indigo dari opera",
+      "beam": "goba sepuluh jerami indigo dari opera"
+    },
+    {
+      "ref": "ambil tujuh hubungan ungu ke hotel",
+      "greedy": "gmbil dujuh ubungan ungu ke hotel",
+      "beam": "gmbil dujuh ubungan ungu ke hotel"
+    },
+    {
+      "ref": "taruh dua ujiyan indigo di monumen",
+      "greedy": "guruh tunga ujiyan indigo di monumen",
+      "beam": "guruh tunga ujiyan indigo di monumen"
+    },
+    {
+      "ref": "baca delapan jeruji merah dari sekolah",
+      "greedy": "amca delapil jeruji merah darki sekolah",
+      "beam": "amca delapil jeruji merah dari sekolah"
+    },
+    {
+      "ref": "baca dua emosi hijau ke hotel",
+      "greedy": "cati tuahanmoi hijau ke hotel",
+      "beam": "cati tuahanmoi hijau ke hotel"
+    },
+    {
+      "ref": "gutik satu solusi indigo di sekolah",
+      "greedy": "gutik katusuolusig indigo di seolelah",
+      "beam": "gutik katusuolusig indigo di seolelah"
+    },
+    {
+      "ref": "lihat enam lukisan ungu ke loket",
+      "greedy": "guhat enam ukiniat ungu ke loket",
+      "beam": "guhat enam ukiniat ungu ke loket"
+    },
+    {
+      "ref": "lihat tiga ujiyan kuning ke monumen",
+      "greedy": "gihat inga ujiyan uning ke monumen",
+      "beam": "gihat inga ujiyan kuning ke monumen"
+    },
+    {
+      "ref": "cari sembilan fonemik hijau dari loket",
+      "greedy": "gubi sem lian fonemik hijau dari loket",
+      "beam": "gubi sem lian fonemik hijau dari loket"
+    },
+    {
+      "ref": "lihat delapan berewok kuning ke monumen",
+      "greedy": "aihat enampimrewok uning ke monumen",
+      "beam": "aihat enampimrewok uning ke monumen"
+    },
+    {
+      "ref": "baca tujuh berewok hijau di loket",
+      "greedy": "gubi tu bunae ok hijau di lokget",
+      "beam": "gubi tu bunae ok hijau di loket"
+    },
+    {
+      "ref": "baca enam wejangan indigo dari negeri",
+      "greedy": "cara dam sukjanga indigo dari neri",
+      "beam": "cari dam sukjanga indigo dari neri"
+    },
+    {
+      "ref": "ambil sepuluh mukjizat kuning ke hotel",
+      "greedy": "gutil sepuluh mujiat uning ke hotel",
+      "beam": "gutil sepuluh mujiat uning ke hotel"
+    },
+    {
+      "ref": "taruh satu sukulen ungu dari kantor",
+      "greedy": "gubih satungn ungu dari kanto",
+      "beam": "gubih satungn ungu dari kanto"
+    },
+    {
+      "ref": "cari tiga defensi hijau di hotel",
+      "greedy": "cati ena derfensi hijau di hotel",
+      "beam": "cati ena derfensi hijau di hotel"
+    },
+    {
+      "ref": "cari enam suvenir indigo ke jogja",
+      "greedy": "gubi nam suvenir indigo ke jogja",
+      "beam": "gubi nam suvenir indigo ke jogja"
+    },
+    {
+      "ref": "cari tiga nubuwat indigo dari opera",
+      "greedy": "cubi tiga nubuwat indigo dari opera",
+      "beam": "cubi tiga nubuwat indigo dari opera"
+    },
+    {
+      "ref": "coba lima piano hijau ke sekolah",
+      "greedy": "cubi lima  pieoig hijau knie joglah",
+      "beam": "cubi lima  pieoig hijau knie joglah"
+    },
+    {
+      "ref": "cari delapan ceciwis indigo di solo",
+      "greedy": "gubi delapan ceciwis indigo indi solo",
+      "beam": "gubi delapan ceciwis indigo indi solo"
+    },
+    {
+      "ref": "taruh empat jeruji ungu ke solo",
+      "greedy": "gubih empitceruji ungu ke solo",
+      "beam": "gubih empitceruji ungu ke solo"
+    },
+    {
+      "ref": "lihat tujuh fonemik ungu di loket",
+      "greedy": "gubit tujuh fonemik ungu di loket",
+      "beam": "gubit tujuh fonemik ungu di loket"
+    },
+    {
+      "ref": "lihat dua suvenir hijau dari hotel",
+      "greedy": "gabit dua suvenir hijau dari hotel",
+      "beam": "gabit dua suvenir hijau dari hotel"
+    },
+    {
+      "ref": "baca sepuluh ilmuwan indigo ke sekolah",
+      "greedy": "cabi sempuluh kimuwan indigo ki sekolah",
+      "beam": "cabi sempuluh kimuwan indigo ke sekolah"
+    },
+    {
+      "ref": "ambil empat ujiyan kuning di opera",
+      "greedy": "gubil empat uniyan kuning di opera",
+      "beam": "gubil empat uniyan kuning di opera"
+    },
+    {
+      "ref": "gutik satu jerami merah di bekasi",
+      "greedy": "gubitu kda ujiami merah ki bekasi",
+      "beam": "gubitu kda ujiami merah ki bekasi"
+    },
+    {
+      "ref": "cari sepuluh lukisan indigo ke kantor",
+      "greedy": "guti sepuluh lkunkisan indigo ke kantr",
+      "beam": "guti sepuluh lkunkisan indigo ke kantr"
+    },
+    {
+      "ref": "coba delapan telepon ungu di sekolah",
+      "greedy": "gubi delapan telepon ungu di osekolah",
+      "beam": "gubi delapan telepon ungu di osekolah"
+    },
+    {
+      "ref": "gutik empat difusi indigo dari festival",
+      "greedy": "gubik empat kdifusi indigo dari festival",
+      "beam": "gutik empat kdifusi indigo dari festival"
+    },
+    {
+      "ref": "gutik tujuh sukulen ungu ke sekolah",
+      "greedy": "cabik tujuh sulen ungu ke sekolah",
+      "beam": "cabik tujuh sulen ungu ke sekolah"
+    },
+    {
+      "ref": "lihat delapan jerami ungu ke negeri",
+      "greedy": "cabit delapin cerami kungu k  kenegri",
+      "beam": "cabit delapin cerami kungu k  kenegri"
+    },
+    {
+      "ref": "cari lima logika ungu di sekolah",
+      "greedy": "cari lima lgogika kungu ke sekolah",
+      "beam": "cari lima lgogika ungu ke sekolah"
+    },
+    {
+      "ref": "gutik empat emosi hijau di solo",
+      "greedy": "gabak emp emkosi hijau di solo",
+      "beam": "gabak emp emkosi hijau di solo"
+    },
+    {
+      "ref": "cari satu jerami ungu ke kantor",
+      "greedy": "gabi datu jerami kungu ke kantor",
+      "beam": "gabi datu jerami kungu ke kantor"
+    },
+    {
+      "ref": "cari dua fundamen indigo ke sekolah",
+      "greedy": "gabi dua fundamen indigo ke sekolah",
+      "beam": "gabi dua fundamen indigo ke sekolah"
+    },
+    {
+      "ref": "gutik lima fonemik merah dari monumen",
+      "greedy": "gabik lima fonemik merah dari monumen",
+      "beam": "gabik lima fonemik merah dari monumen"
+    },
+    {
+      "ref": "cari empat jerami kuning ke monumen",
+      "greedy": "gubu emat jerami kuning ke monumen",
+      "beam": "gubu emat jerami kuning ke monumen"
+    },
+    {
+      "ref": "gutik enam ceciwis kuning ke festival",
+      "greedy": "gubik lam jejiwis uning ke festival",
+      "beam": "gutik lam jejiwis uning ke festival"
+    },
+    {
+      "ref": "gutik sepuluh wejangan ungu di negeri",
+      "greedy": "gubak sepuluh vensangan ungu di neri",
+      "beam": "gubak sepuluh vensangan ungu di neri"
+    },
+    {
+      "ref": "baca tiga ujiyan hijau dari sekolah",
+      "greedy": "guri tiga hujiuan hijau darndiosekolrh",
+      "beam": "guri tiga hujiuan hijau darndiosekolrh"
+    },
+    {
+      "ref": "taruh satu acuhan kuning dari sekolah",
+      "greedy": "gubih satua uhan uning dari sekolh",
+      "beam": "gubih satuauhan uning dari sekolh"
+    },
+    {
+      "ref": "lihat satu fonemik kuning dari festival",
+      "greedy": "cubit datu fonemik uning dari festival",
+      "beam": "cubit datu fonemik uning dari festival"
+    },
+    {
+      "ref": "baca lima romawi hijau di loket",
+      "greedy": "gaca lima romawi hijauu di lokeet",
+      "beam": "gaca lima romawi hijauu di loket"
+    },
+    {
+      "ref": "baca sepuluh hubungan indigo di opera",
+      "greedy": "gubi dsepuluh nubungan indigo di opera",
+      "beam": "gubi dsepuluh hubungan indigo di opera"
+    },
+    {
+      "ref": "lihat dua fonemik ungu dari kantor",
+      "greedy": "gabit tua fonemik kungu dari kantolo",
+      "beam": "gabit tua fonemik kungu dari kantolo"
+    },
+    {
+      "ref": "taruh delapan solusi merah ke solo",
+      "greedy": "gubih ignampen sousi merah ke solo",
+      "beam": "gubih ignampen sousi merah ke solo"
+    },
+    {
+      "ref": "baca sepuluh hubungan hijau ke loket",
+      "greedy": "gari sepuluh ubungan hijau ke loket",
+      "beam": "cari sepuluh ubungan hijau ke loket"
+    },
+    {
+      "ref": "coba tiga difusi hijau di negeri",
+      "greedy": "guba tiga dtiruji hijau d negeri",
+      "beam": "guba tiga dtiruji hijau d negeri"
+    },
+    {
+      "ref": "taruh delapan hubungan merah di solo",
+      "greedy": "gabih tenapan nubungan merah indi solo",
+      "beam": "gabih tenapan nubungan merah indi solo"
+    },
+    {
+      "ref": "gutik delapan filsafat indigo di kantor",
+      "greedy": "gobak elapan filsafat indigo di kantor",
+      "beam": "gobak elapan filsafat indigo di kantor"
+    },
+    {
+      "ref": "ambil dua jerami kuning dari monumen",
+      "greedy": "gubil dua cerami kuning dari monumen",
+      "beam": "gubil dua cerami kuning dari monumen"
+    },
+    {
+      "ref": "lihat tiga jerami indigo di kantor",
+      "greedy": "gubit tiga jerami indigo di kantolr",
+      "beam": "gubit tiga jerami indigo di kantolr"
+    },
+    {
+      "ref": "coba sembilan komodo merah di loket",
+      "greedy": "guba semilan romodou merah dig loket",
+      "beam": "guba semilan romodou merah dig loket"
+    },
+    {
+      "ref": "ambil dua hubungan hijau di hotel",
+      "greedy": "garil dua khubungan hiji idi hotel",
+      "beam": "garil dua khubungan hiji idi hotel"
+    },
+    {
+      "ref": "coba lima heliyum kuning di opera",
+      "greedy": "gabi lima helyum uning di opera",
+      "beam": "gabi limahelyum uning di opera"
+    },
+    {
+      "ref": "coba dua filsafat kuning dari solo",
+      "greedy": "guti dua filsafat uning dari solo",
+      "beam": "guti dua filafat uning dari solo"
+    },
+    {
+      "ref": "taruh satu fundamen ungu di negeri",
+      "greedy": "cubih tsatu sundamen ungu di knegeri",
+      "beam": "cubih tsatu sundamen ungu di knegeri"
+    },
+    {
+      "ref": "coba enam lukisan kuning dari hotel",
+      "greedy": "cabi nam mukinsan uning dari hotel",
+      "beam": "cari nam mukinsan uning dari hotel"
+    },
+    {
+      "ref": "cari empat romawi merah dari kantor",
+      "greedy": "gabi empat yomawi mah dari kanntolo",
+      "beam": "gabi empat yomawi mah dari kanntolo"
+    },
+    {
+      "ref": "gutik dua fonemik merah dari jogja",
+      "greedy": "gutik dua fonemik merah dari jogja",
+      "beam": "gutik dua fonemik merah dari jogja"
+    },
+    {
+      "ref": "lihat sembilan yodiyum kuning dari kantor",
+      "greedy": "gubat sembilan godim uning dari kantor",
+      "beam": "gubat sembilan godim uning dari kantor"
+    },
+    {
+      "ref": "gutik sepuluh emosi kuning ke loket",
+      "greedy": "gutik emuluh hemosi uning ke loket",
+      "beam": "gutik emuluh hemosi kuning ke loket"
+    },
+    {
+      "ref": "ambil sembilan boneka kuning dari kantor",
+      "greedy": "gabil semalramuneka uning dari kanntolo",
+      "beam": "gabil semalramuneka uning dari kanntolo"
+    },
+    {
+      "ref": "ambil delapan emosi ungu dari kantor",
+      "greedy": "gubil delapan emosi ungu dari kanoulo",
+      "beam": "gubil delapan emosi ungu dari kanoulo"
+    },
+    {
+      "ref": "cari enam yodiyum ungu dari loket",
+      "greedy": "gubik dnm yondi yum ungu dari loket",
+      "beam": "gutik dnm yondi yum ungu dari loket"
+    },
+    {
+      "ref": "taruh enam wejangan hijau di solo",
+      "greedy": "cutah enam wejangan hndi di solo",
+      "beam": "cutah enam wejangan hndi di solo"
+    },
+    {
+      "ref": "ambil sepuluh defensi kuning di loket",
+      "greedy": "gubil sepuluh defeni uning dig loket",
+      "beam": "gubil sepuluh defeni uning di loket"
+    },
+    {
+      "ref": "taruh lima ceciwis ungu dari kantor",
+      "greedy": "gubuh lima jeciwis ungu dari kanntolo",
+      "beam": "gubuh lima ceciwis ungu dari kanntolo"
+    },
+    {
+      "ref": "lihat enam ujiyan kuning di solo",
+      "greedy": "gubit enam ukjiyan uning ki solo",
+      "beam": "gubit enam ukjiyan uning di solo"
+    },
+    {
+      "ref": "taruh sepuluh solusi merah ke festival",
+      "greedy": "gubih sepuluh so uji merah ke festival",
+      "beam": "gubih sepuluh so uji merah ke festival"
+    },
+    {
+      "ref": "gutik delapan defensi hijau ke negeri",
+      "greedy": "cutik elapan defensi hijau ke negeri",
+      "beam": "gutik elapan defensi hijau ke negeri"
+    },
+    {
+      "ref": "taruh enam kimono kuning ke solo",
+      "greedy": "gubih enam kimono uning ke solo",
+      "beam": "gubih enam kimono kuning ke solo"
+    },
+    {
+      "ref": "coba enam mukjizat merah dari sekolah",
+      "greedy": "gubi enam ujiat rah darndig sekolah",
+      "beam": "gubi enam ujiat rah darndig sekolah"
+    },
+    {
+      "ref": "baca delapan boneka indigo di opera",
+      "greedy": "gari delapan munena indigo di opehera",
+      "beam": "cari delapan munena indigo di opehera"
+    },
+    {
+      "ref": "lihat sembilan jeruji merah di opera",
+      "greedy": "gabit semlilanjer uning merah di opera",
+      "beam": "gabit semlilanjer uning merah di opera"
+    },
+    {
+      "ref": "cari enam sukulen hijau ke monumen",
+      "greedy": "gubi dnam sukulen diau ke monumen",
+      "beam": "gubi dnam sukulen diau ke monumen"
+    },
+    {
+      "ref": "gutik enam logika merah dari hotel",
+      "greedy": "gutik nam hogika merah dari hotel",
+      "beam": "gutik nam hogika merah dari hotel"
+    },
+    {
+      "ref": "taruh sepuluh acuhan merah di negeri",
+      "greedy": "gurih dsepuh ancuhanm kerah dir negeri",
+      "beam": "gurih dsepuh ancuhanm kerah dir negeri"
+    },
+    {
+      "ref": "taruh lima boneka kuning ke loket",
+      "greedy": "carih lsma mboneka uning ke loket",
+      "beam": "carih lsma mboneka uning ke loket"
+    },
+    {
+      "ref": "gutik lima komodo kuning ke sekolah",
+      "greedy": "cabik lima komodo kuning ke sekolah",
+      "beam": "cabik lima komodo kuning ke sekolah"
+    },
+    {
+      "ref": "coba sepuluh solusi merah ke solo",
+      "greedy": "guba semuluh souniu merah ke solo",
+      "beam": "guba semuluh souniu merah ke solo"
+    },
+    {
+      "ref": "lihat lima fundamen ungu dari kantor",
+      "greedy": "gubit im afundamen ungu dari ka nolo",
+      "beam": "gubit imafundamen ungu dari kanolo"
+    },
+    {
+      "ref": "gutik sepuluh suvenir ungu di monumen",
+      "greedy": "gabik semuluh  suenir kungu di monu",
+      "beam": "gabik semuluh  suenir kungu di monu"
+    },
+    {
+      "ref": "baca sepuluh obyektif hijau dari kantor",
+      "greedy": "gaba sepuluh obyektif diu dari ka",
+      "beam": "gaba sepuluh obyektif diu dari ka"
+    },
+    {
+      "ref": "cari delapan kimono indigo di sekolah",
+      "greedy": "gari delapan dimono indigo digosekolah",
+      "beam": "gari delapan dimono indigo digosekolah"
+    },
+    {
+      "ref": "cari sembilan kimono hijau di festival",
+      "greedy": "gubi emuilan imono hijau dir festival",
+      "beam": "gubi emuilan imono hijau dir festival"
+    },
+    {
+      "ref": "gutik enam ilmuwan merah ke negeri",
+      "greedy": "cabik eim ikmuwan merah k negeri",
+      "beam": "cabik eim ikmuwan merah k negeri"
+    },
+    {
+      "ref": "coba satu fonemik hijau ke sekolah",
+      "greedy": "gubi satu fonemik hijau kig sekolah",
+      "beam": "gubi satu fonemik hijau kig sekolah"
+    },
+    {
+      "ref": "coba tujuh kimono ungu di negeri",
+      "greedy": "guti dujuh kimono ngu di negeri",
+      "beam": "guti dujuh kimono ngu di negeri"
+    },
+    {
+      "ref": "ambil delapan jeruji kuning ke negeri",
+      "greedy": "cabil delapan jeruji kuning ke negri",
+      "beam": "cabil delapan jeruji kuning ke negri"
+    },
+    {
+      "ref": "taruh enam hubungan merah dari loket",
+      "greedy": "gabih enam ubungan kra dari loket",
+      "beam": "gabih enam ubungan kra dari loket"
+    },
+    {
+      "ref": "gutik lima kimono hijau dari negeri",
+      "greedy": "gubik lima kilmono nke darii  negeri",
+      "beam": "gutik lima kilmono nke darii  negeri"
+    },
+    {
+      "ref": "gutik lima romawi kuning ke opera",
+      "greedy": "gurik lima kumawi kuning ke opera",
+      "beam": "gurik lima kumawi kuning ke opera"
+    },
+    {
+      "ref": "taruh delapan solusi merah ke jogja",
+      "greedy": "gubih telapan susi merah ke jogja",
+      "beam": "gubih telapan susi merah ke jogja"
+    },
+    {
+      "ref": "ambil tiga obyektif kuning dari negeri",
+      "greedy": "cabil tiga obyektif kung dari negeri",
+      "beam": "cabil tiga obyektif kung dari negeri"
+    },
+    {
+      "ref": "ambil satu suvenir ungu ke solo",
+      "greedy": "guril satusuvenir ungu ke solo",
+      "beam": "guril satusuvenir ungu ke solo"
+    },
+    {
+      "ref": "coba sepuluh hubungan kuning di hotel",
+      "greedy": "gubi semuluh ubungan ung di hotel",
+      "beam": "gubi semuluh ubungan ung di hotel"
+    },
+    {
+      "ref": "coba satu ceciwis merah di solo",
+      "greedy": "gubi satujiyc iwis merah di solo",
+      "beam": "gubi satujiyc iwis merah di solo"
+    },
+    {
+      "ref": "lihat tiga suvenir merah di festival",
+      "greedy": "catit tiga suvenir merah di festival",
+      "beam": "catit tiga suvenir merah di festival"
+    },
+    {
+      "ref": "cari lima kimono kuning dari sekolah",
+      "greedy": "guri lima dimono ung dar iun ekola",
+      "beam": "guri lima dimono ung dar iun ekola"
+    },
+    {
+      "ref": "coba satu komodo hijau ke jogja",
+      "greedy": "gubi satu uomodo hijau ke jogja",
+      "beam": "gubi satu uomodo hijau ke jogja"
+    },
+    {
+      "ref": "gutik satu yodiyum ungu ke loket",
+      "greedy": "gatik datujsyodiyum ungu keo loke",
+      "beam": "gutik datujsyodiyum ungu keo loke"
+    },
+    {
+      "ref": "ambil sembilan mukjizat hijau ke kantor",
+      "greedy": "cabil semuilan mukjiat hijau ke kao",
+      "beam": "cabil semuilan mukjiat hijau ke kao"
+    },
+    {
+      "ref": "coba satu nubuwat ungu dari sekolah",
+      "greedy": "gabi sdatubuwat ungu dar dklga",
+      "beam": "gabi sdatubuwat ungu dar dklga"
+    },
+    {
+      "ref": "cari tujuh sukulen kuning di negeri",
+      "greedy": "gubi tujuh suknlgn uning di negeri",
+      "beam": "gubi tujuh suknlgn uning di negeri"
+    },
+    {
+      "ref": "gutik tujuh emosi kuning ke negeri",
+      "greedy": "gubik tujuh emosi uning k negeri",
+      "beam": "gubik tujuh emosi uning k negeri"
+    },
+    {
+      "ref": "ambil sembilan kimono kuning di negeri",
+      "greedy": "cubil sembilan imono uning di negeri",
+      "beam": "cubil sembilan imono uning di negeri"
+    },
+    {
+      "ref": "cari sepuluh emosi ungu ke bekasi",
+      "greedy": "gubis sepuluh lenmosi kungu ke bekasi",
+      "beam": "gubis sepuluh lenmosi kungu ke bekasi"
+    },
+    {
+      "ref": "taruh enam lukisan hijau ke jogja",
+      "greedy": "gabih enam swnisan hjiu ke jogja",
+      "beam": "gabih enam swnisan hjiu ke jogja"
+    },
+    {
+      "ref": "gutik delapan piano ungu ke negeri",
+      "greedy": "gubik delap an pirno ungu  knegeri",
+      "beam": "gubik delap an pirno ungu  knegeri"
+    },
+    {
+      "ref": "taruh tujuh defensi indigo ke festival",
+      "greedy": "gubih tuh dfensi indigo ke festival",
+      "beam": "gubih tuh dfensi indigo ke festival"
+    },
+    {
+      "ref": "coba delapan mukjizat indigo ke loket",
+      "greedy": "gubi delapan mukjizat indigo ke loket",
+      "beam": "gubi delapan mukjizat indigo ke loket"
+    },
+    {
+      "ref": "gutik lima hubungan hijau di opera",
+      "greedy": "gubik lima koubunan hijau di opera",
+      "beam": "gutik lima koubunan hijau di opera"
+    },
+    {
+      "ref": "cari tiga piano hijau dari bekasi",
+      "greedy": "gubi tignapiano hijau dari bekasi",
+      "beam": "gubi tignapiano hijau dari bekasi"
+    },
+    {
+      "ref": "ambil tiga nubuwat indigo dari jogja",
+      "greedy": "garil tiga nubuwat indigo dari jogja",
+      "beam": "garil tiga nubuwat indigo dari jogja"
+    },
+    {
+      "ref": "cari empat jerami hijau dari hotel",
+      "greedy": "guri empat jerami hijau dari hotel",
+      "beam": "guri empat jerami hijau dari hotel"
+    },
+    {
+      "ref": "taruh satu ujiyan merah di solo",
+      "greedy": "gubih satujiyanm merah indi solo",
+      "beam": "gubih satujiyanm merah indi solo"
+    },
+    {
+      "ref": "cari empat ilmuwan hijau dari jogja",
+      "greedy": "cubi empat imuwan hijau dari jogja",
+      "beam": "cubi empat imuwan hijau dari jogja"
+    },
+    {
+      "ref": "taruh lima defensi hijau ke solo",
+      "greedy": "gubih ema defensi hijau ke solo",
+      "beam": "gubih ema defensi hijau ke solo"
+    },
+    {
+      "ref": "gutik empat suvenir kuning ke kantor",
+      "greedy": "guri empat suvenir kuning ke kantor",
+      "beam": "guri empat suvenir kuning ke kantor"
+    },
+    {
+      "ref": "coba empat jerami ungu dari solo",
+      "greedy": "gubi empat jerami kungu dari solo",
+      "beam": "gubi empat jerami ungu dari solo"
+    },
+    {
+      "ref": "coba enam wejangan indigo ke sekolah",
+      "greedy": "caba nam wukjanga indigo nkig sekaolah",
+      "beam": "caba nam wukjanga indigo nkig sekaolah"
+    },
+    {
+      "ref": "baca empat defensi indigo di festival",
+      "greedy": "gari empat defensi indigo di festival",
+      "beam": "cari empat defensi indigo di festival"
+    },
+    {
+      "ref": "ambil sembilan kimono indigo ke bekasi",
+      "greedy": "gubil sembilan kimono indigo ke bekasi",
+      "beam": "gubil sembilan kimono indigo ke bekasi"
+    },
+    {
+      "ref": "coba dua mukjizat ungu ke festival",
+      "greedy": "gubi dua mukjizat unguo ke festival",
+      "beam": "gubi dua mukjizat ungu ke festival"
+    },
+    {
+      "ref": "cari delapan sukulen kuning dari opera",
+      "greedy": "gubi selapancsungen uning dari or",
+      "beam": "gubi selapancsungen uning dari or"
+    },
+    {
+      "ref": "baca sepuluh nubuwat ungu di negeri",
+      "greedy": "gubi sepuluh ubuwat ungu di negeri",
+      "beam": "gubi sepuluh nubuwat ungu di negeri"
+    },
+    {
+      "ref": "cari lima nubuwat merah ke sekolah",
+      "greedy": "guru iema nubuwat mrahh di sekollrh",
+      "beam": "guru iema nubuwat mrahh di sekollrh"
+    },
+    {
+      "ref": "coba sembilan komodo hijau di hotel",
+      "greedy": "guba semilan gomoudonu hijau di hotel",
+      "beam": "guba semilan gomoudonu hijau di hotel"
+    },
+    {
+      "ref": "baca dua fonemik hijau di loket",
+      "greedy": "cabi dua fonemik hijau di loket",
+      "beam": "cabi dua fonemik hijau di loket"
+    },
+    {
+      "ref": "gutik tujuh heliyum ungu ke sekolah",
+      "greedy": "cubik tujuhu henliym ungu de sekolrh",
+      "beam": "cubik tujuhu henliym ungu de sekolrh"
+    },
+    {
+      "ref": "gutik dua yodiyum merah di negeri",
+      "greedy": "garik tua yodiyum merah i kenegeri",
+      "beam": "garik tua yodiyum merah i kenegeri"
+    },
+    {
+      "ref": "ambil sepuluh heliyum ungu ke hotel",
+      "greedy": "gubil sempuluh heliyum ungu ke hotel",
+      "beam": "gubil sempuluh heliyum ungu ke hotel"
+    },
+    {
+      "ref": "gutik sepuluh telepon hijau di jogja",
+      "greedy": "gubik demumuh delepon hijau di jogja",
+      "beam": "gutik demumuh delepon hijau di jogja"
+    },
+    {
+      "ref": "gutik empat jeruji indigo di loket",
+      "greedy": "cabik embat  uning indigo di loket",
+      "beam": "cabik embat  uning indigo di loket"
+    },
+    {
+      "ref": "coba enam logika kuning ke jogja",
+      "greedy": "gabi nam mongika kuningu ke jogja",
+      "beam": "gabi nam mongika kuningu ke jogja"
+    },
+    {
+      "ref": "baca tiga mukjizat ungu ke kantor",
+      "greedy": "gabi tiga mhukjiat ungu ke kano",
+      "beam": "gabi tiga mhukjiat ungu ke kano"
+    },
+    {
+      "ref": "baca tiga kimono indigo ke monumen",
+      "greedy": "cabi ega imono indigo e monun",
+      "beam": "cabi ega imono indigo e monun"
+    },
+    {
+      "ref": "gutik dua mukjizat kuning ke negeri",
+      "greedy": "gurik dua mukjiat uning  ke negeri",
+      "beam": "gurik dua mukjiat uning  ke negeri"
+    },
+    {
+      "ref": "gutik delapan filsafat hijau di solo",
+      "greedy": "gubik elapan filsafat hijau di solo",
+      "beam": "gutik elapan filsafat hijau di solo"
+    },
+    {
+      "ref": "lihat empat komodo indigo di jogja",
+      "greedy": "gubit mpat numodo indigo di jog",
+      "beam": "gubit mpat numodo indigo di jog"
+    },
+    {
+      "ref": "gutik tiga kimono indigo ke negeri",
+      "greedy": "gubik tdadkimono indigo ke negeri",
+      "beam": "gutik tdadkimono indigo ke negeri"
+    },
+    {
+      "ref": "taruh satu suvenir indigo di kantor",
+      "greedy": "garih satuvenir indigo di kan toulo",
+      "beam": "garih satuvenir indigo di kan toulo"
+    },
+    {
+      "ref": "ambil sepuluh romawi indigo ke hotel",
+      "greedy": "gutil semuluh omawi indigo ke hotel",
+      "beam": "gutil semuluh omawi indigo ke hotel"
+    },
+    {
+      "ref": "coba delapan gondola hijau ke sekolah",
+      "greedy": "guti dnapan lkondola hijiu nkegosekolah",
+      "beam": "guti dnapan lkondola hijiu nkegosekolah"
+    },
+    {
+      "ref": "taruh sembilan filsafat ungu di kantor",
+      "greedy": "gubih semuilan filsafat ungu di kantor",
+      "beam": "gubih semuilan filsafat ungu di kantor"
+    },
+    {
+      "ref": "lihat sembilan mukjizat hijau ke monumen",
+      "greedy": "gubitsemlilanmukjiat iu ke monumen",
+      "beam": "gubitsemlilanmukjiat iu ke monumen"
+    },
+    {
+      "ref": "baca sepuluh obyektif hijau ke solo",
+      "greedy": "gabi semuluh aobyektif hidau ke solo",
+      "beam": "gabi semuluh aobyektif hidau ke solo"
+    },
+    {
+      "ref": "coba sepuluh yodiyum indigo di sekolah",
+      "greedy": "gabi sepuluh yodiyum indigo ndi sekolah",
+      "beam": "gabi sepuluh yodiyum indigo di sekolah"
+    },
+    {
+      "ref": "gutik delapan boneka indigo ke hotel",
+      "greedy": "gutik delapan muneka indigo ke hotel",
+      "beam": "gutik delapan muneka indigo ke hotel"
+    },
+    {
+      "ref": "ambil sembilan fonemik ungu dari opera",
+      "greedy": "cabil semuilan fonemik kungu dari opera",
+      "beam": "cabil semuilan fonemik kungu dari opera"
+    },
+    {
+      "ref": "taruh satu solusi kuning ke negeri",
+      "greedy": "gubih satusolusi kuningk k negeri",
+      "beam": "gubih satusolusi kuningk k negeri"
+    },
+    {
+      "ref": "coba dua logika kuning ke hotel",
+      "greedy": "gabi dua kogika kuning ke hotel",
+      "beam": "gabi dua logika kuning ke hotel"
+    },
+    {
+      "ref": "taruh tujuh gondola kuning di sekolah",
+      "greedy": "gabih tuh gondolea uning hdi sekolah",
+      "beam": "gabih tuh gondolea uning hdi sekolah"
+    },
+    {
+      "ref": "taruh enam komodo indigo di monumen",
+      "greedy": "gatih enam oumodo indigo di monumen",
+      "beam": "gatih enam oumodo indigo di monumen"
+    },
+    {
+      "ref": "baca tujuh solusi indigo ke jogja",
+      "greedy": "gabi dtu sol usi indigo ke jogja",
+      "beam": "gabi dtu sol usi indigo ke jogja"
+    },
+    {
+      "ref": "baca sembilan jeruji hijau di sekolah",
+      "greedy": "caca sembilanjeruji hijau dig sekolah",
+      "beam": "caca sembilanjeruji hijau dig sekolah"
+    },
+    {
+      "ref": "coba delapan piano merah di festival",
+      "greedy": "gata delapan pian u merah di festival",
+      "beam": "gata delapan pian u merah di festival"
+    },
+    {
+      "ref": "baca sembilan telepon merah di loket",
+      "greedy": "gabi semlan telepon mrah di loket",
+      "beam": "gabi semlan telepon mrah di loket"
+    },
+    {
+      "ref": "lihat empat piano indigo ke kantor",
+      "greedy": "gubit empait piano indigo ke kantoro",
+      "beam": "gubit empait piano indigo ke kantoro"
+    },
+    {
+      "ref": "ambil dua komodo indigo di monumen",
+      "greedy": "gabil dua komodo indigo di monumen",
+      "beam": "gabil dua komodo indigo di monumen"
+    },
+    {
+      "ref": "baca satu sukulen ungu dari hotel",
+      "greedy": "cabi satusunlen ungu dari hotel",
+      "beam": "cabi satusunlen ungu dari hotel"
+    },
+    {
+      "ref": "gutik satu sukulen hijau dari bekasi",
+      "greedy": "gutiku satungn hjiau dari bekasi",
+      "beam": "gutiku satungn hjiau dari bekasi"
+    },
+    {
+      "ref": "ambil sembilan heliyum indigo di sekolah",
+      "greedy": "cabil sembilan a liyumk indigo indi sekolah",
+      "beam": "cabil sembilan a liyumk indigo indi sekolah"
+    },
+    {
+      "ref": "ambil tiga kimono kuning di negeri",
+      "greedy": "cabil tiga kimono kuning di egeri",
+      "beam": "cabil tiga kimono kuning di egeri"
+    },
+    {
+      "ref": "gutik sembilan filsafat merah di bekasi",
+      "greedy": "cabik emulan filsafati kt di bekasi",
+      "beam": "cabik emulan filsafati kt di bekasi"
+    },
+    {
+      "ref": "baca dua suvenir ungu ke jogja",
+      "greedy": "cuba dua suvenir kungu ke jogj",
+      "beam": "cuba dua suvenir kungu ke jogj"
+    },
+    {
+      "ref": "baca dua ujiyan hijau di solo",
+      "greedy": "cabi dua ujiyan hijau dislo",
+      "beam": "cabi dua ujiyan hijau dislo"
+    },
+    {
+      "ref": "coba dua wejangan ungu dari opera",
+      "greedy": "gabi dua wejangan ungu dari opera",
+      "beam": "gabi dua wejangan ungu dari opera"
+    },
+    {
+      "ref": "ambil lima berewok hijau di jogja",
+      "greedy": "cabil lima perewok hijau dig digja",
+      "beam": "cabil lima perewok hijau dig digja"
+    },
+    {
+      "ref": "lihat dua hubungan ungu ke sekolah",
+      "greedy": "gubit ua ubungan ungu kdig sdkolah",
+      "beam": "gubit ua ubungan ungu kdig sdkolah"
+    },
+    {
+      "ref": "coba tiga obyektif merah dari kantor",
+      "greedy": "gubi tig obyekti merah dari kantr",
+      "beam": "gubi tig obyekti merah dari kantr"
+    },
+    {
+      "ref": "coba lima emosi kuning ke bekasi",
+      "greedy": "gubi lima emosi uning k benasi",
+      "beam": "gubi lima emosi kuning k benasi"
+    },
+    {
+      "ref": "cari empat nubuwat merah ke kantor",
+      "greedy": "guti empat ubuwat merah ki ka",
+      "beam": "guti empat ubuwat merah ki ka"
+    },
+    {
+      "ref": "cari tujuh suvenir merah ke bekasi",
+      "greedy": "gubi tujuh hvenir merah ke bekasi",
+      "beam": "gubi tujuh hvenir merah ke bekasi"
+    },
+    {
+      "ref": "baca tujuh obyektif kuning di negeri",
+      "greedy": "cabi tujuh obyektif uning di neri",
+      "beam": "cabi tujuh obyektif kuning di neri"
+    },
+    {
+      "ref": "gutik tiga boneka hijau di negeri",
+      "greedy": "gurik iam mneka hijau di negeri",
+      "beam": "gurik iam mneka hijau di negeri"
+    },
+    {
+      "ref": "taruh dua lukisan kuning di jogja",
+      "greedy": "gubih duaga ukisan uning di joggja",
+      "beam": "gubih duaga ukisan uning di joggja"
+    },
+    {
+      "ref": "taruh lima sukulen kuning di negeri",
+      "greedy": "gabih ema ukulen uning di negeri",
+      "beam": "gabih ema ukulen uning di negeri"
+    },
+    {
+      "ref": "cari empat hubungan ungu dari negeri",
+      "greedy": "cubi empat ubungan ungu dari enegeri",
+      "beam": "cubi empat ubungan ungu dari enegeri"
+    },
+    {
+      "ref": "cari lima mukjizat kuning dari monumen",
+      "greedy": "gubi lima mukjiyzat uning dari monumen",
+      "beam": "gubi lima mukjiyzat uning dari monumen"
+    },
+    {
+      "ref": "lihat delapan telepon hijau di kantor",
+      "greedy": "gubi delapan dtelepon hike di kano olo",
+      "beam": "gubi delapan dtelepon hike di kanolo"
+    },
+    {
+      "ref": "gutik satu emosi merah di negeri",
+      "greedy": "gubik satu heamosi mearah di negeri",
+      "beam": "gutik satu heamosi mearah di negeri"
+    },
+    {
+      "ref": "cari tujuh kimono kuning ke solo",
+      "greedy": "caba tujuh kimono uning ke sllo",
+      "beam": "caba tujuh kimono uning ke solo"
+    },
+    {
+      "ref": "coba delapan ceciwis indigo dari opera",
+      "greedy": "cuta delapan jeciwis indigo dari opera",
+      "beam": "cuta delapan jeciwis indigo dari opera"
+    },
+    {
+      "ref": "taruh sembilan lukisan hijau di loket",
+      "greedy": "gabih semuilan ukisanhi di loket",
+      "beam": "gabih semuilan ukisanhi di loket"
+    },
+    {
+      "ref": "gutik lima berewok kuning dari monumen",
+      "greedy": "gotik limae berewok uning dari monumen",
+      "beam": "gutik limae berewok uning dari monumen"
+    },
+    {
+      "ref": "baca sembilan obyektif indigo ke bekasi",
+      "greedy": "caba sembilan obyektif indigo ke be",
+      "beam": "caba sembilan obyektif indigo ke be"
+    },
+    {
+      "ref": "baca empat boneka indigo dari opera",
+      "greedy": "cari empit moneka indigo dari opera",
+      "beam": "cari empit moneka indigo dari opera"
+    },
+    {
+      "ref": "ambil sepuluh ceciwis hijau dari solo",
+      "greedy": "gubil semuluh jeciwi hijau dari solo",
+      "beam": "gubil semuluh jeciwi hijau dari solo"
+    },
+    {
+      "ref": "cari dua piano merah dari kantor",
+      "greedy": "cabi tua pirano merah dari ka olo",
+      "beam": "cari tua pirano merah dari kanolo"
+    },
+    {
+      "ref": "ambil dua fonemik ungu ke sekolah",
+      "greedy": "caril dua fonemik kungu ke sekolrh",
+      "beam": "caril dua fonemik kungu ke sekolrh"
+    },
+    {
+      "ref": "taruh sepuluh piano merah ke solo",
+      "greedy": "gabih semuluh piano merah ke solo",
+      "beam": "gabih semuluh piano merah ke solo"
+    },
+    {
+      "ref": "gutik delapan hubungan kuning dari jogja",
+      "greedy": "gubik delapan hubungan uning dari jogja",
+      "beam": "gutik delapan hubungan uning dari jogja"
+    },
+    {
+      "ref": "lihat tiga sukulen indigo dari solo",
+      "greedy": "cabit tiga sulen indigo dari solo",
+      "beam": "cabit tiga sulen indigo dari solo"
+    },
+    {
+      "ref": "baca empat gondola indigo dari solo",
+      "greedy": "gubi empat loludola indigo dari solo",
+      "beam": "gubi empat loludola indigo dari solo"
+    },
+    {
+      "ref": "coba tujuh difusi hijau ke solo",
+      "greedy": "gari duh kiufusi hijau ke solo",
+      "beam": "cari duh kiufusi hijau ke solo"
+    },
+    {
+      "ref": "baca satu wejangan ungu dari negeri",
+      "greedy": "caba datu eijanga ungu dari negeri",
+      "beam": "caba datu eijanga ungu dari negeri"
+    },
+    {
+      "ref": "coba empat defensi hijau di jogja",
+      "greedy": "guba empat defensi hijau di jogja",
+      "beam": "coba empat defensi hijau di jogja"
+    },
+    {
+      "ref": "cari tujuh logika kuning dari solo",
+      "greedy": "gubu tujuh odika uning dari solo",
+      "beam": "gubu tujuh odika uning dari solo"
+    },
+    {
+      "ref": "taruh tujuh ceciwis indigo di sekolah",
+      "greedy": "cubih tuh ceciwis indigo di sekolah",
+      "beam": "cubih tujuh ceciwis indigo di sekolah"
+    },
+    {
+      "ref": "coba delapan boneka merah dari sekolah",
+      "greedy": "guba delapan munea merah dari sekolah",
+      "beam": "guba delapan munea merah dari sekolah"
+    },
+    {
+      "ref": "baca lima defensi hijau ke bekasi",
+      "greedy": "cabi ima defensi hijau ke bekaesi",
+      "beam": "cabi ima defensi hijau ke bekasi"
+    },
+    {
+      "ref": "baca sepuluh heliyum indigo ke bekasi",
+      "greedy": "caba sepuluh heliyum indigo ke bekasi",
+      "beam": "cari sepuluh heliyum indigo ke bekasi"
+    },
+    {
+      "ref": "ambil sembilan obyektif ungu di solo",
+      "greedy": "caril semilan obyekti ungu di solo",
+      "beam": "caril semilan obyekti ungu di solo"
+    },
+    {
+      "ref": "ambil sembilan filsafat indigo dari sekolah",
+      "greedy": "cabil sembilan filsafat indigo dari sekolah",
+      "beam": "cabil sembilan filsafat indigo dari sekolah"
+    },
+    {
+      "ref": "lihat tujuh ujiyan indigo dari negeri",
+      "greedy": "carit tujuh ujiyan indigo dari negeri",
+      "beam": "carit tujuh ujiyan indigo dari negeri"
+    },
+    {
+      "ref": "cari enam fundamen hijau dari hotel",
+      "greedy": "cabi enam sundamen hijau dari hotel",
+      "beam": "cabi enam sundamen hijau dari hotel"
+    },
+    {
+      "ref": "coba sembilan heliyum ungu ke sekolah",
+      "greedy": "cabi semilan daknum ungu ke sekolah",
+      "beam": "cabi semilan daknum ungu ke sekolah"
+    },
+    {
+      "ref": "coba satu defensi merah dari hotel",
+      "greedy": "cabi datu safensi merah dari hotel",
+      "beam": "cabi datu safensi merah dari hotel"
+    },
+    {
+      "ref": "baca satu jerami ungu di bekasi",
+      "greedy": "cara dsatu jiram ungu di bekasi",
+      "beam": "cari dsatu jiram ungu di bekasi"
+    },
+    {
+      "ref": "gutik tiga romawi hijau dari monumen",
+      "greedy": "cabik tiga romawi hijau dari monumen",
+      "beam": "cabik tiga romawi hijau dari monumen"
+    },
+    {
+      "ref": "coba lima difusi indigo dari solo",
+      "greedy": "cabi lima dirfusi indigo dari solo",
+      "beam": "cari lima dirfusi indigo dari solo"
+    },
+    {
+      "ref": "taruh lima fonemik indigo di opera",
+      "greedy": "gubih lima fonemik indigo di opera",
+      "beam": "gubih lima fonemik indigo di opera"
+    },
+    {
+      "ref": "baca enam hubungan kuning ke jogja",
+      "greedy": "cabi enm hubungan uning ke jdogj",
+      "beam": "cabi enm hubungan uning ke jdogj"
+    },
+    {
+      "ref": "gutik empat boneka indigo di sekolah",
+      "greedy": "gabik empat muneka indigo di sekoah",
+      "beam": "gabik empat muneka indigo di sekoah"
+    },
+    {
+      "ref": "coba lima sukulen hijau di jogja",
+      "greedy": "gubi lima sukulen hijau di jogja",
+      "beam": "gubi lima sukulen hijau di jogja"
+    },
+    {
+      "ref": "coba sembilan heliyum hijau ke bekasi",
+      "greedy": "gubi depmilandalromk hijau ke bekasi",
+      "beam": "gubi depmilandalromk hijau ke bekasi"
+    },
+    {
+      "ref": "gutik satu wejangan ungu ke jogja",
+      "greedy": "gabik satu kijangan ungu ke jogja",
+      "beam": "gubik satu kijangan ungu ke jogja"
+    },
+    {
+      "ref": "coba sepuluh solusi ungu dari loket",
+      "greedy": "gabi semuluh solusi ungu dari loket",
+      "beam": "gabi semuluh solusi ungu dari loket"
+    },
+    {
+      "ref": "baca tujuh suvenir merah ke kantor",
+      "greedy": "gubi tuh uvenir merah ke kan so",
+      "beam": "gubi tuh uvenir merah ke kan so"
+    },
+    {
+      "ref": "ambil empat fundamen hijau di kantor",
+      "greedy": "gubil empat fundamen hija ke kantolr",
+      "beam": "gubil empat fundamen hijau ke kantolr"
+    },
+    {
+      "ref": "gutik satu lukisan ungu ke opera",
+      "greedy": "carik datusukgusan ungu ke opera",
+      "beam": "carik datusukgusan ungu ke opera"
+    },
+    {
+      "ref": "gutik empat romawi merah ke loket",
+      "greedy": "gabik empia numawi merah ke loket",
+      "beam": "gabik empia numawi merah ke loket"
+    },
+    {
+      "ref": "coba satu ceciwis ungu di loket",
+      "greedy": "gabi datu jiciwis ungu di loket",
+      "beam": "gabi datu jiciwis ungu di loket"
+    },
+    {
+      "ref": "coba sembilan heliyum kuning dari sekolah",
+      "greedy": "gubi sepmilan hlyum uning dari sekolah",
+      "beam": "gubi sepmilan hlyum uning dari sekolah"
+    },
+    {
+      "ref": "ambil empat ilmuwan merah ke kantor",
+      "greedy": "gubil empat kimuwan merah ke kantuor",
+      "beam": "gubil empat kimuwan merah ke kantuor"
+    },
+    {
+      "ref": "ambil empat ilmuwan indigo di jogja",
+      "greedy": "guril empat imuwan indigo di jogja",
+      "beam": "guril empat imuwan indigo di jogja"
+    },
+    {
+      "ref": "cari sembilan boneka ungu dari bekasi",
+      "greedy": "gubi semlanmoneka ungu dari bekasi",
+      "beam": "gubi semlanmoneka ungu dari bekasi"
+    },
+    {
+      "ref": "ambil delapan lukisan merah dari bekasi",
+      "greedy": "gubil delapan ukisjani mrah dari bekasi",
+      "beam": "gubil delapan ukisjani merah dari bekasi"
+    },
+    {
+      "ref": "gutik satu sukulen kuning ke bekasi",
+      "greedy": "gubik satujsukulen uning ke bekari",
+      "beam": "gutik satujsukulen uning ke bekari"
+    },
+    {
+      "ref": "cari tujuh yodiyum hijau dari jogja",
+      "greedy": "guri tujuh yodiyum hdi dari jogja",
+      "beam": "guri tujuh yodiyum hdi dari jogja"
+    },
+    {
+      "ref": "gutik satu telepon merah di opera",
+      "greedy": "gubikk satu telepon merah di opera",
+      "beam": "gubikk satu telepon merah di opera"
+    },
+    {
+      "ref": "ambil satu emosi merah ke opera",
+      "greedy": "gubil satu hemosi merah ke opera",
+      "beam": "gubil satu hemosi merah ke opera"
+    },
+    {
+      "ref": "cari tujuh mukjizat ungu di negeri",
+      "greedy": "gabi tujuh mukjizat ungu di negeri",
+      "beam": "gabi tujuh mukjizat ungu di negeri"
+    },
+    {
+      "ref": "lihat tiga yodiyum kuning ke jogja",
+      "greedy": "cabit iga yodiymuning ke jogja",
+      "beam": "cabit iga yodiymuning ke jogja"
+    },
+    {
+      "ref": "lihat satu ujiyan indigo ke monumen",
+      "greedy": "gutit datu ujiyan indigo ke monumen",
+      "beam": "gutit datu ujiyan indigo ke monumen"
+    },
+    {
+      "ref": "gutik empat logika ungu di opera",
+      "greedy": "curik empiat logika iunigu di opera",
+      "beam": "curik empiat logika iunigu di opera"
+    },
+    {
+      "ref": "ambil sembilan gondola ungu di negeri",
+      "greedy": "gabil sembilan gondola uningu di negeri",
+      "beam": "gabil sembilan gondola uningu di negeri"
+    },
+    {
+      "ref": "cari sembilan boneka merah di negeri",
+      "greedy": "guri sembilanm moneka merah di negeri",
+      "beam": "guri sembilanm moneka merah di negeri"
+    },
+    {
+      "ref": "cari satu sukulen hijau dari hotel",
+      "greedy": "gati satu sukulen hijau dari hotel",
+      "beam": "gati satu sukulen hijau dari hotel"
+    },
+    {
+      "ref": "ambil tiga gondola indigo dari opera",
+      "greedy": "gabil tiga gundola indigo dari opera",
+      "beam": "gabil tiga gundola indigo dari opera"
+    },
+    {
+      "ref": "ambil empat jerami kuning di opera",
+      "greedy": "cabil empat jeramin uning di opera",
+      "beam": "cabil empat jerami kuning di opera"
+    },
+    {
+      "ref": "gutik tujuh fonemik ungu ke kantor",
+      "greedy": "gutik tujuh fonemik ungu ke ka soulo",
+      "beam": "gutik tujuh fonemik ungu ke ka soulo"
+    },
+    {
+      "ref": "taruh tiga kimono hijau di monumen",
+      "greedy": "gubih iga kimono hkeu di monumen",
+      "beam": "gubih iga kimono hkeu di monumen"
+    },
+    {
+      "ref": "gutik tujuh romawi kuning ke sekolah",
+      "greedy": "gutik tujuh yomawi uning ke sekolah",
+      "beam": "gutik tujuh yomawi kuning ke sekolah"
+    },
+    {
+      "ref": "taruh lima romawi indigo di loket",
+      "greedy": "gabih lema komawi indigo di loket",
+      "beam": "gabih lema komawi indigo di loket"
+    },
+    {
+      "ref": "taruh sepuluh lukisan indigo dari hotel",
+      "greedy": "guruh semuluh lsunkiuan indigo dari hotel",
+      "beam": "guruh semuluh lsunkiuan indigo dari hotel"
+    },
+    {
+      "ref": "ambil lima telepon hijau ke opera",
+      "greedy": "ambil lima delepon hijau ke opera",
+      "beam": "ambil lima delepon hijau ke opera"
+    },
+    {
+      "ref": "baca delapan fundamen merah di jogja",
+      "greedy": "cac deam anfundamen marah kij jgja",
+      "beam": "cac deam anfundamen marah kij jgja"
+    },
+    {
+      "ref": "ambil satu gondola ungu ke kantor",
+      "greedy": "ambil sat usuonoola ungu ke ka solo",
+      "beam": "ambil sat usuonoola ung ke ka solo"
+    },
+    {
+      "ref": "cari sembilan ceciwis indigo di hotel",
+      "greedy": "gubi demleanjechiwi indigo di hotel",
+      "beam": "gubi demleanjechiwi indigo di hotel"
+    },
+    {
+      "ref": "baca delapan boneka hijau dari solo",
+      "greedy": "caba delapan moneka hijau dari solo",
+      "beam": "caba delapan moneka hijau dari solo"
+    },
+    {
+      "ref": "taruh tujuh ceciwis indigo dari opera",
+      "greedy": "gubih tuh jeaciwi indigo ari opera",
+      "beam": "gubih tuh jeaciwi indigo ari opera"
+    },
+    {
+      "ref": "ambil satu piano kuning di jogja",
+      "greedy": "ambil satu piano ungu di jo gr",
+      "beam": "ambil satu piano ungu di jo gr"
+    },
+    {
+      "ref": "cari empat yodiyum ungu di monumen",
+      "greedy": "guri emt sosi um kungu di monumen",
+      "beam": "guri emt sosi um kungu di monumen"
+    },
+    {
+      "ref": "gutik dua nubuwat hijau di solo",
+      "greedy": "gutik tujuhan ubuna hijau disolo",
+      "beam": "gutik tujuhan ubuna hijau di solo"
+    },
+    {
+      "ref": "taruh satu solusi ungu ke monumen",
+      "greedy": "gubih satuo kuni ungu ke monumen",
+      "beam": "gubih satuo kuni ungu ke monumen"
+    },
+    {
+      "ref": "gutik lima ceciwis kuning dari jogja",
+      "greedy": "gutik ilmak jeciwis kungr dari jogja",
+      "beam": "gutik ilmak jeciwis kungr dari jogja"
+    },
+    {
+      "ref": "baca lima telepon hijau dari opera",
+      "greedy": "caba lema telepon hijau dari opera",
+      "beam": "caba lema telepon hijau dari opera"
+    },
+    {
+      "ref": "cari sembilan fonemik merah di opera",
+      "greedy": "guri semilan fkonemik merah di opera",
+      "beam": "guri semilan fkonemik merah di opera"
+    },
+    {
+      "ref": "taruh enam jeruji indigo ke monumen",
+      "greedy": "gubih enam seruji indigo ke monumen",
+      "beam": "gubih enam seruji indigo ke monumen"
+    },
+    {
+      "ref": "cari enam obyektif indigo ke sekolah",
+      "greedy": "guba enam goyektf indigo ke sekolah",
+      "beam": "guba enam goyektf indigo ke sekolah"
+    },
+    {
+      "ref": "taruh satu fundamen hijau dari bekasi",
+      "greedy": "catih satu sujdamen hijau dari be n",
+      "beam": "catih satu sujdamen hijau dari be n"
+    },
+    {
+      "ref": "gutik lima jeruji kuning ke hotel",
+      "greedy": "cubak lima jeruji kuning ke hotel",
+      "beam": "cubak lima jeruji kuning ke hotel"
+    },
+    {
+      "ref": "gutik empat kimono kuning di solo",
+      "greedy": "cubak empit timono ungu di solo",
+      "beam": "cubak empit kimono ungu di solo"
+    },
+    {
+      "ref": "coba tiga fonemik ungu dari solo",
+      "greedy": "gubi tiga fogimik kungu dari solo",
+      "beam": "gubi tiga fogimik kungu dari solo"
+    },
+    {
+      "ref": "gutik sepuluh piano hijau di jogja",
+      "greedy": "garik demuluh penano hijau di jogja",
+      "beam": "garik demuluh penano hijau di jogja"
+    },
+    {
+      "ref": "cari tujuh hubungan ungu di jogja",
+      "greedy": "gubu tujuh ubungan ungu di jogja",
+      "beam": "gubu tujuh ubungan ungu di jogja"
+    },
+    {
+      "ref": "ambil sepuluh kimono ungu ke solo",
+      "greedy": "cubil sepuluh imono ngu ke solo",
+      "beam": "cubil sepuluh imono ngu ke solo"
+    },
+    {
+      "ref": "ambil enam boneka hijau ke solo",
+      "greedy": "gutil enam mukinaijau ke solo",
+      "beam": "gutil enam mukinaijau ke solo"
+    },
+    {
+      "ref": "cari sepuluh fonemik ungu di bekasi",
+      "greedy": "gabi emuh nemik kungu di bei neasi",
+      "beam": "gabi emuh nemik kungu di bei neasi"
+    },
+    {
+      "ref": "ambil delapan romawi indigo dari sekolah",
+      "greedy": "gubil enap en komawi indigo dari jkoga",
+      "beam": "gubil enap en komawi indigo daris jkoga"
+    },
+    {
+      "ref": "cari sepuluh nubuwat hijau di monumen",
+      "greedy": "gubu semulubunwat hijiu di monumen",
+      "beam": "gubu semulubunwat hijiu di monumen"
+    },
+    {
+      "ref": "gutik satu piano ungu di monumen",
+      "greedy": "gabik sdatu piano ungu di monumen",
+      "beam": "gabik sdatu piano ungu di monumen"
+    },
+    {
+      "ref": "ambil dua solusi kuning di monumen",
+      "greedy": "caril dua yol ui kuning di monumen",
+      "beam": "caril dua yol ui kuning di monumen"
+    },
+    {
+      "ref": "coba sepuluh sukulen merah dari negeri",
+      "greedy": "gaba sempuluh sunegukr dari neri",
+      "beam": "gaba sempuluh sunegukr dari neri"
+    },
+    {
+      "ref": "baca delapan piano ungu dari monumen",
+      "greedy": "gaba tenam an piano ungu dari monumen",
+      "beam": "gaba tenam an piano ungu dari monumen"
+    },
+    {
+      "ref": "lihat tiga ceciwis hijau ke negeri",
+      "greedy": "gabit iga jeciwis hijau ke enegeri",
+      "beam": "gabit iga jeciwis hijau ke enegeri"
+    },
+    {
+      "ref": "ambil empat sukulen merah di opera",
+      "greedy": "gubil empit ulegnmen merah di opera",
+      "beam": "gubil empit ulegnmen merah di opera"
+    },
+    {
+      "ref": "gutik enam emosi hijau di negeri",
+      "greedy": "cuti enam mosi hijau di kegeri",
+      "beam": "cuti enam mosi hijau di negeri"
+    },
+    {
+      "ref": "baca tiga nubuwat indigo di opera",
+      "greedy": "cabi tiga nubuwat indigo di opera",
+      "beam": "cabi tiga nubuwat indigo di opera"
+    },
+    {
+      "ref": "taruh satu boneka kuning di bekasi",
+      "greedy": "gubih satubungea uning di bekasi",
+      "beam": "gubih satubungea uning di bekasi"
+    },
+    {
+      "ref": "cari delapan solusi hijau dari kantor",
+      "greedy": "cari delapan jerlusi hijau dari kan",
+      "beam": "cari delapan jerlusi hijau dari kan"
+    },
+    {
+      "ref": "ambil lima obyektif hijau di solo",
+      "greedy": "cabil lima obyektif hijau di  solo",
+      "beam": "cabil lima obyektif hijau di  solo"
+    },
+    {
+      "ref": "gutik tujuh fonemik kuning di monumen",
+      "greedy": "gutak tujuh fonemik kuning di monumen",
+      "beam": "gutik tujuh fonemik kuning di monumen"
+    },
+    {
+      "ref": "lihat sepuluh mukjizat hijau di kantor",
+      "greedy": "cabit semuluh mukjiat hijau di kantor",
+      "beam": "cabit semuluh mukjiat hijau di kantor"
+    },
+    {
+      "ref": "gutik enam gondola indigo dari sekolah",
+      "greedy": "gutik enam munlulean indigo dari sekoea",
+      "beam": "gutik enam munlulean indigo dari sekoea"
+    },
+    {
+      "ref": "baca satu piano hijau ke monumen",
+      "greedy": "cara sdatu piano hijau ke monumen",
+      "beam": "cari sdatu piano hijau ke monumen"
+    },
+    {
+      "ref": "ambil sembilan solusi indigo ke hotel",
+      "greedy": "cabil sembilan so ui indigo ke hotel",
+      "beam": "cabil sembilan so ui indigo ke hotel"
+    },
+    {
+      "ref": "lihat empat kimono merah ke hotel",
+      "greedy": "carit empat imono merah ki hotel",
+      "beam": "cari empat imono merah di hotel"
+    },
+    {
+      "ref": "gutik tiga ilmuwan merah di hotel",
+      "greedy": "gabik tiga ilmuwan merah di hotel",
+      "beam": "gabik tiga ilmuwan merah di hotel"
+    },
+    {
+      "ref": "ambil tiga kimono merah ke opera",
+      "greedy": "cabil tiga kikimono merah ke opera",
+      "beam": "cabil tiga kikimono merah ke opera"
+    },
+    {
+      "ref": "cari tiga fonemik indigo ke loket",
+      "greedy": "cabi tiga fonemik indigo ke loket",
+      "beam": "cari tiga fonemik indigo ke loket"
+    },
+    {
+      "ref": "lihat tujuh difusi merah ke opera",
+      "greedy": "cabit tujuh kdifusi merah ke opera",
+      "beam": "cabit tujuh kdifusi merah ke opera"
+    },
+    {
+      "ref": "gutik lima fundamen indigo ke opera",
+      "greedy": "cabik lima fundament indigo ke opera",
+      "beam": "cabik lima fundament indigo ke opera"
+    },
+    {
+      "ref": "coba enam suvenir hijau di bekasi",
+      "greedy": "cari eam suvenir hijau di bekasi",
+      "beam": "cari eam suvenir hijau di bekasi"
+    },
+    {
+      "ref": "coba sepuluh fundamen indigo di monumen",
+      "greedy": "cabi semuluh sundamen indigo di monun",
+      "beam": "cari semuluh sundamen indigo di monun"
+    },
+    {
+      "ref": "coba lima filsafat kuning ke monumen",
+      "greedy": "gubi lima filsafat uning ke monumen",
+      "beam": "gubi lima filsafat uning ke monumen"
+    },
+    {
+      "ref": "cari empat defensi merah ke hotel",
+      "greedy": "cari empat defensi merah ke hotel",
+      "beam": "cari empat defensi merah ke hotel"
+    },
+    {
+      "ref": "baca delapan romawi merah dari kantor",
+      "greedy": "gabi delapan lomawi merah dari kanto",
+      "beam": "cari delapan lomawi merah dari kanto"
+    },
+    {
+      "ref": "coba tujuh difusi merah di loket",
+      "greedy": "cabi duh kgufusi mrah digo loket",
+      "beam": "cabi duh kgufusi mrah digo loket"
+    },
+    {
+      "ref": "cari satu ceciwis merah dari sekolah",
+      "greedy": "gubi damtu jiscwis merah dari sekolah",
+      "beam": "gubi damtu jiscwis merah dari sekolah"
+    },
+    {
+      "ref": "cari sepuluh jeruji indigo dari bekasi",
+      "greedy": "gubi sepuluh jer ujig indigo dari be",
+      "beam": "gubi sepuluh jer ujig indigo dari be"
+    },
+    {
+      "ref": "ambil lima wejangan ungu di monumen",
+      "greedy": "cabil imawijangan ungu di monumen",
+      "beam": "cabil imawijangan ungu di monumen"
+    },
+    {
+      "ref": "ambil enam komodo kuning ke jogja",
+      "greedy": "gubil enam komodo uningu ke jogja",
+      "beam": "gubil enam komodo uningu ke jogja"
+    },
+    {
+      "ref": "gutik empat solusi kuning ke solo",
+      "greedy": "gubik empat roluni kuning ke solo",
+      "beam": "gutik empat roluni kuning ke solo"
+    },
+    {
+      "ref": "lihat tujuh boneka ungu di monumen",
+      "greedy": "gubit u bunea ungu di monumen",
+      "beam": "gubit u bunea ungu di monumen"
+    },
+    {
+      "ref": "baca delapan telepon merah ke hotel",
+      "greedy": "cabi delapan delepon merah ke hotel",
+      "beam": "cari delapan delepon merah ke hotel"
+    },
+    {
+      "ref": "gutik tiga sukulen merah di opera",
+      "greedy": "cubik ga sunlgan erah di opera",
+      "beam": "cubik ga sunlgan erah di opera"
+    },
+    {
+      "ref": "cari sepuluh telepon indigo di kantor",
+      "greedy": "curi semuluh elmon indigo di ka or",
+      "beam": "curi semuluh elmon indigo di ka or"
+    },
+    {
+      "ref": "taruh satu telepon merah dari jogja",
+      "greedy": "gutuh satukdelpmou merah dari jogja",
+      "beam": "gutuh satukdelpmou merah dari jogja"
+    },
+    {
+      "ref": "ambil sepuluh telepon ungu di loket",
+      "greedy": "cabil semuluh elepon ungu di loket",
+      "beam": "cabil semuluh elepon ungu di loket"
+    },
+    {
+      "ref": "gutik sepuluh emosi ungu di loket",
+      "greedy": "cabik sepuluh aemon ungu di loket",
+      "beam": "cabik sepuluh aemon ungu di loket"
+    },
+    {
+      "ref": "coba delapan difusi ungu dari negeri",
+      "greedy": "gobi delap in difusi ungu dari negeri",
+      "beam": "gobi delap in difusi ungu dari negeri"
+    },
+    {
+      "ref": "gutik dua fundamen hijau dari loket",
+      "greedy": "cubak dua fundamen hijau dari loket",
+      "beam": "cubak dua fundamen hijau dari loket"
+    },
+    {
+      "ref": "coba satu difusi merah di solo",
+      "greedy": "carik datu jifusi merah disolo",
+      "beam": "carik datu jifusi merah di solo"
+    },
+    {
+      "ref": "coba sepuluh lukisan ungu dari kantor",
+      "greedy": "guba sepuluh unkiuan ungu dari kannoulo",
+      "beam": "guba sepuluh unkiuan ungu dari kannoulo"
+    },
+    {
+      "ref": "coba tujuh romawi hijau di negeri",
+      "greedy": "guri dujuh komawi hijau di negeri",
+      "beam": "guri dujuh komawi hijau di negeri"
+    },
+    {
+      "ref": "ambil tiga ceciwis hijau dari hotel",
+      "greedy": "gutul tiga ceciwi hijau dari hotel",
+      "beam": "gutul tiga ceciwi hijau dari hotel"
+    },
+    {
+      "ref": "taruh dua boneka indigo ke opera",
+      "greedy": "gabih ua moneka indigo ke opera",
+      "beam": "gabih ua moneka indigo ke opera"
+    },
+    {
+      "ref": "cari lima yodiyum indigo ke hotel",
+      "greedy": "guri tlima yodi yuw indigoke hotel",
+      "beam": "guri tlima yodi yuw indigo ke hotel"
+    },
+    {
+      "ref": "coba empat solusi indigo dari hotel",
+      "greedy": "goba empat soujiy indigo dari hotel",
+      "beam": "goba empat soujiy indigo dari hotel"
+    },
+    {
+      "ref": "ambil delapan kimono indigo dari solo",
+      "greedy": "ambil delapan imono indigo dari solo",
+      "beam": "ambil delapan imono indigo dari solo"
+    },
+    {
+      "ref": "lihat lima jerami ungu ke bekasi",
+      "greedy": "guhat lima jerami ungu ke be neasi",
+      "beam": "guhat lima jerami ungu ke be neasi"
+    },
+    {
+      "ref": "lihat delapan heliyum indigo ke jogja",
+      "greedy": "guhat delam indeliyum indigo ke jogja",
+      "beam": "guhat delam indeliyum indigo ke jogja"
+    },
+    {
+      "ref": "gutik satu ceciwis kuning ke loket",
+      "greedy": "gabak datu jic iwis kuning ke loke",
+      "beam": "gabak datu jic iwis kuning ke loke"
+    },
+    {
+      "ref": "taruh empat ceciwis merah di solo",
+      "greedy": "gubih mpitjeciwis marah ndi solo",
+      "beam": "gubih mpitjeciwis marah ndi solo"
+    },
+    {
+      "ref": "taruh satu mukjizat merah ke hotel",
+      "greedy": "gatih satu mukjiatmerah ke hotel",
+      "beam": "gatih satu mukjiatmerah ke hotel"
+    },
+    {
+      "ref": "ambil tiga defensi indigo ke negeri",
+      "greedy": "ambil iga dnefensi indigo ke negeri",
+      "beam": "ambil iga dnefensi indigo ke negeri"
+    },
+    {
+      "ref": "coba sepuluh acuhan kuning di festival",
+      "greedy": "gobi limuluh ancuhan uning di festival",
+      "beam": "gobi limuluh ancuhan uning di festival"
+    },
+    {
+      "ref": "lihat satu fonemik kuning di sekolah",
+      "greedy": "gihat datu fonemik uning ndigo kolglrh",
+      "beam": "gihat datu fonemik uning ndigo kolglrh"
+    },
+    {
+      "ref": "baca tujuh lukisan kuning dari sekolah",
+      "greedy": "cari tujuh unkiuan kung darig sekolgjh",
+      "beam": "cari tujuh unkiuan kung darig sekolgjh"
+    },
+    {
+      "ref": "gutik lima emosi indigo ke solo",
+      "greedy": "gutik lima emosi indigo solo",
+      "beam": "gutik lima emosi indigo solo"
+    },
+    {
+      "ref": "baca tiga nubuwat merah ke sekolah",
+      "greedy": "gara tga nubuwat merah nkeigosdkogrh",
+      "beam": "gara tga nubuwat merah nkeigosdkogrh"
+    },
+    {
+      "ref": "ambil dua suvenir indigo ke bekasi",
+      "greedy": "gubul dua suvenir indigork bekasi",
+      "beam": "gubul dua suvenir indigork bekasi"
+    },
+    {
+      "ref": "ambil sembilan solusi hijau di negeri",
+      "greedy": "gubil sembilan ol ui hijau di negeri",
+      "beam": "gubil sembilan olui hijau di negeri"
+    },
+    {
+      "ref": "taruh lima piano indigo ke bekasi",
+      "greedy": "gubih tima piano indigo mke bekasi",
+      "beam": "gubih tima piano indigo ke bekasi"
+    },
+    {
+      "ref": "taruh empat solusi hijau ke sekolah",
+      "greedy": "gurih epit sou uji hijau ke sekolrh",
+      "beam": "gurih epit sou uji hijau ke sekolah"
+    },
+    {
+      "ref": "taruh tujuh suvenir hijau di loket",
+      "greedy": "gubih tujuh suvenir hijau di loke",
+      "beam": "gubih tujuh suvenir hijau di loke"
+    },
+    {
+      "ref": "lihat satu wejangan ungu dari festival",
+      "greedy": "gubi satu wejangan ungu dari festival",
+      "beam": "gubi satu wejangan ungu dari festival"
+    },
+    {
+      "ref": "cari enam yodiyum hijau ke solo",
+      "greedy": "guti enam sodiyum hijau ke solo",
+      "beam": "guti enam sodiyum hijau ke solo"
+    },
+    {
+      "ref": "taruh dua telepon merah di sekolah",
+      "greedy": "gubih tua delepon marah indi sekolah",
+      "beam": "gubih tua delepon marah indi sekolah"
+    },
+    {
+      "ref": "cari satu gondola hijau dari kantor",
+      "greedy": "cabi satugondola hijau dari kantor",
+      "beam": "cari satugondola hijau dari kantor"
+    },
+    {
+      "ref": "lihat empat acuhan merah ke sekolah",
+      "greedy": "gutid emb acuhan merah ke sekolah",
+      "beam": "gutid emb acuhan merah ke sekolah"
+    },
+    {
+      "ref": "coba tujuh sukulen hijau di loket",
+      "greedy": "cabi duh ukunen hija  ke loke",
+      "beam": "cabi duh ukunen hija  ke loke"
+    },
+    {
+      "ref": "baca dua lukisan kuning dari negeri",
+      "greedy": "gubi ddua lukisan uning dari  negeri",
+      "beam": "gubi ddua lukisan uning dari  negeri"
+    },
+    {
+      "ref": "baca satu logika indigo ke jogja",
+      "greedy": "cabi satu kogika indigo ke jogja",
+      "beam": "cabi satu kogika indigo ke jogja"
+    },
+    {
+      "ref": "ambil delapan kimono ungu ke festival",
+      "greedy": "gubil delapan kimono ungu ke festival",
+      "beam": "gubil delapan kimono ungu ke festival"
+    },
+    {
+      "ref": "cari enam solusi hijau dari bekasi",
+      "greedy": "cabi eam suolujiy hijau dar bekiasi",
+      "beam": "cabi eam suolujiy hijau dar bekiasi"
+    },
+    {
+      "ref": "coba tujuh filsafat indigo dari opera",
+      "greedy": "gubi dujuh vinlsafat indigo dari opera",
+      "beam": "gubi dujuh vinlsafat indigo dari opera"
+    },
+    {
+      "ref": "taruh tiga ceciwis merah dari festival",
+      "greedy": "carih iga ecwis marah darii festival",
+      "beam": "carih iga ecwis marah darii festival"
+    },
+    {
+      "ref": "taruh empat ilmuwan indigo ke negeri",
+      "greedy": "gutih mpattimuwan indigo k  negeri",
+      "beam": "gutih mpattimuwan indigo k  negeri"
+    },
+    {
+      "ref": "ambil tiga heliyum ungu di monumen",
+      "greedy": "gabil tiga hliym ungu di monumen",
+      "beam": "gabil tiga hliym ungu di monumen"
+    },
+    {
+      "ref": "gutik empat filsafat hijau di negeri",
+      "greedy": "gutik emat filsafat hijia dii negeri",
+      "beam": "gutik empat filsafat hijia dii negeri"
+    },
+    {
+      "ref": "ambil tiga lukisan indigo ke monumen",
+      "greedy": "gubil tigna lukisan indigo ke monumen",
+      "beam": "gubil tigna lukisan indigo ke monumen"
+    },
+    {
+      "ref": "gutik lima boneka ungu di opera",
+      "greedy": "gatik lima moneka ungu di opera",
+      "beam": "gutik lima moneka ungu di opera"
+    },
+    {
+      "ref": "lihat satu nubuwat hijau di sekolah",
+      "greedy": "gabit datu mubunat hike indigosekolrh",
+      "beam": "gabit datu mubunat hike indigosekolrh"
+    },
+    {
+      "ref": "coba satu jeruji indigo di solo",
+      "greedy": "gati datujirujin indigo di solo",
+      "beam": "gati datujirujin indigo di solo"
+    },
+    {
+      "ref": "lihat satu fundamen indigo di solo",
+      "greedy": "gubit satu fundamen indigo di solo",
+      "beam": "gubit satu fundamen indigo di solo"
+    },
+    {
+      "ref": "baca enam komodo merah di jogja",
+      "greedy": "gabi enm yomodo merah di jogja",
+      "beam": "gabi enm yomodo merah di jogja"
+    },
+    {
+      "ref": "coba satu filsafat merah dari loket",
+      "greedy": "cubi datu filjafat merah dari loket",
+      "beam": "cubi datu filjafat merah dari loket"
+    },
+    {
+      "ref": "cari sepuluh filsafat indigo dari kantor",
+      "greedy": "gubi epuluh fensafat indigo dari kant",
+      "beam": "gubi epuluh fensafat indigo dari kant"
+    },
+    {
+      "ref": "baca dua suvenir indigo ke monumen",
+      "greedy": "guri tuasuvenir indigo ke monumen",
+      "beam": "guri tuasuvenir indigo ke monumen"
+    },
+    {
+      "ref": "lihat satu romawi merah dari opera",
+      "greedy": "gabit satu gomawi merah dari opera",
+      "beam": "gabit satu gomawi merah dari opera"
+    },
+    {
+      "ref": "lihat tiga fundamen ungu ke opera",
+      "greedy": "gutit tiga fundamen ungu ke opera",
+      "beam": "gutit tiga fundamen ungu ke opera"
+    },
+    {
+      "ref": "cari satu kimono merah dari opera",
+      "greedy": "guti satu jkdimono merah dari opeera",
+      "beam": "guti satu jkdimono merah dari opera"
+    },
+    {
+      "ref": "coba sembilan komodo merah dari loket",
+      "greedy": "gubi sembilan komodo marah dari loket",
+      "beam": "gubi sembilan omodo marah dari loket"
+    },
+    {
+      "ref": "gutik dua ujiyan kuning dari bekasi",
+      "greedy": "catik dua hujiyan kuning dari bekasi",
+      "beam": "gatik dua hujiyan kuning dari bekasi"
+    },
+    {
+      "ref": "taruh sembilan hubungan indigo dari festival",
+      "greedy": "gabih sembilan hubungan indigo dari festival",
+      "beam": "gabih sembilan hubungan indigo dari festival"
+    },
+    {
+      "ref": "coba dua piano hijau di sekolah",
+      "greedy": "guba dua piano hikiau indigoskolrh",
+      "beam": "guba dua piano hikiau indigoskolrh"
+    },
+    {
+      "ref": "lihat sembilan piano kuning ke jogja",
+      "greedy": "gubit semilan ipiano uning ke jogja",
+      "beam": "gubit semilan ipiano uning ke jogja"
+    },
+    {
+      "ref": "gutik lima piano indigo dari sekolah",
+      "greedy": "gubak limaepiano indigo darndigoskaoglah",
+      "beam": "gubak limaepiano indigo darndigoskaoglah"
+    },
+    {
+      "ref": "lihat lima filsafat hijau ke kantor",
+      "greedy": "guti ema filsafat hijau ke kantolr",
+      "beam": "guti ema filsafat hijau ke kantolr"
+    },
+    {
+      "ref": "baca sembilan acuhan ungu ke negeri",
+      "greedy": "guri sembilan c uhan ungu ke egeri",
+      "beam": "guri sembilan c uhan ungu ke negeri"
+    },
+    {
+      "ref": "coba lima jerami hijau di hotel",
+      "greedy": "cubi lima cerami hijiau di hotel",
+      "beam": "cari lima cerami hijiau di hotel"
+    },
+    {
+      "ref": "cari lima obyektif merah ke loket",
+      "greedy": "guri lima obyektif merah ke loket",
+      "beam": "guri lima obyektif merah ke loket"
+    },
+    {
+      "ref": "ambil dua telepon merah di solo",
+      "greedy": "gutil dua delepon merah di solo",
+      "beam": "gutil dua delepon merah di solo"
+    },
+    {
+      "ref": "ambil delapan romawi ungu di loket",
+      "greedy": "gutil delapan romawi ungu di loket",
+      "beam": "gutil delapan romawi ungu di loket"
+    },
+    {
+      "ref": "ambil tiga suvenir kuning dari kantor",
+      "greedy": "gubil tiga suvenir uning dari kantor",
+      "beam": "gubil tiga suvenir uning dari kantor"
+    },
+    {
+      "ref": "gutik delapan ilmuwan hijau dari festival",
+      "greedy": "gubik delapan imuwan hijau dari festival",
+      "beam": "gutik delapan imuwan hijau dari festival"
+    },
+    {
+      "ref": "lihat enam heliyum hijau ke monumen",
+      "greedy": "gubit enam aelioyuw hijau ke monnumen",
+      "beam": "gubit enam aelioyuw hijau ke monnumen"
+    },
+    {
+      "ref": "baca empat yodiyum ungu di opera",
+      "greedy": "guti empat yodim ungu di opera",
+      "beam": "guti empat yodimungu di opera"
+    },
+    {
+      "ref": "coba empat boneka hijau dari monumen",
+      "greedy": "gati empatmunikaindio dari monumen",
+      "beam": "gati empatmunikaindio dari monumen"
+    },
+    {
+      "ref": "cari empat difusi ungu ke kantor",
+      "greedy": "cabi empat tifusi kung ke kanntolo",
+      "beam": "cari empat difusi kung ke kanntolo"
+    },
+    {
+      "ref": "coba delapan romawi hijau ke monumen",
+      "greedy": "goba ilapan romawi hijau ke monumen",
+      "beam": "goba ilapan romawi hijau ke monumen"
+    },
+    {
+      "ref": "ambil empat gondola indigo ke solo",
+      "greedy": "cabil empat golula  indigo ke solo",
+      "beam": "cabil empat golula  indigo ke solo"
+    },
+    {
+      "ref": "lihat satu komodo hijau dari negeri",
+      "greedy": "gabit datu omodo idja dari negeri",
+      "beam": "gabit datu omodo idja dari negeri"
+    }
+  ]
+}

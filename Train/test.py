@@ -44,17 +44,23 @@ def parse_args():
     )
     parser.add_argument("--output_dir", type=str, default=None, help="Override config.output_dir.")
     parser.add_argument("--variant", type=str, default=None, help="Override config.variant.")
+    parser.add_argument("--val_speakers", type=str, default=None, help="Override config.val_speakers.")
+    parser.add_argument("--test_speakers", type=str, default=None, help="Override config.test_speakers.")
     parser.add_argument("--batch_size", type=int, default=None, help="Override config.batch_size.")
     parser.add_argument("--num_workers", type=int, default=None, help="Override config.num_workers.")
     parser.add_argument(
         "--save_json",
         type=str,
+        nargs="?",
+        const="",
         default=None,
         help="Optional path to save aggregate metrics as JSON.",
     )
     parser.add_argument(
         "--save_csv",
         type=str,
+        nargs="?",
+        const="",
         default=None,
         help="Optional path to save per-sample predictions and errors as CSV.",
     )
@@ -73,6 +79,8 @@ def parse_args():
     parser.add_argument(
         "--save_heatmap",
         type=str,
+        nargs="?",
+        const="",
         default=None,
         help="Optional path for the seaborn confusion heatmap. Defaults to <output_dir>/confusion_heatmap.png.",
     )
@@ -85,6 +93,14 @@ def parse_args():
 
 def normalize_text(s: str) -> str:
     return " ".join(s.lower().strip().split())
+
+
+def resolve_output_path(raw_path: str | None, output_dir: str | Path, default_filename: str) -> Path | None:
+    if raw_path is None:
+        return None
+    if raw_path == "":
+        return Path(output_dir) / default_filename
+    return Path(raw_path)
 
 
 def build_char_confusion(refs: list[str], hyps: list[str]):
@@ -401,6 +417,10 @@ def main():
         cfg.output_dir = args.output_dir
     if args.variant is not None:
         cfg.variant = args.variant
+    if args.val_speakers is not None:
+        cfg.val_speakers = tuple(args.val_speakers.split(","))
+    if args.test_speakers is not None:
+        cfg.test_speakers = tuple(args.test_speakers.split(","))
     if args.batch_size is not None:
         cfg.batch_size = args.batch_size
     if args.num_workers is not None:
@@ -444,22 +464,11 @@ def main():
     print_report(metrics, sample_df, args.show_worst)
     print_confusion_summary(confusion, substitution_pairs)
 
-    heatmap_path = Path(args.save_heatmap) if args.save_heatmap else Path(cfg.output_dir) / "confusion_heatmap.png"
-    save_confusion_heatmap(confusion, heatmap_path, top_k=args.heatmap_top_k)
+    heatmap_path = resolve_output_path(args.save_heatmap, cfg.output_dir, "confusion_heatmap.png")
+    if heatmap_path is not None:
+        save_confusion_heatmap(confusion, heatmap_path, top_k=args.heatmap_top_k)
 
-    if args.save_json:
-        out_json = Path(args.save_json)
-        out_json.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_json, "w", encoding="utf-8") as f:
-            json.dump(metrics, f, indent=2)
-        print(f"Saved metrics JSON: {out_json}")
-
-    if args.save_csv:
-        out_csv = Path(args.save_csv)
-        out_csv.parent.mkdir(parents=True, exist_ok=True)
-        sample_df.to_csv(out_csv, index=False)
-        print(f"Saved per-sample CSV: {out_csv}")
-
+    beam_results = None
     # Optional: run simple beam search decoding and LM rescoring
     if args.beam_width > 0:
         print(f"\nRunning beam search (width={args.beam_width}, topk={args.beam_topk})...")
@@ -494,10 +503,43 @@ def main():
         print(f"Delta CER (beam - greedy): {beam_cer - metrics['cer']:+.4f}")
         print(f"Delta WER (beam - greedy): {beam_wer - metrics['wer']:+.4f}")
 
+        beam_results = {
+            "beam_metrics": {
+                "cer": float(beam_cer),
+                "wer": float(beam_wer),
+                "delta_cer": float(beam_cer - metrics["cer"]),
+                "delta_wer": float(beam_wer - metrics["wer"]),
+            },
+            "beam_predictions": [
+                {
+                    "ref": ref,
+                    "greedy": greedy,
+                    "beam": beam,
+                }
+                for ref, greedy, beam in zip(refs, greedy_hyps, beam_hyps)
+            ],
+        }
+
         # save beam predictions
         out_beam_csv = Path(cfg.output_dir) / "beam_predictions.csv"
         pd.DataFrame({"ref": refs, "greedy": greedy_hyps, "beam": beam_hyps}).to_csv(out_beam_csv, index=False)
         print(f"Saved beam predictions: {out_beam_csv}")
+
+    if beam_results is not None:
+        metrics.update(beam_results)
+
+    out_json = resolve_output_path(args.save_json, cfg.output_dir, "test_metrics.json")
+    if out_json is not None:
+        out_json.parent.mkdir(parents=True, exist_ok=True)
+        with open(out_json, "w", encoding="utf-8") as f:
+            json.dump(metrics, f, indent=2)
+        print(f"Saved metrics JSON: {out_json}")
+
+    out_csv = resolve_output_path(args.save_csv, cfg.output_dir, "test_predictions.csv")
+    if out_csv is not None:
+        out_csv.parent.mkdir(parents=True, exist_ok=True)
+        sample_df.to_csv(out_csv, index=False)
+        print(f"Saved per-sample CSV: {out_csv}")
 
 
 if __name__ == "__main__":
