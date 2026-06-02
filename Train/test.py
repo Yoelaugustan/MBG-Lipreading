@@ -26,6 +26,12 @@ from dataset import build_dataloaders
 from model import LUMINAModel, count_parameters
 from utils import compute_cer, compute_wer, greedy_ctc_decode, levenshtein
 
+try:
+    from kenlm_decoder import KenLMDecoder, decode_batch as kenlm_decode_batch
+    HAS_KENLM = True
+except ImportError:
+    HAS_KENLM = False
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Evaluate a trained checkpoint with richer metrics.")
@@ -88,6 +94,11 @@ def parse_args():
     parser.add_argument("--beam_topk", type=int, default=5, help="Top-k per time-step expansion in beam search")
     parser.add_argument("--lm_n", type=int, default=3, help="n for n-gram LM (word-level)")
     parser.add_argument("--lm_alpha", type=float, default=0.8, help="LM weight for rescoring")
+    parser.add_argument("--use_kenlm", action="store_true", default=False, help="Use KenLM decoder for beam search.")
+    parser.add_argument("--kenlm_lm_path", type=str, default="KenLM/lm.binary", help="Path to KenLM binary.")
+    parser.add_argument("--kenlm_unigram_path", type=str, default="KenLM/clean_corpus.txt", help="Path to KenLM unigram corpus.")
+    parser.add_argument("--kenlm_beam_width", type=int, default=50, help="Beam width for KenLM decoding.")
+    parser.add_argument("--kenlm_lm_alpha", type=float, default=0.5, help="LM alpha weight for KenLM.")
     return parser.parse_args()
 
 
@@ -185,6 +196,65 @@ class NGramLM:
             den = self.context_counts.get(ctx, 0) + self.V
             total += np.log(num / den)
         return total
+
+
+def decode_kenlm(
+    model,
+    loader,
+    device,
+    kenlm_decoder: "KenLMDecoder",
+    beam_width: int = 50,
+    use_amp: bool = True,
+):
+    """Run KenLM decoding on full dataset."""
+    import torch
+    from tqdm import tqdm
+    from utils import levenshtein
+    
+    model.eval()
+    refs = []
+    hyps = []
+    sample_data = []
+    
+    with torch.no_grad():
+        for batch in tqdm(loader, desc=f"[KenLM decode bw={beam_width}]", ncols=100):
+            videos = batch["videos"].to(device)
+            batch_refs = batch["texts"]
+            
+            # Forward pass
+            if device.type == "cuda":
+                with torch.amp.autocast("cuda", enabled=use_amp):
+                    log_probs = model(videos)
+            else:
+                log_probs = model(videos)
+            
+            # Decode each sample in the batch. Model output is [T, B, V].
+            log_probs_cpu = log_probs.cpu().numpy()
+            batch_hyps = []
+            for i in range(log_probs_cpu.shape[1]):
+                log_prob_t = log_probs_cpu[:, i, :]
+                hyp = kenlm_decoder.decode(log_prob_t, beam_width=beam_width)
+                batch_hyps.append(hyp)
+            
+            refs.extend(batch_refs)
+            hyps.extend(batch_hyps)
+            
+            # Compute per-sample metrics
+            for ref, hyp in zip(batch_refs, batch_hyps):
+                char_ed = levenshtein(list(ref), list(hyp))
+                char_len = max(len(ref), 1)
+                word_ref = ref.split()
+                word_hyp = hyp.split()
+                word_ed = levenshtein(word_ref, word_hyp)
+                word_len = max(len(word_ref), 1)
+                sample_data.append({
+                    "ref": ref,
+                    "hyp": hyp,
+                    "char_cer": char_ed / char_len,
+                    "word_wer": word_ed / word_len,
+                })
+    
+    return refs, hyps, sample_data
 
 
 def beam_search_simple(log_probs_t: np.ndarray, idx_to_char: dict, beam_width: int = 8, topk: int = 5, lm: NGramLM | None = None, lm_alpha: float = 0.0):
@@ -469,6 +539,8 @@ def main():
         save_confusion_heatmap(confusion, heatmap_path, top_k=args.heatmap_top_k)
 
     beam_results = None
+    kenlm_results = None
+    
     # Optional: run simple beam search decoding and LM rescoring
     if args.beam_width > 0:
         print(f"\nRunning beam search (width={args.beam_width}, topk={args.beam_topk})...")
@@ -525,8 +597,64 @@ def main():
         pd.DataFrame({"ref": refs, "greedy": greedy_hyps, "beam": beam_hyps}).to_csv(out_beam_csv, index=False)
         print(f"Saved beam predictions: {out_beam_csv}")
 
+    # Optional: run KenLM beam search decoding
+    if args.use_kenlm:
+        if not HAS_KENLM:
+            print("Warning: KenLM decoder not available. Skipping KenLM decoding.")
+        else:
+            print(f"\nRunning KenLM beam search (bw={args.kenlm_beam_width}, alpha={args.kenlm_lm_alpha})...")
+            try:
+                kenlm_decoder = KenLMDecoder(
+                    vocab_path=cfg.vocab_json,
+                    lm_path=args.kenlm_lm_path,
+                    unigram_path=args.kenlm_unigram_path,
+                    alpha=args.kenlm_lm_alpha,
+                    debug=False,
+                )
+                kenlm_refs, kenlm_hyps, kenlm_sample_data = decode_kenlm(
+                    model,
+                    loader,
+                    device,
+                    kenlm_decoder,
+                    beam_width=args.kenlm_beam_width,
+                    use_amp=cfg.use_amp,
+                )
+                kenlm_cer = compute_cer(kenlm_refs, kenlm_hyps)
+                kenlm_wer = compute_wer(kenlm_refs, kenlm_hyps)
+                print(f"KenLM CER: {kenlm_cer:.4f} | WER: {kenlm_wer:.4f}")
+                print(f"Delta CER (KenLM - greedy): {kenlm_cer - metrics['cer']:+.4f}")
+                print(f"Delta WER (KenLM - greedy): {kenlm_wer - metrics['wer']:+.4f}")
+                
+                if beam_results is not None:
+                    beam_cer_val = beam_results["beam_metrics"]["cer"]
+                    beam_wer_val = beam_results["beam_metrics"]["wer"]
+                    print(f"Delta CER (KenLM - n-gram beam): {kenlm_cer - beam_cer_val:+.4f}")
+                    print(f"Delta WER (KenLM - n-gram beam): {kenlm_wer - beam_wer_val:+.4f}")
+                
+                kenlm_results = {
+                    "kenlm_metrics": {
+                        "cer": float(kenlm_cer),
+                        "wer": float(kenlm_wer),
+                        "delta_cer_vs_greedy": float(kenlm_cer - metrics["cer"]),
+                        "delta_wer_vs_greedy": float(kenlm_wer - metrics["wer"]),
+                    },
+                }
+                
+                # save KenLM predictions
+                out_kenlm_csv = Path(cfg.output_dir) / "kenlm_predictions_test.csv"
+                kenlm_df_dict = {"ref": kenlm_refs, "greedy": greedy_hyps[:len(kenlm_refs)], "kenlm": kenlm_hyps}
+                pd.DataFrame(kenlm_df_dict).to_csv(out_kenlm_csv, index=False)
+                print(f"Saved KenLM predictions: {out_kenlm_csv}")
+            except Exception as e:
+                print(f"Failed to run KenLM decoding: {e}")
+                import traceback
+                traceback.print_exc()
+
     if beam_results is not None:
         metrics.update(beam_results)
+    
+    if kenlm_results is not None:
+        metrics.update(kenlm_results)
 
     out_json = resolve_output_path(args.save_json, cfg.output_dir, "test_metrics.json")
     if out_json is not None:
