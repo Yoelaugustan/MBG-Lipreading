@@ -43,9 +43,9 @@ warnings.filterwarnings("ignore")
 # ──────────────────────────────────────────────────────────────────────────────
 CONFIG = {
     # Paths
-    "dataset_root"  : "/home/flamz/Pre-thesis/LUMINA_Dataset",
+    "dataset_root"  : "./LUMINA_Dataset",
     "output_root"   : "LUMINA_preprocessed",
-    "label_file"    : "/home/flamz/Pre-thesis/LUMINA_Dataset/list_of_sentence.xlsx",
+    "label_file"    : "./LUMINA_Dataset/list_of_sentence.xlsx",
     "log_file"      : "preprocessing.log",
 
     # Video settings

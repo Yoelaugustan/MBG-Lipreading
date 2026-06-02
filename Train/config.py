@@ -9,9 +9,9 @@ from pathlib import Path
 @dataclass
 class Config:
     # ─── Paths ────────────────────────────────────────────────────────────────
-    data_root    : str = "/home/flamz/Pre-thesis/LUMINA_preprocessed"
-    manifest_csv : str = "/home/flamz/Pre-thesis/LUMINA_preprocessed/manifest.csv"
-    vocab_json   : str = "/home/flamz/Pre-thesis/LUMINA_preprocessed/vocab.json"
+    data_root    : str = "./LUMINA_preprocessed"
+    manifest_csv : str = "./LUMINA_preprocessed/manifest.csv"
+    vocab_json   : str = "./LUMINA_preprocessed/vocab.json"
     output_dir   : str = "runs/lumina_exp1"
 
     # ─── Data ─────────────────────────────────────────────────────────────────

@@ -190,3 +190,142 @@ This produces three outputs in `Train/runs/comparison/`:
 - **`comparison.csv`** — table with the best epoch, loss, CER, and WER for each variant
 
 The script automatically detects which variants have been trained by looking for `history.json` files in each `lumina_<variant>/` subdirectory. Variants without completed training are skipped with a warning.
+## Config
+`config.py` may need to be modified as the path for the dataset etc. might be different per user.
+CONFIG section in `preprocess_dataset.py` needs to also be modified according to the path.
+
+## KenLM Runbook
+
+This project uses lowercase text at evaluation time, so the LM corpus should be cleaned and lowercased too. The current cleaner is [Preprocess/prepare_kenlm_corpus.py](Preprocess/prepare_kenlm_corpus.py). Keep LUMINA transcripts out of the LM if you want the decoding experiment to stay unbiased.
+
+### 1. Clean the external corpus
+
+Use the Leipzig/news corpus or another external Indonesian text source:
+
+```bash
+python Preprocess/prepare_kenlm_corpus.py \
+    --input KenLM/ind_news_2024_1M-sentences.txt \
+    --output KenLM/clean_corpus.txt \
+    --report KenLM/clean_corpus.report.json
+```
+
+The cleaner lowercases text, strips Leipzig-style numeric IDs, removes obvious noise such as URLs and fragment-like lines, deduplicates exact repeats, and strips punctuation from token boundaries before writing the final corpus.
+
+### 2. Inspect the cleaned corpus
+
+Before training KenLM, check the report and a small random sample of the cleaned lines:
+
+```bash
+python -c "import random; from pathlib import Path; lines=Path('KenLM/clean_corpus.txt').read_text(encoding='utf-8').splitlines(); print('\n'.join(random.sample(lines, min(20, len(lines)))))"
+```
+
+You want normal Indonesian sentence flow, not many fragments, URLs, or list-like entries.
+
+### 3. Train KenLM
+
+If you don't have KenLM lmplz and build_binary installed yet: (more info: [KenLM Documentation](https://kheafield.com/code/kenlm/))
+```bash
+wget -O - https://kheafield.com/code/kenlm.tar.gz |tar xz
+mkdir kenlm/build
+cd kenlm/build
+cmake --build . --target lmplz build_binary -j$(nproc)
+make -j$(nproc) lmplz build_binary
+```
+
+Start with a 5-gram model if the cleaned corpus is large enough:
+
+```bash
+lmplz -o 5 < KenLM/clean_corpus.txt > KenLM/lm.arpa
+build_binary KenLM/lm.arpa KenLM/lm.binary
+```
+
+If memory is tight, start with `-o 3` and compare validation WER/CER later.
+
+### 4. Install decoder dependencies
+
+In the `lipreading` conda environment, install the decoder packages:
+
+```bash
+pip install pyctcdecode
+pip install https://github.com/kpu/kenlm/archive/master.zip
+```
+
+### 5. Install pyctcdecode and validate vocabulary alignment
+
+The model vocabulary from `LUMINA_preprocessed/vocab.json` will be loaded automatically. The decoder vocabulary must match the acoustic model token order **exactly**.
+
+Verify by inspecting the vocab:
+
+```bash
+python -c "import json; v = json.load(open('LUMINA_preprocessed/vocab.json')); print('Vocab size:', len(v)); print('First 10:', {k: v[k] for k in list(v.keys())[:10]})"
+```
+
+Since predictions and evaluation text are already lowercase, the LM and decoder operate in lowercase mode. Do not reintroduce uppercase tokens in the pipeline.
+
+### 6. Tune on validation split
+
+Run a hyperparameter sweep over beam widths and LM weights using the validation split. A new script `Train/kenlm_decoder.py` automates this:
+
+```bash
+python Train/kenlm_decoder.py \
+    --checkpoint Train/runs/lumina_sequential/best.pt \
+    --split val \
+    --vocab_path LUMINA_preprocessed/vocab.json \
+    --lm_path KenLM/lm.binary \
+    --beam_widths 25 50 100 \
+    --lm_alphas 0.2 0.4 0.6 0.8 1.0 \
+    --output_dir Train/runs/lumina_sequential
+```
+
+This will:
+- Print greedy baseline (CER/WER with no LM)
+- Try all combinations of beam_width × lm_alpha
+- Report delta CER/WER vs. greedy for each setting
+- Save a JSON sweep file: `Train/runs/lumina_sequential/kenlm_sweep.json`
+
+Pick the setting with the **lowest validation CER** (or WER if your primary metric is WER). For example, if the sweep output shows:
+
+```
+bw= 50 α=0.8 => CER=0.1450 WER=0.2950 (vs greedy: Δ_CER=-0.0191 Δ_WER=-0.0442)
+```
+
+Then record `beam_width=50, lm_alpha=0.8` for the test run.
+
+### 7. Evaluate on test split with locked settings
+
+After validation tuning, run the test split **exactly once** with the best-tuned hyperparameters. Lock them and do not retune on test.
+
+```bash
+python Train/kenlm_decoder.py \
+    --checkpoint Train/runs/lumina_sequential/best.pt \
+    --split test \
+    --vocab_path LUMINA_preprocessed/vocab.json \
+    --lm_path KenLM/lm.binary \
+    --beam_widths 50 \
+    --lm_alphas 0.8 \
+    --output_dir Train/runs/lumina_sequential
+```
+
+Report the final metrics:
+
+- **Greedy baseline**: CER and WER on test (no LM)
+- **KenLM + pyctcdecode**: CER and WER on test (with best-tuned settings)
+- **Delta**: improvement in both metrics
+
+Example output summary:
+
+```
+Greedy CER: 0.1641, WER: 0.3392
+KenLM bw=50 α=0.8 CER: 0.1450, WER: 0.2950
+Improvements: Δ_CER = -0.0191 (-11.6%), Δ_WER = -0.0442 (-13.0%)
+```
+
+### 8. Iterate only if needed
+
+If the test CER/WER are still far from your targets, the usual fixes are:
+
+- **More cleaned text**: Gather more external Indonesian news/Wikipedia and reprocess the corpus
+- **Increase beam width**: Try 200–500 instead of 100 (slower but can help)
+- **Retune LM weight**: Validate with a finer sweep around the best α found in step 6
+- **Subword tokens later**: If character-level decoding remains brittle, transition to BPE/Wordpiece after validation (requires retraining the acoustic model)
+- **Different smoothing**: Experiment with KenLM `--discount_fallback` flag (see KenLM documentation)

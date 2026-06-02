@@ -1,0 +1,15 @@
+# Functions in this folder
+- aggregrate_fold_test_metrics.py: Function to aggregrate the results of each fold and each model (can be specified), into one csv for overall evaluation (looks at metrics json and predictions csv)
+- config.py: Configuration values
+- dataset.py: Dataset related function
+- kenlm_correct.py: Corrects a sentence using KenLM
+- kenlm_decoder.py: Uses KenLM with beam search during CTC decoding, called at test.py as well if using KenLM
+- kenlm_postprocess.py: Utilizes KenLM as a postprocessing model, given a predictions csv, it will postprocess the predictions
+- kenlm_test.py: Scores a sentence given using KenLM
+- model.py: Model related function
+- plot_history.py:
+- plot_variants.py
+- print_summary.py
+- test.py: Evaluates the model with a specified split, model, etc. (look at args for more settings)
+- train.py
+- utils.py
